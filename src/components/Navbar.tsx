@@ -186,7 +186,7 @@ export default function Navbar() {
               </button>
             </div>
             
-            <div className="flex-1 flex flex-col justify-center px-8 gap-6">
+            <div className="flex-1 flex flex-col justify-center px-8 gap-6 overflow-y-auto py-8">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.href}
