@@ -38,16 +38,8 @@ export default function Footer() {
           
           {/* Brand */}
           <div className="md:col-span-12 lg:col-span-4 pr-8">
-            <div className="bg-white inline-block px-4 py-3 mb-8">
-              <img
-                src={LOGO_URL}
-                alt="AMMS Logo"
-                className="h-8 w-auto max-w-[140px] object-contain"
-              />
-            </div>
-            <p className="font-dm-sans text-slate-400 font-light leading-relaxed mb-8">
-              A trusted supplier of world-class medical and healthcare equipment across the UAE,
-              partnering with global leaders to elevate patient care standards.
+            <p className="text-[13px] text-[#707070] font-normal leading-relaxed max-w-sm mt-2">
+              Advanced medical equipment trusted by hospitals, clinics, laboratories, and healthcare professionals worldwide. Precision saves lives.
             </p>
           </div>
 
