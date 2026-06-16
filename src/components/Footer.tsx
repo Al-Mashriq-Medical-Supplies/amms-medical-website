@@ -2,7 +2,6 @@
 'use client'
 
 import { Phone, Mail, MapPin } from 'lucide-react'
-import { SocialLinks } from '@/components/ui/social-links'
 
 const LOGO_URL =
   'https://images.squarespace-cdn.com/content/v1/58481b9d1b631b67d7104343/591c3852-108b-4d1c-8c0b-27902ecf0d8d/Amms+Logo+updated-01.jpg?format=1500w'
@@ -34,16 +33,6 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-slate-900 text-slate-300 border-t border-slate-800 overflow-hidden">
-      <SocialLinks
-        links={[
-          { platform: "linkedin", href: "https://linkedin.com" },
-          { platform: "github", href: "https://github.com" },
-          { platform: "instagram", href: "https://instagram.com" },
-          { platform: "mail", href: "mailto:info@amms.ae" },
-          { platform: "website", href: "https://amms.ae" },
-        ]}
-        floatingButtonColor="bg-slate-700"
-      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
           
@@ -60,18 +49,6 @@ export default function Footer() {
               A trusted supplier of world-class medical and healthcare equipment across the UAE,
               partnering with global leaders to elevate patient care standards.
             </p>
-            
-            <div className="flex gap-4">
-              {['LinkedIn', 'Twitter', 'Facebook'].map((social) => (
-                <a
-                  key={social}
-                  href="#"
-                  className="font-dm-sans text-xs uppercase tracking-widest text-slate-500 hover:text-green-400 transition-colors"
-                >
-                  {social}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}
