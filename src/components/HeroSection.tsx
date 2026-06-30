@@ -155,7 +155,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <h1 className="hero-text-block font-playfair text-5xl sm:text-6xl lg:text-7xl text-slate-900 leading-[1.05] tracking-tight mb-6">
+            <h1 className="hero-text-block font-playfair text-4xl sm:text-5xl lg:text-7xl text-slate-900 leading-[1.05] tracking-tight mb-6">
               Advanced <br />
               <span className="inline-flex min-w-[8.8ch] items-baseline">
                 <span
@@ -184,7 +184,7 @@ export default function HeroSection() {
             <div className="hero-text-block flex flex-col sm:flex-row gap-4 mb-8">
               <Link
                 href="/products"
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-slate-900 text-white font-dm-sans text-sm font-medium px-8 py-4 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
+                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-slate-900 text-white font-dm-sans text-sm font-medium px-6 py-3 sm:px-8 sm:py-4 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Explore Products
@@ -197,7 +197,7 @@ export default function HeroSection() {
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 bg-transparent text-slate-900 border border-slate-300 font-dm-sans text-sm font-medium px-8 py-4 transition-all duration-300 hover:border-[#3AA874] hover:text-[#3AA874]"
+                className="group inline-flex items-center justify-center gap-2 bg-transparent text-slate-900 border border-slate-300 font-dm-sans text-sm font-medium px-6 py-3 sm:px-8 sm:py-4 transition-all duration-300 hover:border-[#3AA874] hover:text-[#3AA874]"
               >
                 Contact Us
               </Link>

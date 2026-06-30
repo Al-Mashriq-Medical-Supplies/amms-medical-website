@@ -46,7 +46,7 @@ export default function MissionValuesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         <div className="mv-header opacity-0 mb-24 flex flex-col items-center text-center">
-          <h2 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] max-w-5xl mb-6">
+          <h2 className="w-full text-center font-playfair font-light text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] max-w-5xl mb-6">
             All our products are renowned for their <span className="text-[#3AA874]">innovation, functionality, and quality</span>, complemented by excellent support services.
           </h2>
           <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-6">

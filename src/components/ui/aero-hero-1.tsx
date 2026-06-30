@@ -27,7 +27,7 @@ export const Component = () => {
           {/* Top Text Content */}
           <div className="flex w-full flex-col items-center text-center max-w-4xl mx-auto gap-6 lg:gap-8">
             <div>
-              <h2 className="font-playfair text-4xl font-light leading-[1.15] tracking-tight md:text-5xl lg:text-6xl text-slate-900 max-w-3xl mx-auto mb-4">
+              <h2 className="font-playfair text-3xl font-light leading-[1.15] tracking-tight md:text-5xl lg:text-6xl text-slate-900 max-w-3xl mx-auto mb-4">
                 Advancing Patient Care Through Innovation
               </h2>
               <span className="mb-4 block text-[11px] font-medium uppercase tracking-[0.25em] text-[#3AA874]">

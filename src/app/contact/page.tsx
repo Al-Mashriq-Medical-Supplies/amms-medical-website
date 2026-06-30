@@ -14,7 +14,7 @@ export default function ContactPage() {
       <section className="relative pt-32 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-            <h1 className="w-full text-center font-playfair font-light text-5xl sm:text-6xl lg:text-7xl text-slate-900 leading-[1.05] mb-4">
+            <h1 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl lg:text-7xl text-slate-900 leading-[1.05] mb-4">
               Let&apos;s build a <span className="text-[#3AA874]">healthier future</span> together.
             </h1>
             <span className="w-full text-center font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.2em] block mb-8">

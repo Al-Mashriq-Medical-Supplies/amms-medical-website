@@ -79,7 +79,7 @@ export default function IndustriesServedSection() {
         <div className="flex flex-col gap-16">
           <div className="w-full">
             <div className="ind-header opacity-0 flex flex-col items-center text-center max-w-4xl mx-auto mb-16">
-              <h2 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-3">
+              <h2 className="w-full text-center font-playfair font-light text-3xl sm:text-5xl text-slate-900 leading-tight mb-3">
                 Serving the <span className="text-[#3AA874]">Full Spectrum</span> of Care
               </h2>
               <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-6">

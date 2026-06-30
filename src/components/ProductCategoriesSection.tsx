@@ -121,7 +121,7 @@ export default function ProductCategoriesSection() {
 
         <div className="prod-header opacity-0 flex flex-col items-center text-center gap-6 mb-14 border-b border-slate-200 pb-8 max-w-4xl mx-auto">
           <div>
-            <h2 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-3">
+            <h2 className="w-full text-center font-playfair font-light text-3xl sm:text-5xl text-slate-900 leading-tight mb-3">
               Comprehensive Portfolio of <span className="text-[#3AA874]">Medical Solutions</span>
             </h2>
             <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-4">

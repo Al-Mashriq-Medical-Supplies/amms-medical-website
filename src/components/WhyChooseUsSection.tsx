@@ -79,7 +79,7 @@ export default function WhyChooseUsSection() {
 
         <div className="why-header opacity-0 mb-20 grid gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
-            <h2 className="font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-4">
+            <h2 className="font-playfair font-light text-3xl sm:text-5xl text-slate-900 leading-tight mb-4">
               Why leading facilities choose <span className="text-[#3AA874]">Al Mashriq Medical Supplies</span>
             </h2>
             <span className="font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-6">

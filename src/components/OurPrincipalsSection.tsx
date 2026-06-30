@@ -46,7 +46,7 @@ export default function OurPrincipalsSection() {
       <div ref={container} id="principals" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="pr-header opacity-0 text-center mb-20">
-          <h2 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-4">
+          <h2 className="w-full text-center font-playfair font-light text-3xl sm:text-5xl text-slate-900 leading-tight mb-4">
             Partnering with <span className="text-[#3AA874]">Industry Leaders</span>
           </h2>
           <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.25em] block mb-6">
