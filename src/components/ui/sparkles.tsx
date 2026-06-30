@@ -17,6 +17,7 @@ export function Sparkles({
   color = "#FFFFFF",
   background = "transparent",
   options = {},
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: any) {
   const [isReady, setIsReady] = useState(false)
 

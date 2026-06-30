@@ -70,8 +70,6 @@ export default function HeroSection() {
         0.6,
       );
 
-
-
       // Scroll indicator bounce
       tl.fromTo(
         ".scroll-indicator",
@@ -143,29 +141,27 @@ export default function HeroSection() {
     <section
       ref={container}
       id="home"
-      className="relative lg:min-h-screen pt-24 lg:pt-28 flex items-center bg-white overflow-hidden"
+      className="relative lg:min-h-screen pt-24 lg:pt-28 flex items-center bg-[var(--color-background)] overflow-hidden"
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center h-full lg:min-h-[calc(100vh-6rem)]">
+      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center justify-center h-full lg:min-h-[calc(100vh-6rem)]">
           {/* Left Text Column */}
-          <div className="lg:col-span-6 flex flex-col justify-center pt-4 pb-2 lg:py-20 lg:-mt-12 z-10">
-            <div className="hero-text-block mb-4">
-              <p className="font-dm-sans text-[10px] sm:text-[11px] lg:text-xs font-semibold tracking-[0.25em] text-[#3AA874] uppercase">
-                Est. 1991 &bull; Abu Dhabi, UAE
-              </p>
-            </div>
+          <div className="lg:col-span-6 flex flex-col justify-center pt-2 pb-6 lg:pb-20 z-10">
+            <p className="hero-text-block font-dm-sans text-[10px] sm:text-[11px] lg:text-xs font-semibold tracking-[0.25em] text-[var(--color-brand)] uppercase mb-3">
+              Est. 1991 &bull; Abu Dhabi, UAE
+            </p>
 
-            <h1 className="hero-text-block font-playfair text-4xl sm:text-5xl lg:text-7xl text-slate-900 leading-[1.05] tracking-tight mb-6">
+            <h1 className="hero-text-block font-playfair text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-7xl text-[var(--color-navy)] tracking-tight mb-5 lg:mb-6">
               Advanced <br />
               <span className="inline-flex min-w-[8.8ch] items-baseline">
                 <span
-                  className="bg-gradient-to-r from-[#3AA874] to-[#2d8a5f] bg-clip-text text-transparent"
+                  className="bg-gradient-to-r from-[var(--color-brand)] to-[var(--color-brand-dark)] bg-clip-text text-transparent"
                   aria-live="polite"
                 >
                   {typedWord}
                 </span>
                 <span
-                  className="ml-1 inline-block h-[0.86em] w-[3px] translate-y-[0.08em] animate-pulse bg-[#3AA874]"
+                  className="ml-1 inline-block h-[0.86em] w-[2px] sm:w-[3px] translate-y-[0.08em] animate-pulse bg-[var(--color-brand)]"
                   aria-hidden="true"
                 />
               </span>{" "}
@@ -173,18 +169,16 @@ export default function HeroSection() {
               Equipment.
             </h1>
 
-            <div className="hero-divider h-px w-full bg-slate-200 mb-6" />
+            <div className="hero-divider h-px w-full bg-[var(--color-border)] mb-4 lg:mb-6" />
 
-            <p className="hero-text-block font-dm-sans text-lg text-slate-500 leading-relaxed mb-8 max-w-md">
-              Supplying hospitals, clinics, and healthcare providers across the
-              UAE with world-class medical devices, respiratory care solutions,
-              and clinical equipment since 1991.
+            <p className="hero-text-block font-dm-sans text-[13px] sm:text-base lg:text-lg text-[var(--color-charcoal)] leading-relaxed mb-6 max-w-md">
+              Elevating healthcare standards across the UAE with world-class medical devices, innovative clinical solutions, and unmatched engineering expertise.
             </p>
 
-            <div className="hero-text-block flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="hero-text-block flex flex-wrap gap-3 sm:gap-4 mb-8">
               <Link
                 href="/products"
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-slate-900 text-white font-dm-sans text-sm font-medium px-6 py-3 sm:px-8 sm:py-4 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
+                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-[var(--color-brand)] text-white font-dm-sans text-[13px] sm:text-sm font-medium px-5 py-3 sm:px-8 sm:py-4 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Explore Products
@@ -193,41 +187,65 @@ export default function HeroSection() {
                     className="group-hover:translate-x-1 transition-transform duration-300"
                   />
                 </span>
-                <div className="absolute inset-0 bg-[#3AA874] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-[var(--color-brand-dark)] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 bg-transparent text-slate-900 border border-slate-300 font-dm-sans text-sm font-medium px-6 py-3 sm:px-8 sm:py-4 transition-all duration-300 hover:border-[#3AA874] hover:text-[#3AA874]"
+                className="group inline-flex items-center justify-center gap-2 bg-transparent text-[var(--color-navy)] border border-[var(--color-charcoal)]/30 font-dm-sans text-[13px] sm:text-sm font-medium px-5 py-3 sm:px-8 sm:py-4 transition-all duration-300 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
               >
                 Contact Us
               </Link>
             </div>
-            
-            {/* Professional Trust Badges to replace the old number counters */}
-            <div className="hero-text-block flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100">
+
+            {/* Professional Trust Badges */}
+            <div className="hero-text-block flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--color-border)]/50">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#3AA874]/10 flex items-center justify-center">
-                  <svg className="w-3 h-3 text-[#3AA874]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                <div className="w-5 h-5 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
+                  <svg
+                    className="w-3 h-3 text-[var(--color-brand)]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
-                <span className="text-[10px] sm:text-xs font-dm-sans text-slate-500 font-medium tracking-wider uppercase">Authorized Distributor</span>
+                <span className="text-[9px] sm:text-xs font-dm-sans text-[var(--color-charcoal)] font-medium tracking-wider uppercase">
+                  Authorized Distributor
+                </span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#3AA874]/10 flex items-center justify-center">
-                  <svg className="w-3 h-3 text-[#3AA874]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                <div className="w-5 h-5 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
+                  <svg
+                    className="w-3 h-3 text-[var(--color-brand)]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
-                <span className="text-[10px] sm:text-xs font-dm-sans text-slate-500 font-medium tracking-wider uppercase">MOHAP Approved</span>
+                <span className="text-[9px] sm:text-xs font-dm-sans text-[var(--color-charcoal)] font-medium tracking-wider uppercase">
+                  MOHAP Approved
+                </span>
               </div>
             </div>
           </div>
 
           {/* Right Image Column */}
-          <div className="lg:col-span-6 relative aspect-[4/3] sm:h-[400px] lg:h-[70vh] w-full mt-8 lg:-mt-16 lg:pl-12">
-            <div className="hero-image-wrapper relative w-full h-full overflow-hidden bg-slate-100 rounded-[2rem] lg:rounded-tl-[8rem] lg:rounded-br-[8rem] shadow-[0_30px_60px_rgba(58,168,116,0.15)] border-[10px] border-white ring-1 ring-slate-900/5">
-              <div className="hero-image-overlay absolute inset-0 bg-[#0a1a12] z-10" />
+          <div className="lg:col-span-6 relative aspect-[4/3] sm:aspect-auto sm:h-[400px] lg:h-[65vh] w-full mt-2 lg:mt-0 lg:pl-12 flex items-center">
+            <div className="hero-image-wrapper relative w-full h-full overflow-hidden bg-[var(--color-muted)] rounded-[2rem] lg:rounded-tl-[8rem] lg:rounded-br-[8rem] shadow-[0_30px_60px_rgba(22,38,63,0.15)] border-[10px] border-[var(--color-background)] ring-1 ring-slate-900/5">
+              <div className="hero-image-overlay absolute inset-0 bg-[var(--color-brand)] z-10" />
               <Image
                 src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop"
                 alt="State-of-the-art medical equipment supplied by Al Mashriq Medical Supplies"
@@ -237,12 +255,11 @@ export default function HeroSection() {
                 priority
               />
               {/* Overlay gradient on image */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a12]/30 via-transparent to-transparent z-[5]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-brand)]/30 via-transparent to-transparent z-[5]" />
             </div>
           </div>
         </div>
       </div>
-
     </section>
   );
 }

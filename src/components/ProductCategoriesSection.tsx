@@ -4,11 +4,11 @@ import { useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
-import VerticalTabs, { type VerticalTabItem } from '@/components/ui/vertical-tabs'
+import InteractiveProductGrid, { type ProductItem } from '@/components/ui/interactive-product-grid'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const productSolutions: VerticalTabItem[] = [
+const productSolutions: ProductItem[] = [
   {
     id: '01',
     title: 'Intensive Care Unit (ICU)',
@@ -116,30 +116,26 @@ export default function ProductCategoriesSection() {
   }, { scope: container })
 
   return (
-    <section ref={container} id="products" className="relative py-12 md:py-32 bg-white overflow-hidden">
+    <section ref={container} id="products" className="relative pb-12 md:pb-32 pt-2 md:pt-4 bg-[var(--color-background)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="prod-header opacity-0 flex flex-col items-center text-center gap-6 mb-14 border-b border-slate-200 pb-8 max-w-4xl mx-auto">
+        <div className="prod-header opacity-0 flex flex-col items-center text-center gap-6 mb-14 border-b border-[var(--color-border)]/50 pb-8 max-w-4xl mx-auto">
           <div>
-            <h2 className="w-full text-center font-playfair font-light text-3xl sm:text-5xl text-slate-900 leading-tight mb-3">
-              Comprehensive Portfolio of <span className="text-[#3AA874]">Medical Solutions</span>
+            <h2 className="w-full text-center font-playfair font-light text-3xl sm:text-5xl text-[var(--color-navy)] leading-tight mb-3">
+              Comprehensive Portfolio of <span className="text-[var(--color-brand)]">Medical Solutions</span>
             </h2>
-            <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-4">
+            <span className="w-full text-center font-dm-sans text-xs text-[var(--color-brand)] uppercase tracking-[0.2em] block mb-4">
               Clinical Specialities
             </span>
           </div>
-          <p className="w-full text-center font-dm-sans text-slate-500 max-w-2xl font-light leading-relaxed">
+          <p className="w-full text-center font-dm-sans text-[var(--color-charcoal)] max-w-2xl font-light leading-relaxed">
             From critical care environments to homecare,
             we supply industry-leading equipment across every major clinical discipline.
           </p>
         </div>
 
         <div className="prod-tabs opacity-0">
-          <VerticalTabs
-            eyebrow="(PRODUCT AREAS)"
-            title="Explore our product ecosystem"
-            items={productSolutions}
-          />
+          <InteractiveProductGrid items={productSolutions} />
         </div>
       </div>
     </section>

@@ -30,6 +30,7 @@ export function InfiniteSlider({
   const [key, setKey] = useState(0);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let controls: any;
     const size = direction === 'horizontal' ? width : height;
     const contentSize = size + gap;

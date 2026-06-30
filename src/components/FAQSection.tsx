@@ -81,14 +81,14 @@ export default function FAQSection() {
   }
 
   return (
-    <section ref={container} className="py-12 md:py-32 bg-slate-50">
+    <section ref={container} className="py-12 md:py-32 bg-[var(--color-background)]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="faq-header opacity-0 text-center mb-16">
-          <span className="font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-4">
+          <span className="font-dm-sans text-xs text-[var(--color-brand)] uppercase tracking-[0.2em] block mb-4">
             Frequently Asked Questions
           </span>
-          <h2 className="font-playfair font-light text-3xl sm:text-4xl md:text-5xl text-slate-900 leading-tight">
+          <h2 className="font-playfair font-light text-3xl sm:text-4xl md:text-5xl text-[var(--color-navy)] leading-tight">
             Everything you need <span className="font-medium italic">to know</span>
           </h2>
         </div>
@@ -97,20 +97,20 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="faq-item opacity-0 border border-slate-200 bg-white overflow-hidden transition-shadow duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+              className="faq-item opacity-0 border border-[var(--color-border)]/50 bg-white overflow-hidden transition-shadow duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
             >
               <button
                 onClick={() => toggleFaq(index)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left group"
                 aria-expanded={openIndex === index}
               >
-                <span className="font-dm-sans text-[15px] font-medium text-slate-800 pr-4 group-hover:text-[#3AA874] transition-colors">
+                <span className="font-dm-sans text-[15px] font-medium text-[var(--color-navy)] pr-4 group-hover:text-[var(--color-brand)] transition-colors">
                   {faq.question}
                 </span>
                 <ChevronDown
                   size={18}
-                  className={`text-slate-400 shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180 text-[#3AA874]' : ''
+                  className={`text-[var(--color-charcoal)]/50 shrink-0 transition-transform duration-300 ${
+                    openIndex === index ? 'rotate-180 text-[var(--color-brand)]' : ''
                   }`}
                 />
               </button>
@@ -120,7 +120,7 @@ export default function FAQSection() {
                 }`}
               >
                 <div className="px-6 pb-5 pt-0">
-                  <p className="font-dm-sans text-sm text-slate-500 leading-relaxed font-light">
+                  <p className="font-dm-sans text-sm text-[var(--color-charcoal)] leading-relaxed font-light">
                     {faq.answer}
                   </p>
                 </div>
