@@ -46,12 +46,12 @@ export default function OurPrincipalsSection() {
       <div ref={container} id="principals" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="pr-header opacity-0 text-center mb-20">
-          <span className="font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.25em] block mb-4">
+          <h2 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-4">
+            Partnering with <span className="text-[#3AA874]">Industry Leaders</span>
+          </h2>
+          <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.25em] block mb-6">
             Our Global Partners
           </span>
-          <h2 className="font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-6">
-            Partnering with <span className="font-medium italic">Industry Leaders</span>
-          </h2>
           <p className="font-dm-sans text-lg text-slate-500 font-light max-w-2xl mx-auto">
             We are the authorized distributor for the world&apos;s most innovative
             medical technology manufacturers in the UAE.

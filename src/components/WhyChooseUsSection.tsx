@@ -79,13 +79,12 @@ export default function WhyChooseUsSection() {
 
         <div className="why-header opacity-0 mb-20 grid gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
-            <span className="font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-4">
+            <h2 className="font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-4">
+              Why leading facilities choose <span className="text-[#3AA874]">Al Mashriq Medical Supplies</span>
+            </h2>
+            <span className="font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-6">
               Value Proposition
             </span>
-            <h2 className="font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-6">
-              Why leading facilities choose <br className="hidden sm:block"/>
-              <span className="font-medium italic">Al Mashriq Medical Supplies</span>.
-            </h2>
             <p className="font-dm-sans text-lg text-slate-600 font-light max-w-2xl">
               We move beyond standard procurement. We are a strategic clinical engineering partner
               focused on optimizing the intersection of technology, patient care, and operational efficiency.

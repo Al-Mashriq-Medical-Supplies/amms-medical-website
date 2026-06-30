@@ -49,8 +49,7 @@ export default function ContactCtaSection() {
 
           <div className="cta-text opacity-0 w-full">
             <h2 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6">
-              Ready to elevate your <br className="hidden sm:block" />
-              <span className="font-medium italic text-[#3AA874]">clinical capabilities?</span>
+              Ready to elevate your <span className="text-[#3AA874]">clinical capabilities?</span>
             </h2>
             <p className="w-full text-center font-dm-sans text-xl text-slate-400 font-light max-w-xl mx-auto">
               Connect with our team to discuss tailored equipment solutions for your facility.

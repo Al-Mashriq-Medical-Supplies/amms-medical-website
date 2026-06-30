@@ -16,12 +16,12 @@ export default function PrincipalsPage() {
       <section className="relative pt-32 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-            <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.25em] block mb-6">
+            <h1 className="w-full text-center font-playfair font-light text-5xl sm:text-6xl lg:text-7xl text-slate-900 leading-[1.05] mb-4">
+              Trusted <span className="text-[#3AA874]">global principals</span>
+            </h1>
+            <span className="w-full text-center font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.25em] block mb-8">
               Our Partners in Health Care
             </span>
-            <h1 className="w-full text-center font-playfair font-light text-5xl sm:text-6xl lg:text-7xl text-slate-900 leading-[1.05] mb-8">
-              Trusted <span className="font-medium italic text-[#3AA874]">global principals</span>
-            </h1>
             <p className="w-full text-center font-dm-sans text-xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto">
               We partner with principals who help us enhance the standard of care for patients
               across the United Arab Emirates.
