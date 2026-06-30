@@ -127,13 +127,13 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-white flex flex-col"
+            className="fixed inset-0 z-[60] bg-white flex flex-col"
           >
             <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-100">
               <img
                 src={LOGO_URL}
                 alt="AMMS Logo"
-                className="h-12 w-auto object-contain mix-blend-multiply"
+                className="h-12 w-auto object-contain mix-blend-multiply scale-[1.5] origin-left ml-2"
               />
               <button
                 onClick={() => setMobileOpen(false)}
@@ -143,7 +143,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="flex-1 flex flex-col justify-center px-8 gap-6 overflow-y-auto py-8">
+            <div className="flex-1 flex flex-col justify-start pt-16 px-10 gap-8 overflow-y-auto">
               {navLinks.map((link, i) => {
                 const isActive = pathname === link.href ||
                   (link.href !== '/' && pathname.startsWith(link.href))
@@ -169,16 +169,16 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="p-8 border-t border-slate-100 bg-slate-50">
+            <div className="p-8 pb-12 border-t border-slate-100 bg-slate-50 flex flex-col items-center">
               <Link
                 href="/contact"
-                className="block w-full bg-[#3AA874] text-white font-dm-sans py-4 text-center text-lg mb-4 hover:bg-[#2d8a5f] transition-colors"
+                className="block w-full bg-[#3AA874] text-white font-dm-sans font-medium py-4 text-center text-base mb-6 hover:bg-[#2d8a5f] transition-colors shadow-[0_8px_30px_rgba(58,168,116,0.25)]"
               >
                 Get in Touch
               </Link>
               <a
                 href="tel:+97126277223"
-                className="flex items-center justify-center gap-2 text-slate-500 font-dm-sans"
+                className="flex items-center justify-center gap-2 text-slate-600 font-dm-sans text-sm font-medium hover:text-[#3AA874] transition-colors"
               >
                 <Phone size={16} />
                 +971 2 627 7223
