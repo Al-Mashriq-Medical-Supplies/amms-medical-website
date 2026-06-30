@@ -2,7 +2,6 @@
 
 import { useRef } from 'react'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -48,21 +47,20 @@ export default function ContactCtaSection() {
         <div className="flex flex-col items-center justify-center gap-10 w-full max-w-4xl mx-auto text-center">
 
           <div className="cta-text opacity-0 w-full">
-            <h2 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6">
+            <h2 className="w-full text-center font-playfair font-light text-[32px] leading-[1.2] sm:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 sm:mb-6">
               Ready to elevate your <span className="text-[#3AA874]">clinical capabilities?</span>
             </h2>
-            <p className="w-full text-center font-dm-sans text-xl text-slate-400 font-light max-w-xl mx-auto">
+            <p className="w-full text-center font-dm-sans text-base sm:text-lg lg:text-xl text-slate-400 font-light max-w-xl mx-auto px-4 sm:px-0">
               Connect with our team to discuss tailored equipment solutions for your facility.
             </p>
           </div>
 
-          <div className="cta-btn opacity-0 flex justify-center w-full mt-4">
+          <div className="cta-btn opacity-0 flex justify-center w-full mt-2 sm:mt-4 px-4 sm:px-0">
             <Link
               href="/contact"
-              className="group bg-[#3AA874] text-white font-dm-sans font-medium px-10 py-5 flex items-center justify-center gap-3 w-full sm:w-auto hover:bg-[#2d8a5f] transition-colors duration-300"
+              className="group bg-[#3AA874] text-white font-dm-sans font-medium px-8 py-4 sm:px-10 sm:py-5 flex items-center justify-center w-full sm:w-auto hover:bg-[#2d8a5f] transition-colors duration-300"
             >
-              Contact Our Team
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              Book an Appointment
             </Link>
           </div>
 
