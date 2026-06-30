@@ -3,9 +3,9 @@ export const siteConfig = {
   legalName: 'Al Mashriq Medical Supplies L.L.C',
   shortName: 'AMMS',
   url: 'https://ammsuae.me',
-  title: 'Al Mashriq Medical Supplies | Medical Equipment Supplier in UAE',
+  title: 'Al Mashriq Medical Supplies (AMMS) | Leading Medical Equipment Supplier in UAE',
   description:
-    'Al Mashriq Medical Supplies (AMMS) is a trusted UAE medical equipment distributor since 1991. We supply hospitals, clinics, and healthcare providers with ICU, respiratory care, anesthesia, neonatal, homecare, and diagnostic medical equipment.',
+    'Premier UAE medical equipment distributor since 1991. AMMS supplies hospitals with world-class ICU, respiratory, anesthesia, and diagnostic solutions across Abu Dhabi and Dubai.',
   email: 'amms@eim.ae',
   phone: '+97126277223',
   displayPhone: '+971 2 627 7223',
