@@ -143,7 +143,7 @@ export default function HeroSection() {
     <section
       ref={container}
       id="home"
-      className="relative lg:min-h-screen pt-32 lg:pt-36 flex items-center bg-white overflow-hidden"
+      className="relative lg:min-h-screen pt-24 lg:pt-28 flex items-center bg-white overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center h-full lg:min-h-[calc(100vh-6rem)]">
@@ -181,7 +181,7 @@ export default function HeroSection() {
               and clinical equipment since 1991.
             </p>
 
-            <div className="hero-text-block flex flex-col sm:flex-row gap-4">
+            <div className="hero-text-block flex flex-col sm:flex-row gap-4 mb-8">
               <Link
                 href="/products"
                 className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-slate-900 text-white font-dm-sans text-sm font-medium px-8 py-4 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
@@ -201,6 +201,26 @@ export default function HeroSection() {
               >
                 Contact Us
               </Link>
+            </div>
+            
+            {/* Professional Trust Badges to replace the old number counters */}
+            <div className="hero-text-block flex flex-wrap items-center gap-6 pt-6 border-t border-slate-100">
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-[#3AA874]/10 flex items-center justify-center">
+                  <svg className="w-3 h-3 text-[#3AA874]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-[10px] sm:text-xs font-dm-sans text-slate-500 font-medium tracking-wider uppercase">Authorized Distributor</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-[#3AA874]/10 flex items-center justify-center">
+                  <svg className="w-3 h-3 text-[#3AA874]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-[10px] sm:text-xs font-dm-sans text-slate-500 font-medium tracking-wider uppercase">MOHAP Approved</span>
+              </div>
             </div>
           </div>
 
