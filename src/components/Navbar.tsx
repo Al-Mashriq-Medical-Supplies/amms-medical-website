@@ -1,0 +1,192 @@
+/* eslint-disable @next/next/no-img-element */
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { Menu, X, Phone } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+
+const LOGO_URL = '/images/logo/logo.png'
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Products', href: '/products' },
+  { label: 'Principals', href: '/principals' },
+  { label: 'Contact', href: '/contact' },
+]
+
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
+
+  return (
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-xl border-slate-200/60 py-2 shadow-[0_1px_20px_rgba(0,0,0,0.04)]'
+            : 'bg-transparent border-slate-200/60 py-2 lg:py-3'
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link
+              href="/"
+              className="flex items-center focus:outline-none"
+              aria-label="Go to homepage"
+            >
+              <img
+                src={LOGO_URL}
+                alt="Al Mashriq Medical Supplies Logo"
+                className="h-12 lg:h-14 w-auto object-contain transition-all duration-300 scale-[1.5] lg:scale-[1.8] origin-left"
+              />
+            </Link>
+
+            {/* Desktop Nav */}
+            <div className="hidden lg:flex items-center gap-10">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href ||
+                  (link.href !== '/' && pathname.startsWith(link.href))
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`relative py-2 text-[13px] font-dm-sans uppercase tracking-[0.15em] transition-colors duration-300 group ${
+                      isActive
+                        ? 'text-[#3AA874] font-semibold'
+                        : 'text-slate-500 hover:text-slate-900'
+                    }`}
+                  >
+                    {link.label}
+                    {isActive ? (
+                      <motion.div
+                        layoutId="navIndicator"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#3AA874]"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    ) : (
+                      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#3AA874] group-hover:w-full transition-all duration-500 ease-out" />
+                    )}
+                  </Link>
+                )
+              })}
+            </div>
+
+            {/* CTA */}
+            <div className="hidden lg:flex items-center gap-6">
+              <a
+                href="tel:+97126277223"
+                className="flex items-center gap-2 text-sm font-dm-sans text-slate-500 hover:text-[#3AA874] transition-colors"
+              >
+                <Phone size={14} />
+                +971 2 627 7223
+              </a>
+              <Link
+                href="/contact"
+                className="relative overflow-hidden bg-[#3AA874] text-white text-sm font-dm-sans font-medium px-7 py-3 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(58,168,116,0.35)] group"
+              >
+                <span className="relative z-10">Get in Touch</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2d8a5f] to-[#3AA874] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
+              </Link>
+            </div>
+
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden p-2 text-slate-800 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              <Menu size={24} strokeWidth={1.5} />
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile Menu — Full screen overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 bg-white flex flex-col"
+          >
+            <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-100">
+              <img
+                src={LOGO_URL}
+                alt="AMMS Logo"
+                className="h-12 w-auto object-contain mix-blend-multiply"
+              />
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="p-2 text-slate-800 focus:outline-none"
+              >
+                <X size={24} strokeWidth={1.5} />
+              </button>
+            </div>
+
+            <div className="flex-1 flex flex-col justify-center px-8 gap-6 overflow-y-auto py-8">
+              {navLinks.map((link, i) => {
+                const isActive = pathname === link.href ||
+                  (link.href !== '/' && pathname.startsWith(link.href))
+                return (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06 + 0.1, ease: [0.23, 1, 0.32, 1] }}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`block text-3xl font-playfair font-light transition-colors ${
+                        isActive
+                          ? 'text-[#3AA874] font-medium'
+                          : 'text-slate-400 hover:text-slate-900'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                )
+              })}
+            </div>
+
+            <div className="p-8 border-t border-slate-100 bg-slate-50">
+              <Link
+                href="/contact"
+                className="block w-full bg-[#3AA874] text-white font-dm-sans py-4 text-center text-lg mb-4 hover:bg-[#2d8a5f] transition-colors"
+              >
+                Get in Touch
+              </Link>
+              <a
+                href="tel:+97126277223"
+                className="flex items-center justify-center gap-2 text-slate-500 font-dm-sans"
+              >
+                <Phone size={16} />
+                +971 2 627 7223
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
