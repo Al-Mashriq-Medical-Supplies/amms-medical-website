@@ -70,13 +70,7 @@ export default function HeroSection() {
         0.6,
       );
 
-      // Stats counter fade
-      tl.fromTo(
-        ".hero-stats-fade",
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 1 },
-        1.4,
-      );
+
 
       // Scroll indicator bounce
       tl.fromTo(
@@ -149,14 +143,14 @@ export default function HeroSection() {
     <section
       ref={container}
       id="home"
-      className="relative lg:min-h-screen pt-8 lg:pt-24 flex items-center bg-white overflow-hidden"
+      className="relative lg:min-h-screen pt-32 lg:pt-36 flex items-center bg-white overflow-hidden"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center h-full lg:min-h-[calc(100vh-6rem)]">
           {/* Left Text Column */}
           <div className="lg:col-span-6 flex flex-col justify-center pt-4 pb-2 lg:py-20 lg:-mt-12 z-10">
             <div className="hero-text-block mb-4">
-              <p className="font-dm-sans text-xs sm:text-sm font-semibold tracking-[0.25em] text-[#3AA874] uppercase">
+              <p className="font-dm-sans text-[10px] sm:text-[11px] lg:text-xs font-semibold tracking-[0.25em] text-[#3AA874] uppercase">
                 Est. 1991 &bull; Abu Dhabi, UAE
               </p>
             </div>
@@ -207,33 +201,6 @@ export default function HeroSection() {
               >
                 Contact Us
               </Link>
-            </div>
-
-            <div className="hero-stats-fade mt-12 grid grid-cols-3 gap-8">
-              <div>
-                <p className="font-playfair text-4xl text-slate-900 mb-1">
-                  35<span className="text-[#3AA874]">+</span>
-                </p>
-                <p className="font-dm-sans text-[10px] text-slate-400 uppercase tracking-[0.2em]">
-                  Years of Trust
-                </p>
-              </div>
-              <div>
-                <p className="font-playfair text-4xl text-slate-900 mb-1">
-                  10<span className="text-[#3AA874]">+</span>
-                </p>
-                <p className="font-dm-sans text-[10px] text-slate-400 uppercase tracking-[0.2em]">
-                  Global Principals
-                </p>
-              </div>
-              <div>
-                <p className="font-playfair text-4xl text-slate-900 mb-1">
-                  30<span className="text-[#3AA874]">+</span>
-                </p>
-                <p className="font-dm-sans text-[10px] text-slate-400 uppercase tracking-[0.2em]">
-                  Professionals
-                </p>
-              </div>
             </div>
           </div>
 
