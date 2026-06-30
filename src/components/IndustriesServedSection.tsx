@@ -76,25 +76,23 @@ export default function IndustriesServedSection() {
     <section ref={container} className="py-12 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="flex flex-col md:flex-row gap-16">
-          <div className="md:w-1/3">
-            <div className="ind-header opacity-0 sticky top-32">
-              <span className="font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-4">
+        <div className="flex flex-col gap-16">
+          <div className="w-full">
+            <div className="ind-header opacity-0 flex flex-col items-center text-center max-w-4xl mx-auto mb-16">
+              <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-4">
                 Healthcare Environments
               </span>
-              <h2 className="font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-6">
-                Serving the <br />
-                <span className="font-medium italic">Full Spectrum</span> <br />
-                of Care.
+              <h2 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight mb-6">
+                Serving the <span className="font-medium italic">Full Spectrum</span> of Care.
               </h2>
-              <p className="font-dm-sans text-slate-500 font-light leading-relaxed mb-8">
-                From high-acuity ICUs to specialized outpatient clinics,
-                our solutions are engineered for every healthcare setting across all seven Emirates.
+              <p className="w-full text-center font-dm-sans text-slate-500 max-w-2xl font-light leading-relaxed mb-8 mx-auto">
+                Our solutions are deeply integrated across every tier of the UAE healthcare
+                system, ensuring world-class technology reaches every patient.
               </p>
             </div>
           </div>
 
-          <div className="md:w-2/3">
+          <div className="md:w-2/3 mx-auto">
             <div className="ind-list border-t border-slate-200">
               {industries.map(({ title, description, metric, label }) => (
                 <div

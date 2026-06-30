@@ -13,14 +13,14 @@ export default function ProductsPage() {
       {/* Hero Banner */}
       <section className="relative pt-32 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-6">
+          <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
+            <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-6">
               Products & Services
             </span>
-            <h1 className="font-playfair font-light text-5xl sm:text-6xl lg:text-7xl text-slate-900 leading-[1.05] mb-8">
+            <h1 className="w-full text-center font-playfair font-light text-5xl sm:text-6xl lg:text-7xl text-slate-900 leading-[1.05] mb-8">
               Comprehensive <span className="font-medium italic text-[#3AA874]">medical solutions</span>
             </h1>
-            <p className="font-dm-sans text-xl text-slate-500 font-light leading-relaxed max-w-2xl">
+            <p className="w-full text-center font-dm-sans text-xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto">
               We offer a focused range of medical equipment through our global principals covering
               critical care, respiratory therapy, anesthesia, diagnostics, rehabilitation, and homecare.
             </p>

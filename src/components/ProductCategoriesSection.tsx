@@ -119,17 +119,17 @@ export default function ProductCategoriesSection() {
     <section ref={container} id="products" className="relative py-12 md:py-32 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="prod-header opacity-0 flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 border-b border-slate-200 pb-8">
-          <div className="max-w-2xl">
-            <span className="font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-4">
+        <div className="prod-header opacity-0 flex flex-col items-center text-center gap-6 mb-14 border-b border-slate-200 pb-8 max-w-4xl mx-auto">
+          <div>
+            <span className="w-full text-center font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.2em] block mb-4">
               Clinical Specialities
             </span>
-            <h2 className="font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight">
+            <h2 className="w-full text-center font-playfair font-light text-4xl sm:text-5xl text-slate-900 leading-tight">
               Comprehensive Portfolio of <br className="hidden sm:block"/>
               <span className="font-medium italic">Medical Solutions</span>
             </h2>
           </div>
-          <p className="font-dm-sans text-slate-500 max-w-sm md:text-right font-light leading-relaxed">
+          <p className="w-full text-center font-dm-sans text-slate-500 max-w-2xl font-light leading-relaxed">
             From critical care environments to homecare,
             we supply industry-leading equipment across every major clinical discipline.
           </p>
