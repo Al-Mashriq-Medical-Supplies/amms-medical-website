@@ -81,15 +81,15 @@ export default function FAQSection() {
   }
 
   return (
-    <section ref={container} className="py-12 md:py-32 bg-[var(--color-background)]">
+    <section ref={container} className="pb-12 md:pb-32 pt-0 bg-[var(--color-background)]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="faq-header opacity-0 text-center mb-16">
           <span className="font-dm-sans text-xs text-[var(--color-brand)] uppercase tracking-[0.2em] block mb-4">
             Frequently Asked Questions
           </span>
-          <h2 className="font-playfair font-light text-3xl sm:text-4xl md:text-5xl text-[var(--color-navy)] leading-tight">
-            Everything you need <span className="font-medium italic">to know</span>
+          <h2 className="font-playfair font-semibold text-4xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight text-transparent bg-clip-text drop-shadow-md bg-gradient-to-r from-[#16263F] via-[#3AA874] to-[#3AA874]">
+            Everything you need to know
           </h2>
         </div>
 

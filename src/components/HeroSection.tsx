@@ -46,14 +46,6 @@ export default function HeroSection() {
         0.1,
       );
 
-      // Image reveal — wipe from bottom
-      tl.fromTo(
-        ".hero-image-overlay",
-        { scaleY: 1, transformOrigin: "bottom" },
-        { scaleY: 0, duration: 1.8, ease: "power4.inOut" },
-        0.3,
-      );
-
       // Image subtle scale
       tl.fromTo(
         ".hero-image",
@@ -68,14 +60,6 @@ export default function HeroSection() {
         { scaleX: 0, transformOrigin: "left" },
         { scaleX: 1, duration: 1.5, ease: "power3.inOut" },
         0.6,
-      );
-
-      // Scroll indicator bounce
-      tl.fromTo(
-        ".scroll-indicator",
-        { opacity: 0 },
-        { opacity: 1, duration: 0.8 },
-        2,
       );
 
       // Floating animation
@@ -141,27 +125,35 @@ export default function HeroSection() {
     <section
       ref={container}
       id="home"
-      className="relative lg:min-h-screen pt-24 lg:pt-28 flex items-center bg-[var(--color-background)] overflow-hidden"
+      className="relative min-h-[100dvh] lg:min-h-screen pt-0 flex items-center bg-[#0d1624] lg:bg-[var(--color-background)] overflow-hidden"
     >
-      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center justify-center h-full lg:min-h-[calc(100vh-6rem)]">
-          {/* Left Text Column */}
-          <div className="lg:col-span-6 flex flex-col justify-center pt-2 pb-6 lg:pb-20 z-10">
-            <p className="hero-text-block font-dm-sans text-[10px] sm:text-[11px] lg:text-xs font-semibold tracking-[0.25em] text-[var(--color-brand)] uppercase mb-3">
-              Est. 1991 &bull; Abu Dhabi, UAE
-            </p>
+      {/* Background Image & Overlay (Mobile Only) */}
+      <div className="absolute inset-0 z-0 lg:hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop"
+          alt="State-of-the-art medical equipment"
+          fill
+          sizes="(max-width: 1024px) 100vw, 0vw"
+          className="hero-image object-cover object-center opacity-[0.35]"
+          priority
+        />
+        {/* Navy gradient for text readability + 5% Green tint */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1624]/90 via-[#0d1624]/50 to-transparent" />
+        <div className="absolute inset-0 bg-[var(--color-brand)]/5" />
+      </div>
 
-            <h1 className="hero-text-block font-playfair text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-7xl text-[var(--color-navy)] tracking-tight mb-5 lg:mb-6">
+      <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 justify-center pt-32 pb-16 lg:pt-28 lg:pb-10 h-full lg:min-h-[calc(100vh-6rem)]">
+          {/* Left Text Column */}
+          <div className="lg:col-span-6 w-full xl:w-[110%] xl:-ml-4 flex flex-col justify-center lg:justify-start lg:pt-0">
+            <h1 className="hero-text-block font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight mb-5 lg:mb-6 text-white drop-shadow-md lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-[#16263F] lg:via-[#3AA874] lg:to-[#3AA874]">
               Advanced <br />
               <span className="inline-flex min-w-[8.8ch] items-baseline">
-                <span
-                  className="bg-gradient-to-r from-[var(--color-brand)] to-[var(--color-brand-dark)] bg-clip-text text-transparent"
-                  aria-live="polite"
-                >
+                <span>
                   {typedWord}
                 </span>
                 <span
-                  className="ml-1 inline-block h-[0.86em] w-[2px] sm:w-[3px] translate-y-[0.08em] animate-pulse bg-[var(--color-brand)]"
+                  className="ml-1 inline-block h-[0.86em] w-[2px] sm:w-[3px] translate-y-[0.08em] animate-pulse bg-white lg:bg-[#3AA874]"
                   aria-hidden="true"
                 />
               </span>{" "}
@@ -169,40 +161,43 @@ export default function HeroSection() {
               Equipment.
             </h1>
 
-            <div className="hero-divider h-px w-full bg-[var(--color-border)] mb-4 lg:mb-6" />
+            <div className="hero-divider h-px w-full max-w-lg bg-white/20 lg:bg-[var(--color-border)] mb-4 lg:mb-6" />
 
-            <p className="hero-text-block font-dm-sans text-[13px] sm:text-base lg:text-lg text-[var(--color-charcoal)] leading-relaxed mb-6 max-w-md">
-              Elevating healthcare standards across the UAE with world-class medical devices, innovative clinical solutions, and unmatched engineering expertise.
+            <p className="hero-text-block font-dm-sans text-xs sm:text-sm lg:text-base text-white/80 lg:text-[var(--color-charcoal)] leading-relaxed mb-8 max-w-xl">
+              Elevating healthcare standards across the UAE with world-class
+              medical devices, innovative clinical solutions, and unmatched
+              engineering expertise.
             </p>
 
-            <div className="hero-text-block flex flex-wrap gap-3 sm:gap-4 mb-8">
+            <div className="hero-text-block grid grid-cols-2 sm:flex sm:flex-row gap-3 sm:gap-4 mb-12 w-full max-w-lg">
               <Link
                 href="/products"
-                className="group relative overflow-hidden inline-flex items-center justify-center gap-2 bg-[var(--color-brand)] text-white font-dm-sans text-[13px] sm:text-sm font-medium px-5 py-3 sm:px-8 sm:py-4 transition-all duration-500 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]"
+                className="w-full sm:w-auto group relative overflow-hidden flex items-center justify-center gap-1.5 sm:gap-2 bg-[var(--color-brand)] text-white font-dm-sans text-[12px] sm:text-[15px] lg:text-sm font-medium px-2 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-500 hover:shadow-[0_8px_30px_rgba(58,168,116,0.4)] text-center"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  Explore Products
+                <span className="relative z-10 flex items-center gap-1.5 sm:gap-2 whitespace-nowrap">
+                  <span className="sm:hidden">Products</span>
+                  <span className="hidden sm:inline">Explore Products</span>
                   <ArrowRight
                     size={16}
                     className="group-hover:translate-x-1 transition-transform duration-300"
                   />
                 </span>
-                <div className="absolute inset-0 bg-[var(--color-brand-dark)] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-[var(--color-brand-dark)] translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500" />
               </Link>
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 bg-transparent text-[var(--color-navy)] border border-[var(--color-charcoal)]/30 font-dm-sans text-[13px] sm:text-sm font-medium px-5 py-3 sm:px-8 sm:py-4 transition-all duration-300 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
+                className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-white/10 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none text-white lg:text-[var(--color-navy)] border border-white/20 lg:border-[var(--color-charcoal)]/30 font-dm-sans text-[12px] sm:text-[15px] lg:text-sm font-medium px-2 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 hover:bg-white hover:text-[var(--color-navy)] lg:hover:border-[var(--color-brand)] lg:hover:text-[var(--color-brand)] whitespace-nowrap text-center"
               >
                 Contact Us
               </Link>
             </div>
 
             {/* Professional Trust Badges */}
-            <div className="hero-text-block flex flex-wrap items-center gap-4 pt-4 border-t border-[var(--color-border)]/50">
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
+            <div className="hero-text-block flex flex-wrap items-center gap-y-3 gap-x-6 lg:gap-x-8 pt-6 lg:pt-4 border-t border-white/10 lg:border-[var(--color-border)]/50 max-w-2xl">
+              <div className="flex items-center gap-2 lg:gap-3">
+                <div className="w-6 h-6 lg:w-8 lg:h-8 rounded-full bg-white/10 lg:bg-[var(--color-brand)]/10 backdrop-blur-sm lg:backdrop-blur-none border border-white/20 lg:border-none flex items-center justify-center">
                   <svg
-                    className="w-3 h-3 text-[var(--color-brand)]"
+                    className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-[#6EE7B7] lg:text-[var(--color-brand)]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -215,14 +210,14 @@ export default function HeroSection() {
                     />
                   </svg>
                 </div>
-                <span className="text-[9px] sm:text-xs font-dm-sans text-[var(--color-charcoal)] font-medium tracking-wider uppercase">
+                <span className="text-[9px] sm:text-[10px] lg:text-xs font-dm-sans text-white/90 lg:text-[var(--color-charcoal)] font-semibold lg:font-medium tracking-wider uppercase">
                   Authorized Distributor
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
+              <div className="flex items-center gap-2 lg:gap-3">
+                <div className="w-6 h-6 lg:w-8 lg:h-8 rounded-full bg-white/10 lg:bg-[var(--color-brand)]/10 backdrop-blur-sm lg:backdrop-blur-none border border-white/20 lg:border-none flex items-center justify-center">
                   <svg
-                    className="w-3 h-3 text-[var(--color-brand)]"
+                    className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-[#6EE7B7] lg:text-[var(--color-brand)]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -235,26 +230,39 @@ export default function HeroSection() {
                     />
                   </svg>
                 </div>
-                <span className="text-[9px] sm:text-xs font-dm-sans text-[var(--color-charcoal)] font-medium tracking-wider uppercase">
+                <span className="text-[9px] sm:text-[10px] lg:text-xs font-dm-sans text-white/90 lg:text-[var(--color-charcoal)] font-semibold lg:font-medium tracking-wider uppercase">
                   MOHAP Approved
                 </span>
+              </div>
+
+              {/* Est. 1991 Badge Integrated Here for Desktop/Mobile flow */}
+              <div className="flex items-center gap-2 lg:gap-3 mt-2 sm:mt-0 lg:ml-auto">
+                <div className="w-6 h-6 lg:w-8 lg:h-8 rounded-full bg-[var(--color-brand)]/20 lg:bg-[var(--color-brand)]/10 backdrop-blur-sm lg:backdrop-blur-none border border-[var(--color-brand)]/30 lg:border-none flex items-center justify-center">
+                  <span className="text-xs lg:text-sm drop-shadow-sm">🇦🇪</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-dm-sans text-[8px] lg:text-[9px] font-bold tracking-[0.2em] text-[#6EE7B7] lg:text-[var(--color-brand)] uppercase">
+                    Est. 1991
+                  </span>
+                  <span className="font-playfair text-[10px] lg:text-[11px] text-white/90 lg:text-[var(--color-navy)] font-medium tracking-wide">
+                    Abu Dhabi, UAE
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Image Column */}
-          <div className="lg:col-span-6 relative aspect-[4/3] sm:aspect-auto sm:h-[400px] lg:h-[65vh] w-full mt-2 lg:mt-0 lg:pl-12 flex items-center">
-            <div className="hero-image-wrapper relative w-full h-full overflow-hidden bg-[var(--color-muted)] rounded-[2rem] lg:rounded-tl-[8rem] lg:rounded-br-[8rem] shadow-[0_30px_60px_rgba(22,38,63,0.15)] border-[10px] border-[var(--color-background)] ring-1 ring-slate-900/5">
-              <div className="hero-image-overlay absolute inset-0 bg-[var(--color-brand)] z-10" />
+          {/* Right Image Column (Desktop Only) */}
+          <div className="hidden lg:flex lg:col-span-6 relative aspect-[4/3] lg:h-[70vh] w-full mt-4 lg:mt-0 lg:pl-12 items-start pb-12 lg:pb-0">
+            <div className="hero-image-wrapper relative w-full h-full overflow-hidden bg-[var(--color-muted)] lg:rounded-tl-[8rem] lg:rounded-br-[8rem] shadow-2xl lg:border-[10px] border-[var(--color-background)] ring-1 ring-slate-900/5">
               <Image
                 src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop"
-                alt="State-of-the-art medical equipment supplied by Al Mashriq Medical Supplies"
+                alt="State-of-the-art medical equipment"
                 fill
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 className="hero-image object-cover object-center"
                 priority
               />
-              {/* Overlay gradient on image */}
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-brand)]/30 via-transparent to-transparent z-[5]" />
             </div>
           </div>

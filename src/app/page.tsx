@@ -1,8 +1,7 @@
 import HeroSection from '@/components/HeroSection'
 import TrustedBySection from '@/components/TrustedBySection'
 import AboutSection from '@/components/AboutSection'
-import ProductCategoriesSection from '@/components/ProductCategoriesSection'
-import WhyChooseUsSection from '@/components/WhyChooseUsSection'
+import HomeProductsHeading from '@/components/HomeProductsHeading'
 import ContactCtaSection from '@/components/ContactCtaSection'
 import FAQSection from '@/components/FAQSection'
 import { siteConfig, productCategories } from '@/lib/seo'
@@ -53,10 +52,9 @@ export default function HomePage() {
       <HeroSection />
       <TrustedBySection />
       <AboutSection />
-      <ProductCategoriesSection />
-      <WhyChooseUsSection />
-      <ContactCtaSection />
+      <HomeProductsHeading />
       <FAQSection />
+      <ContactCtaSection />
     </>
   )
 }

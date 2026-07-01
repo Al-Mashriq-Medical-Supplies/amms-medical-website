@@ -113,7 +113,7 @@ export default function ContactCtaSection() {
                 </div>
                 <div className="flex items-start gap-3 text-white/90 font-dm-sans text-sm">
                   <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
-                  <p>M-4, Plot No.2, Musaffah Ind. Area, Abu Dhabi, UAE</p>
+                  <p>Floor 16-01, Falcon Tower, Qasr Al Hosn, Abu Dhabi, UAE</p>
                 </div>
               </div>
             </div>

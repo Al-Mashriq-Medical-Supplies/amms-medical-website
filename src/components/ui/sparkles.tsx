@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useId, useState } from "react"
-import Particles, { initParticlesEngine } from "@tsparticles/react"
+import { useId } from "react"
+import Particles, { ParticlesProvider } from "@tsparticles/react"
 import { loadSlim } from "@tsparticles/slim"
+import type { Engine } from "@tsparticles/engine"
 
 export function Sparkles({
   className,
@@ -19,17 +20,11 @@ export function Sparkles({
   options = {},
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 }: any) {
-  const [isReady, setIsReady] = useState(false)
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine)
-    }).then(() => {
-      setIsReady(true)
-    })
-  }, [])
-
   const id = useId()
+
+  const particlesInit = async (engine: Engine) => {
+    await loadSlim(engine)
+  }
 
   const defaultOptions = {
     background: {
@@ -79,5 +74,9 @@ export function Sparkles({
     detectRetina: true,
   }
 
-  return isReady && <Particles id={id} options={{ ...defaultOptions, ...options }} className={className} />
+  return (
+    <ParticlesProvider init={particlesInit}>
+      <Particles id={id} options={{ ...defaultOptions, ...options }} className={className} />
+    </ParticlesProvider>
+  )
 }

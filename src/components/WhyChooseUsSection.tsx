@@ -1,80 +1,103 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useGSAP } from '@gsap/react'
-import { Globe, ShieldCheck, Activity, Route, Layers, RefreshCw } from 'lucide-react'
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import {
+  Globe,
+  ShieldCheck,
+  Activity,
+  Route,
+  Layers,
+  RefreshCw,
+} from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const reasons = [
   {
     icon: Globe,
-    title: 'Exclusive Global Partnerships',
-    description: 'We secure exclusive relationships with world-class manufacturers—such as Fisher & Paykel and Penlon—delivering tier-one medical technology directly to your facility.',
+    title: "Exclusive Global Partnerships",
+    description:
+      "We secure exclusive relationships with world-class manufacturers—such as Fisher & Paykel and Penlon—delivering tier-one medical technology directly to your facility.",
   },
   {
     icon: ShieldCheck,
-    title: 'Uncompromising Compliance',
-    description: 'Every system we deploy rigorously adheres to international quality standards and is fully registered with all relevant UAE regulatory authorities.',
+    title: "Uncompromising Compliance",
+    description:
+      "Every system we deploy rigorously adheres to international quality standards and is fully registered with all relevant UAE regulatory authorities.",
   },
   {
     icon: Activity,
-    title: 'Specialized Clinical Engineering',
-    description: 'Our factory-trained biomedical engineers execute flawless installations and provide rapid-response preventive maintenance to eliminate clinical downtime.',
+    title: "Specialized Clinical Engineering",
+    description:
+      "Our factory-trained biomedical engineers execute flawless installations and provide rapid-response preventive maintenance to eliminate clinical downtime.",
   },
   {
     icon: Route,
-    title: 'Robust National Logistics',
-    description: 'A highly sophisticated supply chain guarantees rapid, uninterrupted deployment of critical equipment to healthcare facilities across all seven Emirates.',
+    title: "Robust National Logistics",
+    description:
+      "A highly sophisticated supply chain guarantees rapid, uninterrupted deployment of critical equipment to healthcare facilities across all seven Emirates.",
   },
   {
     icon: Layers,
-    title: 'Turnkey Workflow Integration',
-    description: 'We manage the entire deployment lifecycle—from pre-installation site planning to advanced clinical staff training—ensuring a seamless operational handover.',
+    title: "Turnkey Workflow Integration",
+    description:
+      "We manage the entire deployment lifecycle—from pre-installation site planning to advanced clinical staff training—ensuring a seamless operational handover.",
   },
   {
     icon: RefreshCw,
-    title: 'Strategic Lifecycle Management',
-    description: 'We build long-term institutional value through tailored service level agreements (SLAs) and a guaranteed, rapid-access spare parts inventory.',
+    title: "Strategic Lifecycle Management",
+    description:
+      "We build long-term institutional value through tailored service level agreements (SLAs) and a guaranteed, rapid-access spare parts inventory.",
   },
-]
+];
 
 export default function WhyChooseUsSection() {
-  const container = useRef<HTMLElement>(null)
+  const container = useRef<HTMLElement>(null);
 
-  useGSAP(() => {
-    gsap.fromTo('.why-header',
-      { y: 40, opacity: 0 },
-      {
-        y: 0, opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: container.current,
-          start: 'top 80%',
-        }
-      }
-    )
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".why-header",
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: container.current,
+            start: "top 80%",
+          },
+        },
+      );
 
-    gsap.fromTo('.why-card',
-      { y: 50, opacity: 0 },
-      {
-        y: 0, opacity: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.why-grid',
-          start: 'top 75%',
-        }
-      }
-    )
-  }, { scope: container })
+      gsap.fromTo(
+        ".why-card",
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".why-grid",
+            start: "top 75%",
+          },
+        },
+      );
+    },
+    { scope: container },
+  );
 
   return (
-    <section ref={container} className="py-20 sm:py-32 bg-[var(--color-background)] border-y border-[var(--color-border)]/50 relative overflow-hidden">
+    <section
+      ref={container}
+      className="py-20 sm:py-32 bg-[var(--color-background)] border-y border-[var(--color-border)]/50 relative overflow-hidden"
+    >
       {/* Subtle Background Elements for Premium Feel */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full opacity-[0.03] pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-brand)] rounded-full blur-[120px]" />
@@ -82,18 +105,20 @@ export default function WhyChooseUsSection() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
         <div className="why-header opacity-0 mb-16 sm:mb-24 max-w-4xl mx-auto text-center">
           <span className="font-dm-sans text-xs font-semibold text-[var(--color-brand)] uppercase tracking-[0.2em] block mb-4">
             Our Strategic Value
           </span>
           <h2 className="font-playfair font-medium text-3xl sm:text-4xl md:text-5xl text-[var(--color-navy)] leading-tight mb-6">
             Why leading facilities choose <br className="hidden md:block" />
-            <span className="text-[var(--color-brand)]">Al Mashriq Medical Supplies</span>
+            <span className="text-[var(--color-brand)]">
+              Al Mashriq Medical Supplies
+            </span>
           </h2>
           <p className="font-dm-sans text-base sm:text-lg text-[var(--color-charcoal)] leading-relaxed max-w-2xl mx-auto px-4 sm:px-0">
-            We move beyond standard procurement. We are a strategic clinical engineering partner 
-            focused on optimizing the intersection of technology, patient care, and operational efficiency.
+            We move beyond standard procurement. We are a strategic clinical
+            engineering partner focused on optimizing the intersection of
+            technology, patient care, and operational efficiency.
           </p>
         </div>
 
@@ -109,7 +134,7 @@ export default function WhyChooseUsSection() {
             >
               {/* Subtle top border accent on hover */}
               <div className="absolute top-0 left-0 w-full h-1 bg-[var(--color-brand)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl" />
-              
+
               <div className="w-14 h-14 rounded-full bg-[var(--color-background)] flex items-center justify-center mb-6 sm:mb-8 group-hover:bg-[var(--color-brand)]/10 transition-colors duration-500">
                 <Icon className="w-6 h-6 text-[var(--color-navy)] group-hover:text-[var(--color-brand)] transition-colors duration-500" />
               </div>
@@ -124,8 +149,7 @@ export default function WhyChooseUsSection() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
-  )
+  );
 }

@@ -1,5 +1,13 @@
 import type { Metadata } from 'next'
+import { Josefin_Sans } from 'next/font/google'
 import './globals.css'
+
+const josefinSans = Josefin_Sans({
+  variable: '--font-josefin',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+})
 import { siteConfig } from '@/lib/seo'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -63,11 +71,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="h-full">
-      <body className="min-h-full flex flex-col font-dm-sans antialiased bg-white text-slate-800">
+    <html lang="en" className={josefinSans.variable}>
+      <body className="flex flex-col antialiased bg-white text-slate-800">
         <SmoothScrolling>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 overflow-x-hidden">{children}</main>
           <Footer />
           <WhatsAppButton />
         </SmoothScrolling>

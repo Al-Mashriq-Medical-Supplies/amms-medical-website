@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 @import "tailwindcss";
 
 @theme {
   /* AMMS Brand Palette */
-  --color-background: #F6F4EF;
+  --color-background: #F4FCF8;
   --color-foreground: #16263F;
   --color-muted: #e8e6e1;
   --color-muted-foreground: #8c99a5;
@@ -13,7 +12,7 @@
   /* Premium Minimal Additions */
   --color-navy: #16263F;
   --color-charcoal: #23272B;
-  --color-offwhite: #F6F4EF;
+  --color-offwhite: #F4FCF8;
   --color-gold: #C9A063;
 
   /* Primary Brand Green */
@@ -47,8 +46,8 @@
   --color-slate-900: #0f1a14;
 
   /* Typography */
-  --font-playfair: 'DM Sans', system-ui, sans-serif;
-  --font-dm-sans: 'DM Sans', system-ui, sans-serif;
+  --font-playfair: var(--font-josefin);
+  --font-dm-sans: var(--font-josefin);
 
   /* Shadows */
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -63,7 +62,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
   }
 
   body {
@@ -72,11 +70,11 @@
     background-color: var(--color-background);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-playfair);
+    font-style: normal;
   }
 
   ::selection {

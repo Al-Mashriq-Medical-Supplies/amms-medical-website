@@ -9,6 +9,7 @@ export const siteConfig = {
   email: 'amms@eim.ae',
   phone: '+97126277223',
   displayPhone: '+971 2 627 7223',
+  whatsapp: '+971558693930',
   fax: '+97126271667',
   displayFax: '+971 2 627 1667',
   established: 1991,
@@ -88,69 +89,116 @@ export const principals = [
     slug: 'fisher-paykel',
     logo: '/images/clients/fisher-paykel.png',
     description: 'World-leading respiratory humidification and acute care solutions.',
-    products: ['Respiratory Humidifiers', 'Breathing Circuits', 'Opti-flow Systems', 'Bubble CPAP Systems', 'Full Face & Nasal Masks', 'Infant Resuscitators (Neopuff)', 'Hospital & Home Masks'],
+    products: [
+      { name: 'Respiratory Humidifiers', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Advanced humidification technology for optimal respiratory support.' },
+      { name: 'Breathing Circuits', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'High-quality consumable circuits designed for secure patient connections.' },
+      { name: 'Opti-flow Systems', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'Nasal high flow therapy for effective oxygen delivery and comfort.' },
+      { name: 'Bubble Continuous Positive Airway Pressure Systems', category: 'Neonatal & Infant Care', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop', brief: 'Gentle, effective continuous positive airway pressure for infants.' },
+      { name: 'Full Face & Nasal Masks', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Comfortable and secure masks for hospital and homecare therapy.' },
+      { name: 'Infant Resuscitators (Neopuff)', category: 'Neonatal & Infant Care', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Reliable, safe manual resuscitation systems for neonatal care.' },
+      { name: 'Hospital & Home Masks', category: 'Sleep Therapy & Homecare', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'A wide range of patient interfaces for continuous positive airway pressure and ventilation.' }
+    ],
   },
   {
     name: 'Penlon',
     slug: 'penlon',
     logo: '/images/clients/penlon.png',
     description: 'Premium anesthesia delivery and airway management.',
-    products: ['Anesthesia Machines', 'Air & Oxygen Flowmeters', 'Regulators', 'Bacteria Filters', 'Laryngoscopes', 'Suction Machines', 'Infusion Pumps', 'Syringe Pumps'],
+    products: [
+      { name: 'Anesthesia Machines', category: 'Anesthesia & Surgical Care', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'State-of-the-art workstations for precise anesthesia delivery.' },
+      { name: 'Air & Oxygen Flowmeters', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Accurate and reliable medical gas flow control.' },
+      { name: 'Regulators', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'High-performance gas regulators for hospital pipelines and cylinders.' },
+      { name: 'Bacteria Filters', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop', brief: 'Essential filtration to prevent cross-contamination in breathing systems.' },
+      { name: 'Laryngoscopes', category: 'Anesthesia & Surgical Care', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Premium airway visualization tools for safe intubation.' },
+      { name: 'Suction Machines', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Powerful and reliable vacuum systems for clinical use.' },
+      { name: 'Infusion Pumps', category: 'Infusion Therapy', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'Precise intravenous fluid and medication delivery devices.' },
+      { name: 'Syringe Pumps', category: 'Infusion Therapy', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop', brief: 'Accurate, low-volume continuous infusion systems.' }
+    ],
   },
   {
     name: 'Breas',
     slug: 'breas',
     logo: '/images/clients/breas.png',
     description: 'Innovative ventilation and airway clearance solutions.',
-    products: ['Bi-level Ventilators', 'Portable Ventilators', 'Airway Clearance Equipment'],
+    products: [
+      { name: 'Bilevel Positive Airway Pressure Ventilators', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Advanced non-invasive ventilation for home and hospital.' },
+      { name: 'Portable Ventilators', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Lightweight, versatile life-support for mobile patients.' },
+      { name: 'Airway Clearance Equipment', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'Effective solutions for managing respiratory secretions.' }
+    ],
   },
   {
     name: 'COSMED',
     slug: 'cosmed',
     logo: '/images/clients/cosmed.png',
     description: 'Gold-standard metabolic testing and pulmonary function diagnostics.',
-    products: ['Pulmonary Function Tests (PFTs)', 'QNRG Metabolic Testing', 'CPET Systems', 'Spirometry Equipment'],
+    products: [
+      { name: 'Pulmonary Function Tests', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Comprehensive lung function assessment devices.' },
+      { name: 'Metabolic Testing', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Cutting-edge indirect calorimetry for clinical nutrition.' },
+      { name: 'Cardiopulmonary Exercise Testing Systems', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'Cardiopulmonary exercise testing for accurate fitness assessment.' },
+      { name: 'Spirometry Equipment', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop', brief: 'Accurate and user-friendly spirometers for rapid diagnostics.' }
+    ],
   },
   {
     name: 'Baxter',
     slug: 'baxter',
     logo: '/images/clients/baxter.png',
     description: 'Advanced vision screening and ophthalmic diagnostic solutions.',
-    products: ['Spot Vision Screener'],
+    products: [
+      { name: 'Spot Vision Screener', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Fast, objective, and accurate vision screening device.' }
+    ],
   },
   {
     name: 'Sefam',
     slug: 'sefam',
     logo: '/images/clients/sefam.png',
-    description: 'Comprehensive sleep apnea diagnosis and CPAP therapy.',
-    products: ['CPAP Machines', 'Auto CPAP Machines', 'BiPAP Machines', 'Sleep Lab Systems', 'NightScan Screening', 'Masks'],
+    description: 'Comprehensive sleep apnea diagnosis and continuous positive airway pressure therapy.',
+    products: [
+      { name: 'Continuous Positive Airway Pressure Machines', category: 'Sleep Therapy & Homecare', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Reliable continuous positive airway pressure devices.' },
+      { name: 'Auto Continuous Positive Airway Pressure Machines', category: 'Sleep Therapy & Homecare', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Self-adjusting pressure devices for optimal sleep therapy.' },
+      { name: 'Bilevel Positive Airway Pressure Machines', category: 'Sleep Therapy & Homecare', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'Dual pressure support for complex respiratory conditions.' },
+      { name: 'Sleep Lab Systems', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop', brief: 'Professional diagnostic equipment for sleep clinics.' },
+      { name: 'NightScan Screening', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Home sleep testing and initial apnea screening tools.' },
+      { name: 'Therapy Masks', category: 'Sleep Therapy & Homecare', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Ergonomic patient interfaces for sleep therapy.' }
+    ],
   },
   {
     name: 'Maxtec',
     slug: 'maxtec',
     logo: '/images/clients/maxtec.png',
     description: 'Precision oxygen analysis and flow measurement.',
-    products: ['Oxygen Analyzers (15%–99%)', 'Flow Meters'],
+    products: [
+      { name: 'Oxygen Analyzers (15%–99%)', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Highly accurate devices for monitoring oxygen purity.' },
+      { name: 'Flow Meters', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Durable, precise medical gas flow measuring tools.' }
+    ],
   },
   {
     name: 'idmed',
     slug: 'idmed',
     logo: '/images/clients/idmed.png',
     description: 'Ophthalmic diagnostic innovation.',
-    products: ['Ophthalmic Diagnostic Devices'],
+    products: [
+      { name: 'Ophthalmic Diagnostic Devices', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Innovative tools for detailed eye exams and monitoring.' }
+    ],
   },
   {
     name: 'Bio-Med Devices',
     slug: 'bio-med',
     logo: '/images/clients/bio-med.png',
     description: 'Reliable air/oxygen blending and portable ventilation.',
-    products: ['Air / O₂ Blenders', 'Portable Ventilators'],
+    products: [
+      { name: 'Air & Oxygen Blenders', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Precise gas mixing devices for critical care environments.' },
+      { name: 'Portable Ventilators', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Rugged and dependable transport ventilation systems.' }
+    ],
   },
   {
     name: 'Porter',
     slug: 'porter',
     logo: '/images/clients/porter.png',
     description: 'The trusted name in nitrous oxide delivery systems.',
-    products: ['Nitrous Oxide Systems — 50/50 Fixed', 'Adjustable 0–50% N₂O', 'Adjustable 0–70% N₂O'],
+    products: [
+      { name: 'Nitrous Oxide Systems — 50/50 Fixed', category: 'Pain Management', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Standardized pain management delivery systems.' },
+      { name: 'Adjustable 0–50% Nitrous Oxide', category: 'Pain Management', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Variable concentration delivery for tailored patient relief.' },
+      { name: 'Adjustable 0–70% Nitrous Oxide', category: 'Pain Management', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'High-capacity nitrous delivery systems for specialized procedures.' }
+    ],
   },
 ]
