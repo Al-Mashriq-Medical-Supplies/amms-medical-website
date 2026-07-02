@@ -28,6 +28,8 @@ export default function Navbar() {
     setIsScrolled(window.scrollY > 10);
     setIsVisible(true);
 
+    const HIDE_THRESHOLD = 80; // min px scrolled down before hiding
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
@@ -35,10 +37,10 @@ export default function Navbar() {
 
       if (currentScrollY <= 10) {
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current) {
-        setIsVisible(false); // scrolling down
-      } else {
-        setIsVisible(true); // scrolling up
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > HIDE_THRESHOLD) {
+        setIsVisible(false); // scrolling down past threshold
+      } else if (currentScrollY < lastScrollY.current) {
+        setIsVisible(true); // scrolling up — always show
       }
 
       lastScrollY.current = currentScrollY;
