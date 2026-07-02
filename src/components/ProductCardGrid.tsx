@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { siteConfig } from '@/lib/seo'
 
 type Product = {
@@ -17,7 +17,7 @@ function hexToRgb(hex: string) {
     : '58, 168, 116';
 }
 
-const getTheme = (category?: string) => {
+const getTheme = () => {
   return { color: '#3aa874', bgLight: '#f0fdf4', textLight: '#15803d' }
 }
 
@@ -28,7 +28,7 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
     return `https://wa.me/${number}?text=${encodeURIComponent(message)}`
   }
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -38,7 +38,7 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
   }
@@ -51,7 +51,7 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
     >
       {products.map((product) => {
-        const theme = getTheme(product.category)
+        const theme = getTheme()
         return (
           <motion.div
             key={product.name}
