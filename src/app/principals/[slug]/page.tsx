@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { principals } from "@/lib/seo";
+import { principals, Principal } from "@/lib/seo";
 import ProductCardGrid from "@/components/ProductCardGrid";
 
 export async function generateStaticParams() {
-  return principals.map((p) => ({
+  return principals.map((p: Principal) => ({
     slug: p.slug,
   }));
 }
@@ -16,7 +16,7 @@ export default async function PrincipalPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const principal = principals.find((p) => p.slug === slug);
+  const principal = principals.find((p: Principal) => p.slug === slug);
 
   if (!principal) {
     notFound();

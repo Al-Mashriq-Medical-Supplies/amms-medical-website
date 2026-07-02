@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import ProductCardGrid from '@/components/ProductCardGrid'
-import { principals } from '@/lib/seo'
+import { principals, Principal, Product } from '@/lib/seo'
 import { cn } from '@/lib/utils'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -18,8 +18,8 @@ export default function ProductCategoriesSection() {
   const groupedProducts = useMemo(() => {
     const productsMap = new Map<string, { name: string; brief: string; image?: string; category?: string }>()
     
-    principals.forEach(principal => {
-      principal.products.forEach(product => {
+    principals.forEach((principal: Principal) => {
+      principal.products.forEach((product: Product) => {
         if (!productsMap.has(product.name)) {
           productsMap.set(product.name, product)
         }
@@ -64,11 +64,11 @@ export default function ProductCategoriesSection() {
     )
   }, { scope: container })
 
-  const getTheme = (category?: string | null) => {
+  const getTheme = () => {
     return { color: '#3aa874', bgLight: '#f0fdf4', textLight: '#15803d' }
   }
 
-  const activeTheme = getTheme(activeCategory)
+  const activeTheme = getTheme()
 
   return (
     <section ref={container} id="products" className="relative pb-12 md:pb-32 pt-2 md:pt-4 bg-[var(--color-background)] overflow-hidden">
@@ -77,7 +77,7 @@ export default function ProductCategoriesSection() {
         <div className="grid grid-cols-2 md:flex md:flex-wrap md:items-center md:justify-center gap-2 sm:gap-3">
           {groupedProducts.map(([category]) => {
             const isActive = activeCategory === category
-            const theme = getTheme(category)
+            const theme = getTheme()
             return (
               <button
                 key={category}

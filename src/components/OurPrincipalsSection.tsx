@@ -77,7 +77,7 @@ export default function OurPrincipalsSection() {
                   alt={`${principal.name} logo`}
                   width={160}
                   height={60}
-                  className="object-contain max-h-[50px] w-auto grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                  className="object-contain max-h-[50px] w-auto transition-all duration-700"
                 />
               </div>
               <p className="font-dm-sans text-[11px] text-[var(--color-charcoal)]/60 font-light leading-snug line-clamp-2 relative z-10 group-hover:text-[var(--color-charcoal)] transition-colors duration-500">

@@ -43,7 +43,7 @@ export default function PrincipalsDetailList() {
 
 
         <div className="space-y-2.5 sm:space-y-5">
-          {principals.map((principal, index) => (
+          {principals.map((principal) => (
             <Link
               href={`/principals/${principal.slug}`}
               key={principal.slug}
@@ -60,13 +60,13 @@ export default function PrincipalsDetailList() {
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
                   {/* Logo + Name */}
                   <div className="sm:w-1/3 flex items-center gap-3 sm:gap-5">
-                    <div className="flex-shrink-0 w-11 h-11 sm:w-20 sm:h-20 bg-white rounded-lg sm:rounded-2xl flex items-center justify-center p-1.5 sm:p-3 border border-slate-100 shadow-sm group-hover:border-[#3AA874]/30 group-hover:shadow-md transition-all duration-500">
+                    <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center p-2 sm:p-3 border border-slate-100 shadow-sm group-hover:border-[#3AA874]/30 group-hover:shadow-md transition-all duration-500">
                       <Image
                         src={principal.logo}
                         alt={`${principal.name} logo`}
                         width={64}
                         height={64}
-                        className="object-contain max-h-[28px] sm:max-h-[48px] w-auto grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                        className="object-contain max-h-[36px] sm:max-h-[48px] w-auto transition-all duration-700"
                       />
                     </div>
                     <div>

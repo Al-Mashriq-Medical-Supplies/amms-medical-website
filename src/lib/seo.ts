@@ -1,3 +1,18 @@
+export interface Product {
+  name: string;
+  category?: string;
+  image?: string;
+  brief: string;
+}
+
+export interface Principal {
+  name: string;
+  slug: string;
+  logo: string;
+  description: string;
+  products: Product[];
+}
+
 export const siteConfig = {
   name: 'Al Mashriq Medical Supplies',
   legalName: 'Al Mashriq Medical Supplies L.L.C',
@@ -83,7 +98,7 @@ export const productCategories = [
   'Homecare medical products',
 ]
 
-export const principals = [
+export const principals: Principal[] = [
   {
     name: 'Fisher & Paykel Healthcare',
     slug: 'fisher-paykel',
