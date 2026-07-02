@@ -23,7 +23,7 @@ export default function AboutPage() {
               Transforming UAE Healthcare Since 1991.
             </h1>
             <p className="w-full text-center font-dm-sans text-base sm:text-lg text-slate-500 font-normal leading-relaxed max-w-2xl mx-auto px-4">
-              For over 30 years, we have been a trusted partner in the region, delivering innovative medical equipment and world-class healthcare solutions to advance patient care.
+              For over 35 years, we have been the trusted regional partner, delivering innovative medical equipment and world-class healthcare solutions to advance patient care.
             </p>
           </div>
         </div>

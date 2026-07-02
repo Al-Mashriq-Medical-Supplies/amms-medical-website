@@ -11,7 +11,7 @@ export const Component = () => {
         "relative w-full overflow-hidden bg-[var(--color-background)] text-[var(--color-navy)]",
       )}
     >
-      <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-32">
+      <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 pb-12 md:pt-8 md:pb-32">
         <div className="flex flex-col gap-12 lg:gap-16">
           {/* Top Text Content */}
           <div className="flex w-full flex-col items-center text-center max-w-5xl mx-auto gap-8 lg:gap-12">
@@ -19,32 +19,42 @@ export const Component = () => {
               <span className="mb-6 block text-[11px] font-medium uppercase tracking-[0.25em] text-[var(--color-brand)]">
                 About AMMS
               </span>
-              <h2 className="font-playfair text-2xl font-light leading-relaxed tracking-tight md:text-3xl lg:text-4xl text-[var(--color-navy)] max-w-4xl mx-auto mb-4">
-                For over 30 years, we have been a trusted partner in the region, delivering innovative medical equipment and world-class healthcare solutions to advance patient care.
+              <h2 className="font-playfair text-[17px] sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-[1.6] sm:leading-[1.7] tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-[#16263F] to-slate-600 w-full max-w-4xl mx-auto mb-8 px-6 sm:px-10 md:px-16 text-left">
+                For over 35 years, we have been the trusted regional partner, delivering innovative medical equipment and world-class healthcare solutions to advance patient care.
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 w-full text-left">
               {/* Mission */}
-              <div className="bg-white p-8 sm:p-10 border border-slate-100 shadow-[0_4px_20px_rgba(22,38,63,0.02)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-500">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[var(--color-brand)]/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <h3 className="font-dm-sans text-[11px] sm:text-xs text-[var(--color-brand)] uppercase tracking-[0.2em] font-semibold mb-4">
-                  Our Mission
-                </h3>
-                <p className="font-playfair text-base sm:text-lg leading-relaxed font-normal text-[var(--color-charcoal)]">
-                  To continuously support UAE healthcare providers by delivering innovative medical technologies, ensuring prompt service, and prioritizing optimal patient recovery and experiences.
-                </p>
+              <div className="group relative rounded-2xl p-[1px] overflow-hidden hover:-translate-y-1 shadow-[0_4px_20px_rgba(22,38,63,0.02)] hover:shadow-md transition-all duration-500">
+                <div className="absolute -inset-[100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#3AA874_50%,transparent_100%)] opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 h-full bg-white rounded-2xl p-8 sm:p-10 flex flex-col overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[var(--color-brand)]/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <h3 className="font-dm-sans text-[11px] sm:text-xs text-[var(--color-brand)] uppercase tracking-[0.2em] font-semibold mb-4">
+                    Our Mission
+                  </h3>
+                  <p className="font-playfair text-[15px] sm:text-lg leading-[1.8] sm:leading-relaxed font-normal text-slate-500">
+                    To continuously support UAE healthcare providers by delivering
+                    innovative medical technologies, ensuring prompt service, and
+                    prioritizing optimal patient recovery and experiences.
+                  </p>
+                </div>
               </div>
 
               {/* Vision */}
-              <div className="bg-white p-8 sm:p-10 border border-slate-100 shadow-[0_4px_20px_rgba(22,38,63,0.02)] relative overflow-hidden group hover:-translate-y-1 transition-all duration-500">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[var(--color-brand)]/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <h3 className="font-dm-sans text-[11px] sm:text-xs text-slate-400 group-hover:text-[var(--color-brand)] transition-colors duration-500 uppercase tracking-[0.2em] font-semibold mb-4">
-                  Our Vision
-                </h3>
-                <p className="font-playfair text-base sm:text-lg leading-relaxed font-normal text-[var(--color-charcoal)]">
-                  To be the foremost provider of capital equipment and homecare solutions, establishing the benchmark for world-class healthcare standards across the United Arab Emirates.
-                </p>
+              <div className="group relative rounded-2xl p-[1px] overflow-hidden hover:-translate-y-1 shadow-[0_4px_20px_rgba(22,38,63,0.02)] hover:shadow-md transition-all duration-500">
+                <div className="absolute -inset-[100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_270deg_at_50%_50%,transparent_0%,#3AA874_50%,transparent_100%)] opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 h-full bg-white rounded-2xl p-8 sm:p-10 flex flex-col overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[var(--color-brand)]/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <h3 className="font-dm-sans text-[11px] sm:text-xs text-[var(--color-brand)] uppercase tracking-[0.2em] font-semibold mb-4">
+                    Our Vision
+                  </h3>
+                  <p className="font-playfair text-[15px] sm:text-lg leading-[1.8] sm:leading-relaxed font-normal text-slate-500">
+                    To be the foremost provider of capital equipment and homecare
+                    solutions, establishing the benchmark for world-class
+                    healthcare standards across the United Arab Emirates.
+                  </p>
+                </div>
               </div>
             </div>
 

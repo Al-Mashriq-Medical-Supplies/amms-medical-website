@@ -14,74 +14,58 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ClientsMarquee() {
   const container = useRef<HTMLElement>(null);
 
-  useGSAP(
-    () => {
-      gsap.fromTo(
-        ".clients-header",
-        { x: -60, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: container.current,
-            start: "top 85%",
-          },
-        },
-      );
-    },
-    { scope: container },
-  );
+  // Animation removed for clients-header to guarantee mobile visibility
 
   return (
     <section
       ref={container}
       className="relative w-full overflow-hidden bg-white flex flex-col justify-start pt-16 pb-8 md:pt-24 md:pb-12"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-        <div className="clients-header opacity-0 text-center text-slate-900">
-          <span className="font-dm-sans text-xs text-[#3AA874] uppercase tracking-[0.25em] block mb-4">
+      {/* Background Elements moved to top of DOM for guaranteed correct mobile layering */}
+      <div className="absolute top-0 left-0 right-0 h-full md:h-[60%] w-full overflow-hidden z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(58,168,116,0.15),transparent_70%)] md:bg-[radial-gradient(ellipse_at_top,rgba(58,168,116,0.15),transparent_70%)]" />
+        {/* Hide the overlapping white curve on mobile to let the green gradient shine */}
+        <div className="hidden md:block absolute -left-1/2 bottom-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-b border-slate-900/10 bg-white" />
+        <Sparkles
+          density={600}
+          className="absolute inset-x-0 top-0 h-full w-full [mask-image:radial-gradient(50%_50%,white,transparent_85%)]"
+          color="#3AA874"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 flex flex-col items-center w-full">
+        <div className="clients-header text-center w-full flex flex-col items-center">
+          <span className="font-dm-sans text-[10px] sm:text-xs text-[#3AA874] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.25em] block mb-2 sm:mb-4 text-center">
             Our Partners in Health Care
           </span>
-          <h2 className="font-playfair font-medium text-3xl sm:text-4xl md:text-5xl leading-tight text-transparent bg-clip-text drop-shadow-md bg-gradient-to-r from-[#16263F] via-[#3AA874] to-[#3AA874]">
+          <h2 className="font-playfair font-medium text-[22px] sm:text-3xl md:text-4xl lg:text-5xl leading-tight sm:leading-tight text-transparent bg-clip-text md:drop-shadow-md bg-gradient-to-r from-[#16263F] via-[#3AA874] to-[#3AA874] px-2 text-center w-full max-w-[95vw]">
             Trusted by Global Leaders
           </h2>
         </div>
 
-        <div className="relative mt-4 md:mt-8 h-[80px] md:h-[100px] w-full">
+        <div className="relative mt-8 md:mt-12 h-[50px] sm:h-[70px] md:h-[100px] w-full">
           <InfiniteSlider
             className="flex h-full w-full items-center"
             duration={45}
-            gap={32}
+            gap={24}
           >
             {principals.map((principal, index) => (
               <div
                 key={`${principal.slug}-${index}`}
-                className="w-32 md:w-48 flex items-center justify-center transition-all duration-500 cursor-pointer"
+                className="w-24 sm:w-32 md:w-48 flex items-center justify-center transition-all duration-500 cursor-pointer"
               >
                 <Image
                   src={principal.logo}
                   alt={`${principal.name} logo`}
                   width={200}
                   height={80}
-                  className="object-contain max-h-[50px] md:max-h-[80px] w-auto transition-all duration-500"
+                  className="object-contain max-h-[35px] sm:max-h-[50px] md:max-h-[80px] w-auto transition-all duration-500"
                   style={{ width: "auto", height: "auto" }}
                 />
               </div>
             ))}
           </InfiniteSlider>
         </div>
-      </div>
-
-      <div className="absolute top-0 left-0 right-0 h-[40%] w-full overflow-hidden z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(58,168,116,0.15),transparent_70%)]" />
-        <div className="absolute -left-1/2 bottom-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-b border-slate-900/10 bg-white" />
-        <Sparkles
-          density={600}
-          className="absolute inset-x-0 top-0 h-full w-full [mask-image:radial-gradient(50%_50%,white,transparent_85%)]"
-          color="#3AA874"
-        />
       </div>
     </section>
   );

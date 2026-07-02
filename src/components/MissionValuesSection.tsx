@@ -68,7 +68,7 @@ export default function MissionValuesSection() {
           <div className="mv-fade-up grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 border-y border-[#3AA874]/20 py-10">
             <div className="flex flex-col items-center justify-center">
               <span className="font-playfair text-4xl md:text-5xl text-[#3AA874] font-medium mb-2">
-                <CountUp end={30} duration={2.5} enableScrollSpy scrollSpyOnce />+
+                <CountUp end={35} duration={2.5} enableScrollSpy scrollSpyOnce />+
               </span>
               <span className="font-dm-sans text-xs uppercase tracking-widest text-slate-500 font-semibold">Years in Market</span>
             </div>
