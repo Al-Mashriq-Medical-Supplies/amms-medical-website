@@ -51,10 +51,10 @@ export default function ContactSection() {
   return (
     <div ref={container} id="contact-form" className="w-full">
       {/* Office Info + Maps */}
-      <div className="contact-panel opacity-0 grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+      <div className="contact-panel opacity-0 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 mb-8 sm:mb-16">
         {/* Abu Dhabi Office */}
         <div className="bg-white border border-slate-200 overflow-hidden">
-          <div className="p-6 border-b border-slate-100">
+          <div className="p-4 sm:p-6 border-b border-slate-100">
             <div className="flex items-center gap-3 mb-4">
               <Building2 size={20} className="text-[var(--color-brand)]" />
               <h3 className="font-playfair text-xl font-medium text-[var(--color-navy)]">
@@ -98,7 +98,7 @@ export default function ContactSection() {
 
         {/* Dubai Branch */}
         <div className="bg-white border border-slate-200 overflow-hidden">
-          <div className="p-6 border-b border-slate-100">
+          <div className="p-4 sm:p-6 border-b border-slate-100">
             <div className="flex items-center gap-3 mb-4">
               <Building2 size={20} className="text-[#3AA874]" />
               <h3 className="font-playfair text-xl font-medium text-slate-900">
@@ -143,7 +143,7 @@ export default function ContactSection() {
 
       {/* Contact Form */}
       <div className="contact-panel opacity-0 max-w-2xl mx-auto">
-        <div className="relative bg-white p-8 sm:p-10 rounded-3xl border border-[var(--color-border)]/50 shadow-[0_4px_20px_rgba(22,38,63,0.04)] overflow-hidden">
+        <div className="relative bg-white p-5 sm:p-10 rounded-2xl sm:rounded-3xl border border-[var(--color-border)]/50 shadow-[0_4px_20px_rgba(22,38,63,0.04)] overflow-hidden">
           {isSuccess ? (
             <div className="success-msg absolute inset-0 z-20 flex flex-col items-center justify-center bg-[var(--color-brand)] p-12 text-center text-[var(--color-background)] opacity-0">
               <CheckCircle2 size={64} className="mb-6 text-[var(--color-background)]/80" />
@@ -157,7 +157,7 @@ export default function ContactSection() {
           <h3 className="mb-2 font-playfair text-2xl font-medium text-[var(--color-navy)]">
             Send Us a Message
           </h3>
-          <p className="mb-8 font-dm-sans text-sm text-[var(--color-charcoal)] font-light">
+          <p className="mb-4 sm:mb-8 font-dm-sans text-sm text-[var(--color-charcoal)] font-light">
             Our team will respond within one business day.
           </p>
 
@@ -217,7 +217,7 @@ export default function ContactSection() {
               name="message"
               required
               rows={4}
-              className="mb-6 w-full rounded-xl resize-none border border-[var(--color-border)] bg-[var(--color-background)] px-4 py-3 text-sm font-normal text-[var(--color-charcoal)] focus:border-[var(--color-brand)] focus:outline-none focus:ring-1 focus:ring-[var(--color-brand)] transition-colors"
+              className="mb-4 sm:mb-6 w-full rounded-xl resize-none border border-[var(--color-border)] bg-[var(--color-background)] px-4 py-3 text-sm font-normal text-[var(--color-charcoal)] focus:border-[var(--color-brand)] focus:outline-none focus:ring-1 focus:ring-[var(--color-brand)] transition-colors"
               placeholder="Tell us about your requirements..."
             />
 

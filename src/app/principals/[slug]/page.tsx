@@ -23,14 +23,14 @@ export default async function PrincipalPage({
   }
 
   return (
-    <div className="min-h-screen bg-[var(--color-background)] pt-24 pb-32">
+    <div className="min-h-screen bg-[var(--color-background)] pt-20 sm:pt-24 pb-12 sm:pb-32">
       {/* Hero Section */}
-      <div className="bg-white border-b border-slate-200 py-16">
+      <div className="bg-white border-b border-slate-200 py-8 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-6">
+          <div className="mb-4 sm:mb-6">
             <Link
               href="/principals"
-              className="inline-flex items-center text-sm font-dm-sans text-slate-500 hover:text-[#3AA874] transition-colors"
+              className="inline-flex items-center text-xs sm:text-sm font-dm-sans text-slate-500 hover:text-[#3AA874] transition-colors"
             >
               <svg
                 className="w-4 h-4 mr-2"
@@ -49,21 +49,21 @@ export default async function PrincipalPage({
             </Link>
           </div>
 
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-            <div className="flex-shrink-0 w-32 h-32 bg-slate-50 rounded-2xl flex items-center justify-center p-4 border border-slate-100 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
+            <div className="flex-shrink-0 w-20 h-20 sm:w-32 sm:h-32 bg-slate-50 rounded-xl sm:rounded-2xl flex items-center justify-center p-3 sm:p-4 border border-slate-100 shadow-sm">
               <Image
                 src={principal.logo}
                 alt={`${principal.name} logo`}
                 width={100}
                 height={100}
-                className="object-contain max-h-[80px] w-auto"
+                className="object-contain max-h-[56px] sm:max-h-[80px] w-auto"
               />
             </div>
             <div>
-              <h1 className="font-playfair text-4xl sm:text-5xl font-medium text-slate-900 mb-4">
+              <h1 className="font-playfair text-2xl sm:text-4xl lg:text-5xl font-medium text-slate-900 mb-2 sm:mb-4">
                 {principal.name}
               </h1>
-              <p className="font-dm-sans text-lg text-slate-600 max-w-2xl leading-relaxed">
+              <p className="font-dm-sans text-sm sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
                 {principal.description}
               </p>
             </div>
@@ -72,13 +72,13 @@ export default async function PrincipalPage({
       </div>
 
       {/* Products Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="flex items-center justify-between mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-16">
+        <div className="flex items-center justify-between mb-6 sm:mb-12">
           <div>
-            <span className="font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.2em] block mb-2 font-semibold">
+            <span className="font-dm-sans text-xs sm:text-sm text-[#3AA874] uppercase tracking-[0.2em] block mb-1 sm:mb-2 font-semibold">
               Product Portfolio
             </span>
-            <h2 className="font-playfair text-3xl text-slate-900">
+            <h2 className="font-playfair text-xl sm:text-3xl text-slate-900">
               Medical{" "}
               <span className="font-medium text-[#3AA874]">Solutions</span>
             </h2>
