@@ -19,7 +19,7 @@ export default function ProductsPage() {
             <h1 className="w-full text-center font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-8 tracking-tight text-transparent bg-clip-text drop-shadow-md bg-gradient-to-r from-[#16263F] via-[#3AA874] to-[#3AA874]">
               Comprehensive medical solutions
             </h1>
-            <p className="w-full text-center font-dm-sans text-xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto">
+            <p className="w-full text-center font-dm-sans text-lg sm:text-xl text-slate-500 font-light leading-snug sm:leading-relaxed max-w-2xl mx-auto">
               We offer a focused range of medical equipment through our global principals covering
               critical care, respiratory therapy, anesthesia, diagnostics, rehabilitation, and homecare.
             </p>
@@ -30,12 +30,12 @@ export default function ProductsPage() {
       <ProductCategoriesSection />
 
       {/* Service Capabilities */}
-      <section className="py-24 bg-[var(--color-background)] border-t border-slate-200 relative overflow-hidden">
+      <section className="py-12 md:py-24 bg-[var(--color-background)] border-t border-slate-200 relative overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-gradient-to-b from-[#3AA874]/[0.03] to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <span className="font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.25em] block mb-4 font-semibold">
               Beyond Equipment
             </span>
@@ -44,7 +44,7 @@ export default function ProductsPage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid md:grid-cols-3 gap-3 md:gap-6 lg:gap-8">
             {[
               {
                 title: 'Equipment Installation',
@@ -77,15 +77,15 @@ export default function ProductsPage() {
             ].map(({ title, desc, icon }) => (
               <div 
                 key={title} 
-                className="bg-white border border-slate-100 rounded-2xl p-8 group hover:-translate-y-1.5 hover:border-[#3AA874]/20 hover:shadow-[0_15px_30px_rgb(58,168,116,0.06)] transition-all duration-500 flex flex-col"
+                className="group flex flex-col items-center text-center py-3 sm:py-6 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 mb-5 group-hover:bg-[#3AA874] group-hover:text-white transition-all duration-500 shadow-sm border border-slate-100 group-hover:border-transparent">
+                <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-500 mb-4 sm:mb-6 group-hover:bg-[#3AA874] group-hover:text-white transition-all duration-500 border border-slate-200/60 group-hover:border-transparent">
                   {icon}
                 </div>
-                <h3 className="font-playfair font-semibold text-xl text-slate-900 mb-3 group-hover:text-[#3AA874] transition-colors duration-300">
+                <h3 className="font-playfair font-semibold text-xl text-slate-900 mb-2 sm:mb-3 group-hover:text-[#3AA874] transition-colors duration-300">
                   {title}
                 </h3>
-                <p className="font-dm-sans text-sm text-slate-500 font-normal leading-relaxed">
+                <p className="font-dm-sans text-sm text-slate-500 font-light leading-relaxed">
                   {desc}
                 </p>
               </div>

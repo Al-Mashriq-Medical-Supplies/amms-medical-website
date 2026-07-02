@@ -4,14 +4,15 @@ import { useRef, useMemo, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
-import ProductAccordionList from '@/components/ProductAccordionList'
+import { AnimatePresence, motion } from 'framer-motion'
+import ProductCardGrid from '@/components/ProductCardGrid'
 import { principals } from '@/lib/seo'
+import { cn } from '@/lib/utils'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function ProductCategoriesSection() {
   const container = useRef<HTMLElement>(null)
-  const [globalOpenProduct, setGlobalOpenProduct] = useState<string | null>(null)
 
   // Group all unique products from principals by their category, sorted alphabetically
   const groupedProducts = useMemo(() => {
@@ -37,19 +38,24 @@ export default function ProductCategoriesSection() {
     return Object.entries(grouped).sort((a, b) => a[0].localeCompare(b[0]))
   }, [])
 
-  const handleToggle = (productName: string) => {
-    setGlobalOpenProduct(prev => prev === productName ? null : productName)
-  }
+  const [activeCategory, setActiveCategory] = useState<string | null>(
+    () => groupedProducts[0]?.[0] || null
+  )
+
+  const activeProducts = useMemo(() => {
+    if (!activeCategory) return []
+    const match = groupedProducts.find(([cat]) => cat === activeCategory)
+    return match ? match[1] : []
+  }, [activeCategory, groupedProducts])
 
   useGSAP(() => {
-    gsap.fromTo('.prod-cat-section',
-      { y: 60, opacity: 0 },
+    gsap.fromTo('.prod-tabs-container',
+      { y: 40, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 1.2,
-        stagger: 0.15,
-        ease: 'power4.out',
+        duration: 1,
+        ease: 'power3.out',
         scrollTrigger: {
           trigger: '.prod-tabs-container',
           start: 'top 85%',
@@ -58,27 +64,83 @@ export default function ProductCategoriesSection() {
     )
   }, { scope: container })
 
+  const getTheme = (category?: string | null) => {
+    return { color: '#3aa874', bgLight: '#f0fdf4', textLight: '#15803d' }
+  }
+
+  const activeTheme = getTheme(activeCategory)
+
   return (
     <section ref={container} id="products" className="relative pb-12 md:pb-32 pt-2 md:pt-4 bg-[var(--color-background)] overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="prod-tabs-container space-y-12">
-          {groupedProducts.map(([category, products]) => (
-            <div key={category} id={category.toLowerCase().replace(/\s+/g, '-')} className="prod-cat-section opacity-0">
-              <div className="flex items-center gap-6 mb-8">
-                <h2 className="font-playfair text-4xl sm:text-5xl font-semibold text-[#16263F] tracking-tight">
-                  {category}
-                </h2>
-                <div className="h-[1px] flex-grow bg-gradient-to-r from-[#3AA874]/30 to-transparent"></div>
-              </div>
-              <ProductAccordionList 
-                products={products} 
-                openProductName={globalOpenProduct}
-                onToggle={handleToggle}
-              />
-            </div>
-          ))}
+      {/* Category Tabs */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-20">
+        <div className="grid grid-cols-2 md:flex md:flex-wrap md:items-center md:justify-center gap-2 sm:gap-3">
+          {groupedProducts.map(([category]) => {
+            const isActive = activeCategory === category
+            const theme = getTheme(category)
+            return (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                style={{
+                  backgroundColor: isActive ? theme.color : 'white',
+                  borderColor: isActive ? theme.color : '#e2e8f0',
+                  color: isActive ? 'white' : '#475569',
+                }}
+                className={cn(
+                  "px-3 py-2 sm:px-5 sm:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm font-medium transition-all duration-300 border cursor-pointer select-none text-center w-full md:w-auto flex items-center justify-center min-h-[44px] md:min-h-0 md:whitespace-nowrap leading-tight",
+                  isActive && "shadow-md scale-105"
+                )}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.borderColor = theme.color
+                    e.currentTarget.style.color = theme.color
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.borderColor = '#e2e8f0'
+                    e.currentTarget.style.color = '#475569'
+                  }
+                }}
+              >
+                {category}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="prod-tabs-container">
+          <AnimatePresence mode="wait">
+            {activeCategory && (
+              <motion.div
+                key={activeCategory}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+                className="prod-cat-section"
+              >
+                <div className="flex items-center gap-6 mb-8 sm:mb-10">
+                  <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#16263F] tracking-tight">
+                    {activeCategory}
+                  </h2>
+                  <div 
+                    style={{
+                      backgroundImage: `linear-gradient(to right, ${activeTheme.color}4c, transparent)`
+                    }}
+                    className="h-[1px] flex-grow"
+                  />
+                </div>
+                <ProductCardGrid products={activeProducts} />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>
   )
 }
+

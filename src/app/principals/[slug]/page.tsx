@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { principals } from "@/lib/seo";
-import ProductAccordionList from "@/components/ProductAccordionList";
+import ProductCardGrid from "@/components/ProductCardGrid";
 
 export async function generateStaticParams() {
   return principals.map((p) => ({
@@ -85,13 +85,14 @@ export default async function PrincipalPage({
           </div>
           <div className="hidden sm:block">
             <span className="px-4 py-2 bg-white border border-slate-200 rounded-full font-dm-sans text-sm text-slate-600 font-medium shadow-sm">
-              {principal.products.length} Categories
+              {principal.products.length} Products
             </span>
           </div>
         </div>
 
-        <ProductAccordionList products={principal.products} />
+        <ProductCardGrid products={principal.products} />
       </div>
     </div>
   );
 }
+
