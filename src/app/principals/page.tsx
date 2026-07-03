@@ -18,7 +18,7 @@ export default function PrincipalsPage() {
             <span className="w-full text-center font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.25em] block mb-4 font-semibold">
               Our Partners in Health Care
             </span>
-            <h1 className="w-full text-center font-playfair text-3xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-8 tracking-tight text-transparent bg-clip-text drop-shadow-md bg-gradient-to-r from-[#16263F] via-[#3AA874] to-[#3AA874]">
+            <h1 className="w-full text-center font-playfair text-3xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-8 tracking-tight whitespace-nowrap text-[#3AA874] drop-shadow-md">
               Trusted Global Principals
             </h1>
             <p className="w-full text-center font-dm-sans text-xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto">

@@ -16,7 +16,7 @@ export default function ProductsPage() {
             <span className="w-full text-center font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.25em] block mb-4 font-semibold">
               Products & Services
             </span>
-            <h1 className="w-full text-center font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-8 tracking-tight text-transparent bg-clip-text drop-shadow-md bg-gradient-to-r from-[#16263F] via-[#3AA874] to-[#3AA874]">
+            <h1 className="w-full text-center font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-8 tracking-tight text-[#3AA874] drop-shadow-md">
               Comprehensive medical solutions
             </h1>
             <p className="w-full text-center font-dm-sans text-lg sm:text-xl text-slate-500 font-light leading-snug sm:leading-relaxed max-w-2xl mx-auto">
@@ -39,7 +39,7 @@ export default function ProductsPage() {
             <span className="font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.25em] block mb-4 font-semibold">
               Beyond Equipment
             </span>
-            <h2 className="font-playfair text-4xl sm:text-5xl font-semibold leading-[1.1] mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#16263F] via-[#3AA874] to-[#3AA874] drop-shadow-sm">
+            <h2 className="font-playfair text-4xl sm:text-5xl font-semibold leading-[1.1] mb-6 tracking-tight text-[#3AA874] drop-shadow-sm">
               Complete Service Capabilities
             </h2>
           </div>

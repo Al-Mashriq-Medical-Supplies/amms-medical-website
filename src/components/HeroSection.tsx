@@ -145,10 +145,10 @@ export default function HeroSection() {
       <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-8 relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 justify-center pt-32 pb-16 lg:pt-28 lg:pb-10 h-full lg:min-h-[calc(100vh-6rem)]">
           {/* Left Text Column */}
-          <div className="lg:col-span-6 w-full xl:w-[110%] xl:-ml-4 flex flex-col justify-center lg:justify-start lg:pt-0">
-            <h1 className="hero-text-block font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight mb-5 lg:mb-6 text-white drop-shadow-md lg:text-transparent lg:bg-clip-text lg:bg-gradient-to-r lg:from-[#16263F] lg:via-[#3AA874] lg:to-[#3AA874]">
+          <div className="lg:col-span-6 w-full xl:w-[110%] xl:-ml-4 flex flex-col justify-center lg:justify-start lg:pt-8 xl:pt-12">
+            <h1 className="hero-text-block font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight mb-5 lg:mb-6 text-white drop-shadow-md lg:text-[#16263F]">
               Advanced <br />
-              <span className="inline-flex min-w-[8.8ch] items-baseline">
+              <span className="inline-flex min-w-[8.8ch] items-baseline lg:text-[#3AA874]">
                 <span>
                   {typedWord}
                 </span>
@@ -256,8 +256,8 @@ export default function HeroSection() {
           <div className="hidden lg:flex lg:col-span-6 relative aspect-[4/3] lg:h-[70vh] w-full mt-4 lg:mt-0 lg:pl-12 items-start pb-12 lg:pb-0">
             <div className="hero-image-wrapper relative w-full h-full overflow-hidden bg-[var(--color-muted)] lg:rounded-tl-[8rem] lg:rounded-br-[8rem] shadow-2xl lg:border-[10px] border-[var(--color-background)] ring-1 ring-slate-900/5">
               <Image
-                src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop"
-                alt="State-of-the-art medical equipment"
+                src="/hero-card.jpg"
+                alt="AMMS Reception"
                 fill
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 className="hero-image object-cover object-center"

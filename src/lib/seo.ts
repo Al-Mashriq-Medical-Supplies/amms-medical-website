@@ -102,7 +102,7 @@ export const principals: Principal[] = [
   {
     name: 'Fisher & Paykel Healthcare',
     slug: 'fisher-paykel',
-    logo: '/images/clients/fisher-paykel.png',
+    logo: '/images/clients/fisher-paykel-new.webp',
     description: 'World-leading respiratory humidification and acute care solutions.',
     products: [
       { name: 'Respiratory Humidifiers', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Advanced humidification technology for optimal respiratory support.' },
@@ -117,7 +117,7 @@ export const principals: Principal[] = [
   {
     name: 'Penlon',
     slug: 'penlon',
-    logo: '/images/clients/penlon.png',
+    logo: '/images/clients/penlon-new.png',
     description: 'Premium anesthesia delivery and airway management.',
     products: [
       { name: 'Anesthesia Machines', category: 'Anesthesia & Surgical Care', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'State-of-the-art workstations for precise anesthesia delivery.' },
@@ -133,7 +133,7 @@ export const principals: Principal[] = [
   {
     name: 'Breas',
     slug: 'breas',
-    logo: '/images/clients/breas.png',
+    logo: '/images/clients/breas.svg',
     description: 'Innovative ventilation and airway clearance solutions.',
     products: [
       { name: 'Bilevel Positive Airway Pressure Ventilators', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Advanced non-invasive ventilation for home and hospital.' },
@@ -144,7 +144,7 @@ export const principals: Principal[] = [
   {
     name: 'COSMED',
     slug: 'cosmed',
-    logo: '/images/clients/cosmed.png',
+    logo: '/images/clients/cosmed-new.png',
     description: 'Gold-standard metabolic testing and pulmonary function diagnostics.',
     products: [
       { name: 'Pulmonary Function Tests', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Comprehensive lung function assessment devices.' },
@@ -156,7 +156,7 @@ export const principals: Principal[] = [
   {
     name: 'Baxter',
     slug: 'baxter',
-    logo: '/images/clients/baxter.png',
+    logo: '/images/clients/baxter.svg',
     description: 'Advanced vision screening and ophthalmic diagnostic solutions.',
     products: [
       { name: 'Spot Vision Screener', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Fast, objective, and accurate vision screening device.' }
@@ -165,7 +165,7 @@ export const principals: Principal[] = [
   {
     name: 'Sefam',
     slug: 'sefam',
-    logo: '/images/clients/sefam.png',
+    logo: '/images/clients/sefam.webp',
     description: 'Comprehensive sleep apnea diagnosis and continuous positive airway pressure therapy.',
     products: [
       { name: 'Continuous Positive Airway Pressure Machines', category: 'Sleep Therapy & Homecare', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Reliable continuous positive airway pressure devices.' },
@@ -179,7 +179,7 @@ export const principals: Principal[] = [
   {
     name: 'Maxtec',
     slug: 'maxtec',
-    logo: '/images/clients/maxtec.png',
+    logo: '/images/clients/maxtec.svg',
     description: 'Precision oxygen analysis and flow measurement.',
     products: [
       { name: 'Oxygen Analyzers (15%–99%)', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Highly accurate devices for monitoring oxygen purity.' },
@@ -189,7 +189,7 @@ export const principals: Principal[] = [
   {
     name: 'idmed',
     slug: 'idmed',
-    logo: '/images/clients/idmed.png',
+    logo: '/images/clients/idmed-new.png',
     description: 'Ophthalmic diagnostic innovation.',
     products: [
       { name: 'Ophthalmic Diagnostic Devices', category: 'Diagnostics & Testing', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Innovative tools for detailed eye exams and monitoring.' }
@@ -198,7 +198,7 @@ export const principals: Principal[] = [
   {
     name: 'Bio-Med Devices',
     slug: 'bio-med',
-    logo: '/images/clients/bio-med.png',
+    logo: '/images/clients/bio-med.webp',
     description: 'Reliable air/oxygen blending and portable ventilation.',
     products: [
       { name: 'Air & Oxygen Blenders', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Precise gas mixing devices for critical care environments.' },
@@ -208,7 +208,7 @@ export const principals: Principal[] = [
   {
     name: 'Porter',
     slug: 'porter',
-    logo: '/images/clients/porter.png',
+    logo: '/images/clients/porter-new.png',
     description: 'The trusted name in nitrous oxide delivery systems.',
     products: [
       { name: 'Nitrous Oxide Systems — 50/50 Fixed', category: 'Pain Management', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Standardized pain management delivery systems.' },

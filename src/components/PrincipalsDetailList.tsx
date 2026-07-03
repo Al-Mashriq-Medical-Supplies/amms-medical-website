@@ -89,7 +89,11 @@ export default function PrincipalsDetailList() {
                         {principal.products.map((product) => (
                           <span
                             key={product.name}
+<<<<<<< HEAD
                             className="inline-flex items-center px-2.5 py-1 sm:px-4 sm:py-2 bg-slate-50 border border-slate-100 rounded-full font-dm-sans text-[9px] sm:text-xs text-slate-600 group-hover:border-[#3AA874]/20 group-hover:bg-[#3AA874]/[0.02] group-hover:text-slate-800 transition-all duration-500 shadow-sm group-hover:shadow"
+=======
+                            className="inline-flex items-center px-4 py-2 bg-[#3AA874]/[0.02] border border-[#3AA874]/20 rounded-full font-dm-sans text-xs text-slate-800 shadow transition-all duration-500"
+>>>>>>> 8caf3e2 (images added)
                           >
                             {product.name}
                           </span>

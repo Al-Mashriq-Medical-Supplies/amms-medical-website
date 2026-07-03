@@ -14,12 +14,12 @@ export const Component = () => {
       <div className="relative z-10 mx-auto h-full w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 pb-12 md:pt-8 md:pb-32">
         <div className="flex flex-col gap-12 lg:gap-16">
           {/* Top Text Content */}
-          <div className="flex w-full flex-col items-center text-center max-w-5xl mx-auto gap-8 lg:gap-12">
-            <div>
+          <div className="flex w-full flex-col items-center text-center max-w-6xl mx-auto gap-8 lg:gap-12">
+            <div className="w-full">
               <span className="mb-6 block text-[11px] font-medium uppercase tracking-[0.25em] text-[var(--color-brand)]">
-                About AMMS
+                About Al Mashriq Medical Supplies
               </span>
-              <h2 className="font-playfair text-[17px] sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-[1.6] sm:leading-[1.7] tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-[#16263F] to-slate-600 w-full max-w-4xl mx-auto mb-8 px-6 sm:px-10 md:px-16 text-left">
+              <h2 className="font-playfair text-[17px] sm:text-2xl md:text-3xl lg:text-4xl font-medium leading-[1.6] sm:leading-[1.7] tracking-wide text-[#16263F] w-full max-w-6xl mx-auto mb-8 px-2 sm:px-4 md:px-8 text-center text-balance">
                 For over 35 years, we have been the trusted regional partner, delivering innovative medical equipment and world-class healthcare solutions to advance patient care.
               </h2>
             </div>

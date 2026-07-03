@@ -36,7 +36,7 @@ export default function Footer() {
               <img
                 src="/images/logo/logo.png"
                 alt="Al Mashriq Medical Supplies Logo"
-                className="h-28 sm:h-32 w-auto object-contain brightness-0 opacity-80 -ml-2"
+                className="h-28 sm:h-32 w-auto object-contain -ml-2"
               />
             </Link>
             <p className="text-[13px] text-[var(--color-charcoal)]/80 font-normal leading-relaxed max-w-sm mb-6">

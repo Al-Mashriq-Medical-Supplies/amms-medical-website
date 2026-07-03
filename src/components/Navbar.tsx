@@ -77,18 +77,18 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center focus:outline-none"
+              className="flex items-center focus:outline-none -my-4 lg:-my-8 relative z-[60]"
               aria-label="Go to homepage"
             >
               <img
                 src={LOGO_URL}
                 alt="Al Mashriq Medical Supplies Logo"
-                className="h-9 lg:h-12 w-auto object-contain transition-all duration-300 scale-[1.5] lg:scale-[1.7] origin-left brightness-0 invert drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]"
+                className="h-16 lg:h-20 xl:h-28 w-auto object-contain transition-all duration-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] scale-125 lg:scale-125 xl:scale-150 origin-top-left"
               />
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-10">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-10">
               {navLinks.map((link) => {
                 const isActive =
                   pathname === link.href ||
@@ -97,7 +97,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative py-2 px-1 mx-2 text-[13px] font-dm-sans uppercase tracking-[0.1em] transition-all duration-300 group ${
+                    className={`relative py-2 px-1 mx-1 xl:mx-2 text-[12px] xl:text-[13px] font-dm-sans uppercase tracking-[0.1em] transition-all duration-300 group whitespace-nowrap ${
                       isActive
                         ? "text-white font-semibold"
                         : "text-white/70 hover:text-white"
@@ -123,19 +123,19 @@ export default function Navbar() {
             </div>
 
             {/* CTA */}
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-3 xl:gap-6 shrink-0">
               <a
                 href="tel:+97126277223"
-                className="flex items-center gap-2 text-sm font-dm-sans text-white/90 hover:text-white transition-all duration-300 hover:-translate-y-0.5 [text-shadow:0_2px_4px_rgba(0,0,0,0.4)]"
+                className="flex items-center gap-2 text-[13px] xl:text-sm font-dm-sans text-white/90 hover:text-white transition-all duration-300 hover:-translate-y-0.5 [text-shadow:0_2px_4px_rgba(0,0,0,0.4)] whitespace-nowrap"
               >
                 <Phone size={14} className="drop-shadow-md" />
                 +971 2 627 7223
               </a>
               <Link
                 href="/contact"
-                className="relative overflow-hidden rounded-full bg-white text-[var(--color-brand)] text-sm font-dm-sans font-bold px-7 py-3 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(255,255,255,0.3)] hover:-translate-y-1 group"
+                className="relative overflow-hidden rounded-full bg-white text-[var(--color-brand)] text-xs xl:text-sm font-dm-sans font-bold px-5 xl:px-7 py-2.5 xl:py-3 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(255,255,255,0.3)] hover:-translate-y-1 group whitespace-nowrap"
               >
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center gap-2 whitespace-nowrap">
                   Contact Us
                 </span>
                 <div className="absolute inset-0 bg-slate-100 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500" />
@@ -168,7 +168,7 @@ export default function Navbar() {
               <img
                 src={LOGO_URL}
                 alt="AMMS Logo"
-                className="h-14 w-auto object-contain scale-[1.5] origin-left ml-2 brightness-0 invert drop-shadow-md"
+                className="h-20 w-auto object-contain drop-shadow-md scale-125 origin-left translate-y-3"
               />
               <button
                 onClick={() => setMobileOpen(false)}
