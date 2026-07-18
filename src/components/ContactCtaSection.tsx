@@ -99,7 +99,7 @@ export default function ContactCtaSection() {
               </a>
               <a
                 href="tel:+97126277223"
-                className="group flex items-center justify-center gap-3 bg-[var(--color-navy)] text-white font-dm-sans font-medium px-6 py-4 rounded-xl transition-all duration-300 hover:bg-[#1a2b4b] hover:shadow-lg hover:-translate-y-1"
+                className="group flex items-center justify-center gap-3 bg-white text-[var(--color-brand)] font-dm-sans font-medium px-6 py-4 rounded-xl transition-all duration-300 hover:bg-gray-50 hover:shadow-lg hover:-translate-y-1"
               >
                 <Phone className="w-5 h-5" />
                 <span>Call Support</span>
@@ -207,7 +207,7 @@ export default function ContactCtaSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-4 flex h-14 w-full rounded-xl items-center justify-center gap-3 bg-[var(--color-navy)] text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-[#1a2b4b] hover:shadow-lg disabled:opacity-70 group"
+                className="mt-4 flex h-14 w-full rounded-xl items-center justify-center gap-3 bg-[var(--color-brand)] text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-[var(--color-brand-dark)] hover:shadow-lg disabled:opacity-70 group"
               >
                 {isSubmitting ? (
                   <>

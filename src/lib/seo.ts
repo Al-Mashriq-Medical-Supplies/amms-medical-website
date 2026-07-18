@@ -77,7 +77,7 @@ export const siteConfig = {
     'COSMED spirometry UAE',
   ],
   ogImage:
-    'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200&auto=format&fit=crop',
+    '/images/logo/logo.png',
 }
 
 export const productCategories = [
@@ -111,7 +111,8 @@ export const principals: Principal[] = [
       { name: 'Bubble Continuous Positive Airway Pressure Systems', category: 'Neonatal & Infant Care', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop', brief: 'Gentle, effective continuous positive airway pressure for infants.' },
       { name: 'Full Face & Nasal Masks', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Comfortable and secure masks for hospital and homecare therapy.' },
       { name: 'Infant Resuscitators (Neopuff)', category: 'Neonatal & Infant Care', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Reliable, safe manual resuscitation systems for neonatal care.' },
-      { name: 'Hospital & Home Masks', category: 'Sleep Therapy & Homecare', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'A wide range of patient interfaces for continuous positive airway pressure and ventilation.' }
+      { name: 'Hospital & Home Masks', category: 'Sleep Therapy & Homecare', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'A wide range of patient interfaces for continuous positive airway pressure and ventilation.' },
+      { name: 'Optiflow THRIVE', category: 'Anesthesia & Surgical Care', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Advanced high-flow nasal oxygen therapy for anesthesia and pre-oxygenation.' }
     ],
   },
   {
@@ -125,6 +126,7 @@ export const principals: Principal[] = [
       { name: 'Regulators', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'High-performance gas regulators for hospital pipelines and cylinders.' },
       { name: 'Bacteria Filters', category: 'Respiratory & Airway Management', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop', brief: 'Essential filtration to prevent cross-contamination in breathing systems.' },
       { name: 'Laryngoscopes', category: 'Anesthesia & Surgical Care', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Premium airway visualization tools for safe intubation.' },
+      { name: 'Endoscopy Systems', category: 'Anesthesia & Surgical Care', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop', brief: 'Advanced visualization for minimally invasive surgical procedures.' },
       { name: 'Suction Machines', category: 'Medical Gases & Suction', image: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?q=80&w=600&auto=format&fit=crop', brief: 'Powerful and reliable vacuum systems for clinical use.' },
       { name: 'Infusion Pumps', category: 'Infusion Therapy', image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop', brief: 'Precise intravenous fluid and medication delivery devices.' },
       { name: 'Syringe Pumps', category: 'Infusion Therapy', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop', brief: 'Accurate, low-volume continuous infusion systems.' }

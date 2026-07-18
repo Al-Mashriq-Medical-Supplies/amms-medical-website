@@ -43,23 +43,24 @@ export default function ClientsMarquee() {
           </h2>
         </div>
 
-        <div className="relative mt-8 md:mt-12 h-[80px] sm:h-[100px] md:h-[140px] w-full">
+        <div className="relative mt-8 md:mt-12 h-[80px] sm:h-[100px] md:h-[120px] w-full">
           <InfiniteSlider
             className="flex h-full w-full items-center"
             duration={45}
-            gap={80}
+            gap={64}
           >
             {principals.map((principal, index) => (
               <div
                 key={`${principal.slug}-${index}`}
-                className="w-32 sm:w-48 md:w-64 flex items-center justify-center transition-all duration-500 cursor-pointer h-[40px] sm:h-[60px] md:h-[90px]"
+                className="group flex items-center justify-center w-32 md:w-44 h-16 md:h-20 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-all duration-300 shadow-sm relative overflow-hidden cursor-pointer"
               >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#3AA874]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <Image
                   src={principal.logo}
                   alt={`${principal.name} logo`}
-                  width={240}
-                  height={100}
-                  className="object-contain h-full w-auto transition-all duration-500"
+                  width={176}
+                  height={80}
+                  className="w-full h-full object-contain object-center opacity-70 group-hover:opacity-100 transition-all duration-500 mix-blend-multiply relative z-10 scale-100 group-hover:scale-110 p-3 md:p-5"
                 />
               </div>
             ))}

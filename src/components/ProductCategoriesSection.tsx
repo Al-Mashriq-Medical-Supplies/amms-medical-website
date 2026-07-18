@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import ProductCardGrid from '@/components/ProductCardGrid'
 import { principals, Principal, Product } from '@/lib/seo'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -71,40 +72,47 @@ export default function ProductCategoriesSection() {
   const activeTheme = getTheme()
 
   return (
-    <section ref={container} id="products" className="relative pb-12 md:pb-32 pt-2 md:pt-4 bg-[var(--color-background)] overflow-hidden">
+    <section ref={container} id="products" className="relative pb-4 md:pb-8 pt-2 md:pt-4 bg-[var(--color-background)] overflow-hidden">
       {/* Category Tabs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-20">
-        <div className="grid grid-cols-2 md:flex md:flex-wrap md:items-center md:justify-center gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
           {groupedProducts.map(([category]) => {
             const isActive = activeCategory === category
-            const theme = getTheme()
             return (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                style={{
-                  backgroundColor: isActive ? theme.color : 'white',
-                  borderColor: isActive ? theme.color : '#e2e8f0',
-                  color: isActive ? 'white' : '#475569',
-                }}
                 className={cn(
-                  "px-3 py-2 sm:px-5 sm:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm font-medium transition-all duration-300 border cursor-pointer select-none text-center w-full md:w-auto flex items-center justify-center min-h-[44px] md:min-h-0 md:whitespace-nowrap leading-tight",
-                  isActive && "shadow-md scale-105"
+                  "group relative w-full aspect-[4/3] sm:aspect-video lg:aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer transition-all duration-500",
+                  isActive ? "ring-2 ring-[var(--color-brand)] shadow-[0_8px_30px_rgba(58,168,116,0.3)] scale-[1.02]" : "ring-1 ring-slate-200 hover:shadow-lg"
                 )}
-                onMouseEnter={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.borderColor = theme.color
-                    e.currentTarget.style.color = theme.color
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.borderColor = '#e2e8f0'
-                    e.currentTarget.style.color = '#475569'
-                  }
-                }}
               >
-                {category}
+                {/* Background Image */}
+                <Image
+                  src={`/images/products/${category}.png`}
+                  alt={category}
+                  fill
+                  className={cn(
+                    "object-cover transition-transform duration-700",
+                    isActive ? "scale-105" : "group-hover:scale-110"
+                  )}
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
+                
+                {/* Overlay */}
+                <div className={cn(
+                  "absolute inset-0 transition-colors duration-500",
+                  isActive 
+                    ? "bg-gradient-to-t from-[var(--color-brand-dark)]/90 via-[var(--color-brand)]/40 to-transparent" 
+                    : "bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-[var(--color-brand-dark)]/80"
+                )} />
+
+                {/* Text */}
+                <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-end text-left z-10">
+                  <span className="font-playfair font-semibold text-white text-base sm:text-lg lg:text-xl leading-tight drop-shadow-md transition-transform duration-300 group-hover:translate-x-1">
+                    {category}
+                  </span>
+                </div>
               </button>
             )
           })}

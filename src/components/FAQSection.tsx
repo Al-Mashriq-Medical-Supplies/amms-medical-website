@@ -81,7 +81,7 @@ export default function FAQSection() {
   }
 
   return (
-    <section ref={container} className="pb-10 md:pb-32 pt-0 bg-[var(--color-background)]">
+    <section ref={container} className="pb-4 md:pb-8 pt-0 bg-[var(--color-background)]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="faq-header opacity-0 text-center mb-8 sm:mb-16">

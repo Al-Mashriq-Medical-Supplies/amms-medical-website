@@ -1,32 +1,32 @@
-'use client'
+"use client";
 
-import { motion, Variants } from 'framer-motion'
-import { siteConfig } from '@/lib/seo'
+import { motion, Variants } from "framer-motion";
+import { siteConfig } from "@/lib/seo";
 
 type Product = {
-  name: string
-  image?: string
-  brief: string
-  category?: string
-}
+  name: string;
+  image?: string;
+  brief: string;
+  category?: string;
+};
 
 function hexToRgb(hex: string) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result 
+  return result
     ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
-    : '58, 168, 116';
+    : "58, 168, 116";
 }
 
 const getTheme = () => {
-  return { color: '#3aa874', bgLight: '#f0fdf4', textLight: '#15803d' }
-}
+  return { color: "#3aa874", bgLight: "#f0fdf4", textLight: "#15803d" };
+};
 
 export default function ProductCardGrid({ products }: { products: Product[] }) {
   const getWhatsAppUrl = (productName: string) => {
-    const number = siteConfig.whatsapp.replace(/[^0-9]/g, '')
-    const message = `Hello Al Mashriq Medical Supplies,\n\nI would like to inquire about the *${productName}*.\n\nCould you please provide more information?`
-    return `https://wa.me/${number}?text=${encodeURIComponent(message)}`
-  }
+    const number = siteConfig.whatsapp.replace(/[^0-9]/g, "");
+    const message = `Hello Al Mashriq Medical Supplies,\n\nI would like to inquire about the *${productName}*.\n\nCould you please provide more information?`;
+    return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  };
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -36,12 +36,16 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
         staggerChildren: 0.08,
       },
     },
-  }
+  };
 
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } },
-  }
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 },
+    },
+  };
 
   return (
     <motion.div
@@ -51,27 +55,35 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
     >
       {products.map((product) => {
-        const theme = getTheme()
+        const theme = getTheme();
         return (
           <motion.div
             key={product.name}
             variants={itemVariants}
             className="group bg-white rounded-[16px] sm:rounded-[24px] border border-slate-100 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col h-full relative"
             onMouseEnter={(e) => {
-              const line = e.currentTarget.querySelector('.hover-line') as HTMLElement
-              if (line) line.style.backgroundColor = theme.color
-              e.currentTarget.style.boxShadow = `0 16px 35px rgba(${hexToRgb(theme.color)}, 0.08)`
-              
-              const title = e.currentTarget.querySelector('.product-title') as HTMLElement
-              if (title) title.style.color = theme.color
+              const line = e.currentTarget.querySelector(
+                ".hover-line",
+              ) as HTMLElement;
+              if (line) line.style.backgroundColor = theme.color;
+              e.currentTarget.style.boxShadow = `0 16px 35px rgba(${hexToRgb(theme.color)}, 0.08)`;
+
+              const title = e.currentTarget.querySelector(
+                ".product-title",
+              ) as HTMLElement;
+              if (title) title.style.color = theme.color;
             }}
             onMouseLeave={(e) => {
-              const line = e.currentTarget.querySelector('.hover-line') as HTMLElement
-              if (line) line.style.backgroundColor = 'transparent'
-              e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.02)'
-              
-              const title = e.currentTarget.querySelector('.product-title') as HTMLElement
-              if (title) title.style.color = '#1e293b' // slate-900
+              const line = e.currentTarget.querySelector(
+                ".hover-line",
+              ) as HTMLElement;
+              if (line) line.style.backgroundColor = "transparent";
+              e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.02)";
+
+              const title = e.currentTarget.querySelector(
+                ".product-title",
+              ) as HTMLElement;
+              if (title) title.style.color = "#1e293b"; // slate-900
             }}
           >
             {/* Accent border on top of card on hover */}
@@ -79,7 +91,6 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
 
             {/* Card Content */}
             <div className="p-5 sm:p-8 flex flex-col flex-grow">
-              
               {/* Product Name */}
               <h3 className="product-title font-playfair text-base sm:text-lg lg:text-xl font-semibold text-slate-900 transition-colors duration-300 mb-2">
                 {product.name}
@@ -101,12 +112,12 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
                 }}
                 className="inline-flex items-center justify-center w-full text-center text-xs sm:text-sm font-semibold px-4 py-2.5 sm:px-6 sm:py-3 rounded-full transition-all duration-300 group/btn border border-transparent shadow-sm hover:shadow-md active:scale-95"
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = theme.color
-                  e.currentTarget.style.color = '#ffffff'
+                  e.currentTarget.style.backgroundColor = theme.color;
+                  e.currentTarget.style.color = "#ffffff";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = theme.bgLight
-                  e.currentTarget.style.color = theme.color
+                  e.currentTarget.style.backgroundColor = theme.bgLight;
+                  e.currentTarget.style.color = theme.color;
                 }}
               >
                 <span>Enquire Now</span>
@@ -116,13 +127,18 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
                 </svg>
               </a>
             </div>
           </motion.div>
-        )
+        );
       })}
     </motion.div>
-  )
+  );
 }
