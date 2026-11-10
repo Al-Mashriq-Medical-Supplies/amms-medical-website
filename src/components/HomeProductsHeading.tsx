@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useMemo } from 'react'
-import { principals } from '@/lib/seo'
+import { principals, categoryHref } from '@/lib/seo'
 
 export default function HomeProductsHeading() {
   const categories = useMemo(() => {
@@ -38,7 +38,7 @@ export default function HomeProductsHeading() {
             return (
               <Link 
                 key={category} 
-                href={`/products#${category.toLowerCase().replace(/\s+/g, '-')}`}
+                href={categoryHref(category)}
                 className="group relative rounded-2xl p-[1px] overflow-hidden hover:-translate-y-1 shadow-sm hover:shadow-md transition-all duration-500 flex items-center justify-center text-center h-32 sm:h-40"
               >
                 {/* Running Light Border */}
@@ -71,11 +71,11 @@ export default function HomeProductsHeading() {
 
         <div className="flex justify-center">
           <Link
-            href="/products"
+            href="/services"
             className="group flex w-fit cursor-pointer items-center justify-center gap-0 font-normal"
           >
             <span className="bg-[#3AA874]/10 px-8 py-4 text-sm text-[#16263F] duration-500 ease-in-out group-hover:bg-[#16263F] group-hover:text-white">
-              Explore All Products
+              Explore All Services
             </span>
             <div className="relative flex h-fit items-center overflow-hidden bg-[#3AA874]/10 p-[16px] text-[#16263F] duration-500 ease-in-out group-hover:bg-[#16263F] group-hover:text-white">
               <ArrowUpRight className="absolute h-5 w-5 -translate-x-1/2 transition-all duration-500 ease-in-out group-hover:translate-x-10" />

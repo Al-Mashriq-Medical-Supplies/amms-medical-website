@@ -89,7 +89,7 @@ export default function ContactCtaSection() {
 
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <a
-                href="https://wa.me/97126277223"
+                href="https://wa.me/971558693930"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-3 bg-white text-[var(--color-brand)] font-dm-sans font-medium px-6 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"

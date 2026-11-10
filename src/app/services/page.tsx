@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import ProductCategoriesSection from '@/components/ProductCategoriesSection'
 
 export const metadata: Metadata = {
-  title: 'Products & Services',
-  description: 'Explore AMMS comprehensive medical equipment portfolio — ICU, CCU, NICU, respiratory care, anesthesia, operation theatre, diagnostics, rehabilitation, and homecare products.',
+  title: 'Our Services',
+  description: 'Explore AMMS medical equipment and services — ICU, CCU, NICU, respiratory care, anesthesia, operation theatre, diagnostics, rehabilitation, and homecare products.',
 }
 
-export default function ProductsPage() {
+export default function ServicesPage() {
   return (
     <>
       {/* Hero Banner */}
@@ -14,13 +14,13 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
             <span className="w-full text-center font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.25em] block mb-4 font-semibold">
-              Products & Services
+              Our Services
             </span>
             <h1 className="w-full text-center font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-8 tracking-tight text-[#3AA874] drop-shadow-md">
               Comprehensive medical solutions
             </h1>
             <p className="w-full text-center font-dm-sans text-lg sm:text-xl text-slate-500 font-light leading-snug sm:leading-relaxed max-w-2xl mx-auto">
-              We offer a focused range of medical equipment through our global principals covering
+              We offer a focused range of medical equipment through our global partners covering
               critical care, respiratory therapy, anesthesia, diagnostics, rehabilitation, and homecare.
             </p>
           </div>

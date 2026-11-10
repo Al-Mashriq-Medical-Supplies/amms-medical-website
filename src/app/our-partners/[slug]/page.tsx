@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { principals, Principal } from "@/lib/seo";
+import { principals, Principal, slugify } from "@/lib/seo";
 import ProductCardGrid from "@/components/ProductCardGrid";
+import HashHighlighter from "@/components/HashHighlighter";
 
 export async function generateStaticParams() {
   return principals.map((p: Principal) => ({
@@ -10,7 +12,23 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PrincipalPage({
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const principal = principals.find((p: Principal) => p.slug === slug);
+  if (!principal) return {};
+  return {
+    title: principal.name,
+    description: `${principal.description} AMMS is the UAE partner for ${principal.name}: ${principal.products
+      .map((product) => product.name)
+      .join(", ")}.`,
+  };
+}
+
+export default async function PartnerPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -24,12 +42,13 @@ export default async function PrincipalPage({
 
   return (
     <div className="min-h-screen bg-[var(--color-background)] pt-20 sm:pt-24 pb-12 sm:pb-32">
+      <HashHighlighter />
       {/* Hero Section */}
       <div className="bg-white border-b border-slate-200 py-8 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-4 sm:mb-6">
             <Link
-              href="/principals"
+              href="/our-partners"
               className="inline-flex items-center text-xs sm:text-sm font-dm-sans text-slate-500 hover:text-[#3AA874] transition-colors"
             >
               <svg
@@ -45,7 +64,7 @@ export default async function PrincipalPage({
                   d="M10 19l-7-7m0 0l7-7m-7 7h18"
                 />
               </svg>
-              Back to Principals
+              Back to Our Partners
             </Link>
           </div>
 
@@ -76,7 +95,7 @@ export default async function PrincipalPage({
         <div className="flex items-center justify-between mb-6 sm:mb-12">
           <div>
             <span className="font-dm-sans text-xs sm:text-sm text-[#3AA874] uppercase tracking-[0.2em] block mb-1 sm:mb-2 font-semibold">
-              Product Portfolio
+              Our Services
             </span>
             <h2 className="font-playfair text-xl sm:text-3xl text-slate-900">
               Medical{" "}
@@ -85,12 +104,17 @@ export default async function PrincipalPage({
           </div>
           <div className="hidden sm:block">
             <span className="px-4 py-2 bg-white border border-slate-200 rounded-full font-dm-sans text-sm text-slate-600 font-medium shadow-sm">
-              {principal.products.length} Products
+              {principal.products.length} {principal.products.length === 1 ? "Solution" : "Solutions"}
             </span>
           </div>
         </div>
 
-        <ProductCardGrid products={principal.products} />
+        <ProductCardGrid
+          products={principal.products.map((product) => ({
+            ...product,
+            anchorId: slugify(product.name),
+          }))}
+        />
       </div>
     </div>
   );

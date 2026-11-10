@@ -1,13 +1,20 @@
 "use client";
 
+import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { siteConfig } from "@/lib/seo";
 
-type Product = {
+export type ProductCardItem = {
   name: string;
   image?: string;
   brief: string;
   category?: string;
+  /** Where clicking the card goes (e.g. the item on its partner page) */
+  href?: string;
+  /** Shown under the title, e.g. "Fisher & Paykel Healthcare" */
+  partnerName?: string;
+  /** DOM id so other pages can link straight to this card */
+  anchorId?: string;
 };
 
 function hexToRgb(hex: string) {
@@ -21,7 +28,7 @@ const getTheme = () => {
   return { color: "#3aa874", bgLight: "#f0fdf4", textLight: "#15803d" };
 };
 
-export default function ProductCardGrid({ products }: { products: Product[] }) {
+export default function ProductCardGrid({ products }: { products: ProductCardItem[] }) {
   const getWhatsAppUrl = (productName: string) => {
     const number = siteConfig.whatsapp.replace(/[^0-9]/g, "");
     const message = `Hello Al Mashriq Medical Supplies,\n\nI would like to inquire about the *${productName}*.\n\nCould you please provide more information?`;
@@ -58,9 +65,10 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
         const theme = getTheme();
         return (
           <motion.div
-            key={product.name}
+            key={`${product.partnerName ?? ""}-${product.name}`}
+            id={product.anchorId}
             variants={itemVariants}
-            className="group bg-white rounded-[16px] sm:rounded-[24px] border border-slate-100 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col h-full relative"
+            className="group bg-white rounded-[16px] sm:rounded-[24px] border border-slate-100 overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col h-full relative scroll-mt-32"
             onMouseEnter={(e) => {
               const line = e.currentTarget.querySelector(
                 ".hover-line",
@@ -86,6 +94,15 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
               if (title) title.style.color = "#1e293b"; // slate-900
             }}
           >
+            {/* Whole card links to the product on its partner page (when href is set) */}
+            {product.href && (
+              <Link
+                href={product.href}
+                className="absolute inset-0 z-[1]"
+                aria-label={`View ${product.name}${product.partnerName ? ` by ${product.partnerName}` : ""}`}
+              />
+            )}
+
             {/* Accent border on top of card on hover */}
             <div className="hover-line absolute top-0 inset-x-0 h-[4px] bg-transparent transition-all duration-300" />
 
@@ -96,12 +113,18 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
                 {product.name}
               </h3>
 
+              {product.partnerName && (
+                <span className="font-dm-sans text-[11px] sm:text-xs uppercase tracking-[0.15em] text-[#3AA874] font-semibold mb-3">
+                  {product.partnerName}
+                </span>
+              )}
+
               {/* Product Description */}
               <p className="font-dm-sans text-slate-500 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 flex-grow line-clamp-3 sm:line-clamp-4">
                 {product.brief}
               </p>
 
-              {/* Enquire Button */}
+              {/* Enquire Button (sits above the card link) */}
               <a
                 href={getWhatsAppUrl(product.name)}
                 target="_blank"
@@ -110,7 +133,7 @@ export default function ProductCardGrid({ products }: { products: Product[] }) {
                   backgroundColor: theme.bgLight,
                   color: theme.color,
                 }}
-                className="inline-flex items-center justify-center w-full text-center text-xs sm:text-sm font-semibold px-4 py-2.5 sm:px-6 sm:py-3 rounded-full transition-all duration-300 group/btn border border-transparent shadow-sm hover:shadow-md active:scale-95"
+                className="relative z-[2] inline-flex items-center justify-center w-full text-center text-xs sm:text-sm font-semibold px-4 py-2.5 sm:px-6 sm:py-3 rounded-full transition-all duration-300 group/btn border border-transparent shadow-sm hover:shadow-md active:scale-95"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = theme.color;
                   e.currentTarget.style.color = "#ffffff";

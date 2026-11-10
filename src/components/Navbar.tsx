@@ -6,14 +6,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { siteConfig } from "@/lib/seo";
 
 const LOGO_URL = "/images/logo/logo.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Products", href: "/products" },
-  { label: "Principals", href: "/principals" },
+  { label: "Our Partners", href: "/our-partners" },
+  { label: "Services", href: "/services" },
 ];
 
 export default function Navbar() {
@@ -25,8 +26,11 @@ export default function Navbar() {
 
   useEffect(() => {
     lastScrollY.current = window.scrollY;
-    setIsScrolled(window.scrollY > 10);
-    setIsVisible(true);
+    // sync initial state on the next frame (e.g. when the page loads already scrolled)
+    const raf = window.requestAnimationFrame(() => {
+      setIsScrolled(window.scrollY > 10);
+      setIsVisible(true);
+    });
 
     const HIDE_THRESHOLD = 80; // min px scrolled down before hiding
 
@@ -47,7 +51,10 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -55,100 +62,86 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
+  const isActive = (href: string) =>
+    pathname === href || (href !== "/" && pathname.startsWith(href));
+
   return (
     <>
       <header
-        style={{
-          transform: "perspective(1200px) rotateX(2deg)",
-          transformOrigin: "top center",
-        }}
-        className={`fixed z-50 transition-all duration-500 ease-out left-1/2 -translate-x-1/2 w-[93%] max-w-[1600px] top-4 lg:top-6 rounded-[2rem] border ${
-          isVisible
-            ? "translate-y-0 opacity-100"
-            : "-translate-y-[150%] opacity-0"
+        className={`fixed z-50 left-1/2 -translate-x-1/2 top-3 sm:top-4 lg:top-5 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] lg:w-[93%] max-w-[1600px] rounded-full border border-white/20 bg-[var(--color-brand)] text-white transition-all duration-500 ease-out ${
+          isVisible ? "translate-y-0 opacity-100" : "-translate-y-[150%] opacity-0"
         } ${
           isScrolled
-            ? "bg-[var(--color-brand)] backdrop-blur-none border-white/20 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] py-1 lg:py-1.5 text-white hover:bg-[var(--color-brand-dark)] hover:-translate-y-1"
-            : "bg-[var(--color-brand)] backdrop-blur-none border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.3)] py-1 lg:py-1.5 text-white hover:bg-[var(--color-brand-dark)]"
+            ? "shadow-[0_18px_40px_-14px_rgba(0,0,0,0.45)]"
+            : "shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)]"
         }`}
       >
-        <nav className="w-full mx-auto px-5 sm:px-8 lg:px-10">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link
-              href="/"
-              className="flex items-center focus:outline-none -my-4 lg:-my-8 relative z-[60]"
-              aria-label="Go to homepage"
+        {/* Three columns: logo | links (always centred) | actions */}
+        <nav className="grid grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr] items-center h-16 lg:h-20 px-3 sm:px-4 lg:px-3">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="justify-self-start flex items-center h-full pl-1 sm:pl-2 lg:pl-5 focus:outline-none"
+            aria-label="Go to homepage"
+          >
+            <img
+              src={LOGO_URL}
+              alt="Al Mashriq Medical Supplies Logo"
+              className="h-14 lg:h-[72px] w-auto object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.3)]"
+            />
+          </Link>
+
+          {/* Desktop links */}
+          <div className="hidden lg:flex items-center gap-8 xl:gap-11">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative py-2 text-[13px] font-dm-sans uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300 group ${
+                    active ? "text-white font-semibold" : "text-white/75 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                  {active ? (
+                    <motion.span
+                      layoutId="navIndicator"
+                      className="absolute -bottom-0.5 left-0 right-0 h-[2px] rounded-full bg-white"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  ) : (
+                    <span className="absolute -bottom-0.5 left-0 h-[2px] w-0 rounded-full bg-white/60 transition-all duration-300 ease-out group-hover:w-full" />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Right side */}
+          <div className="justify-self-end flex items-center gap-5 xl:gap-6">
+            <a
+              href={`tel:${siteConfig.phone}`}
+              className="hidden xl:flex items-center gap-2 text-[13px] font-dm-sans text-white/85 hover:text-white transition-colors whitespace-nowrap"
             >
-              <img
-                src={LOGO_URL}
-                alt="Al Mashriq Medical Supplies Logo"
-                className="h-16 lg:h-20 xl:h-28 w-auto object-contain transition-all duration-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] scale-125 lg:scale-125 xl:scale-150 origin-top-left"
-              />
+              <Phone size={14} />
+              {siteConfig.displayPhone}
+            </a>
+            <Link
+              href="/contact"
+              className="hidden lg:inline-flex h-11 items-center rounded-full bg-white px-6 text-[13px] font-dm-sans font-bold text-[var(--color-brand)] shadow-sm transition-all duration-300 hover:bg-slate-100 hover:shadow-md whitespace-nowrap"
+            >
+              Contact Us
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-4 xl:gap-10">
-              {navLinks.map((link) => {
-                const isActive =
-                  pathname === link.href ||
-                  (link.href !== "/" && pathname.startsWith(link.href));
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`relative py-2 px-1 mx-1 xl:mx-2 text-[12px] xl:text-[13px] font-dm-sans uppercase tracking-[0.1em] transition-all duration-300 group whitespace-nowrap ${
-                      isActive
-                        ? "text-white font-semibold"
-                        : "text-white/70 hover:text-white"
-                    }`}
-                  >
-                    {link.label}
-                    {isActive ? (
-                      <motion.div
-                        layoutId="navIndicator"
-                        className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-white"
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 30,
-                        }}
-                      />
-                    ) : (
-                      <span className="absolute bottom-0 left-0 w-0 h-[1.5px] group-hover:w-full transition-all duration-300 ease-out bg-white/50" />
-                    )}
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* CTA */}
-            <div className="hidden lg:flex items-center gap-3 xl:gap-6 shrink-0">
-              <a
-                href="tel:+97126277223"
-                className="flex items-center gap-2 text-[13px] xl:text-sm font-dm-sans text-white/90 hover:text-white transition-all duration-300 hover:-translate-y-0.5 [text-shadow:0_2px_4px_rgba(0,0,0,0.4)] whitespace-nowrap"
-              >
-                <Phone size={14} className="drop-shadow-md" />
-                +971 2 627 7223
-              </a>
-              <Link
-                href="/contact"
-                className="relative overflow-hidden rounded-full bg-white text-[var(--color-brand)] text-xs xl:text-sm font-dm-sans font-bold px-5 xl:px-7 py-2.5 xl:py-3 transition-all duration-500 hover:shadow-[0_10px_40px_rgba(255,255,255,0.3)] hover:-translate-y-1 group whitespace-nowrap"
-              >
-                <span className="relative z-10 flex items-center gap-2 whitespace-nowrap">
-                  Contact Us
-                </span>
-                <div className="absolute inset-0 bg-slate-100 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500" />
-              </Link>
-            </div>
-
-            {/* Mobile Toggle */}
+            {/* Mobile toggle */}
             <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 focus:outline-none text-white drop-shadow-md hover:scale-110 transition-transform"
-              aria-label="Toggle menu"
+              onClick={() => setMobileOpen(true)}
+              className="lg:hidden flex h-11 w-11 items-center justify-center rounded-full text-white hover:bg-white/10 transition-colors focus:outline-none"
+              aria-label="Open menu"
+              aria-expanded={mobileOpen}
             >
-              <Menu size={24} strokeWidth={1.5} />
+              <Menu size={24} strokeWidth={1.75} />
             </button>
           </div>
         </nav>
@@ -164,63 +157,55 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[60] bg-[var(--color-brand)] flex flex-col"
           >
-            <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-[var(--color-charcoal)]/20">
+            {/* Same size/position as the navbar so the logo and button don't jump */}
+            <div className="mx-3 sm:mx-4 mt-3 sm:mt-4 flex h-16 items-center justify-between pl-4 pr-3 sm:pl-6 sm:pr-4 border-b border-white/20">
               <img
                 src={LOGO_URL}
                 alt="AMMS Logo"
-                className="h-20 w-auto object-contain drop-shadow-md scale-125 origin-left translate-y-3"
+                className="h-14 w-auto object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.3)]"
               />
               <button
                 onClick={() => setMobileOpen(false)}
-                className="p-2 text-white focus:outline-none"
+                className="flex h-11 w-11 items-center justify-center rounded-full text-white hover:bg-white/10 transition-colors focus:outline-none"
+                aria-label="Close menu"
               >
-                <X size={24} strokeWidth={1.5} />
+                <X size={24} strokeWidth={1.75} />
               </button>
             </div>
 
-            <div className="flex-1 flex flex-col justify-start pt-16 px-10 gap-8 overflow-y-auto">
-              {navLinks.map((link, i) => {
-                const isActive =
-                  pathname === link.href ||
-                  (link.href !== "/" && pathname.startsWith(link.href));
-                return (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: i * 0.06 + 0.1,
-                      ease: [0.23, 1, 0.32, 1],
-                    }}
+            <div className="flex-1 flex flex-col justify-start gap-7 px-8 sm:px-10 pt-12 overflow-y-auto">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 + 0.1, ease: [0.23, 1, 0.32, 1] }}
+                >
+                  <Link
+                    href={link.href}
+                    className={`block text-3xl font-playfair transition-colors ${
+                      isActive(link.href) ? "text-white font-medium" : "text-white/70 font-light hover:text-white"
+                    }`}
                   >
-                    <Link
-                      href={link.href}
-                      className={`block text-3xl font-playfair font-light transition-colors ${
-                        isActive
-                          ? "text-white font-medium"
-                          : "text-white/70 hover:text-white"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                );
-              })}
+                    {link.label}
+                  </Link>
+                </motion.div>
+              ))}
             </div>
 
-            <div className="p-8 pb-12 border-t border-white/20 bg-[var(--color-brand-dark)] flex flex-col items-center">
+            <div className="px-8 pt-8 pb-10 border-t border-white/20 bg-[var(--color-brand-dark)] flex flex-col items-center gap-5">
               <Link
                 href="/contact"
-                className="block w-full rounded-full bg-white text-[var(--color-brand)] font-dm-sans font-bold py-4 text-center text-base mb-6 hover:bg-slate-100 transition-colors shadow-[0_8px_30px_rgba(255,255,255,0.25)]"
+                className="block w-full rounded-full bg-white text-[var(--color-brand)] font-dm-sans font-bold py-4 text-center text-base hover:bg-slate-100 transition-colors shadow-[0_8px_30px_rgba(255,255,255,0.25)]"
               >
                 Contact Us
               </Link>
               <a
-                href="tel:+97126277223"
-                className="flex items-center justify-center gap-2 text-white/70 font-dm-sans text-sm font-medium hover:text-white transition-colors"
+                href={`tel:${siteConfig.phone}`}
+                className="flex items-center justify-center gap-2 text-white/80 font-dm-sans text-sm font-medium hover:text-white transition-colors"
               >
                 <Phone size={16} />
-                +971 2 627 7223
+                {siteConfig.displayPhone}
               </a>
             </div>
           </motion.div>

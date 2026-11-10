@@ -22,8 +22,8 @@ const faqs = [
     answer: 'Yes. Our factory-trained biomedical engineering team provides expert equipment installation, comprehensive customer training programs, and on-site technical support. We offer turnkey solutions from consultation and site planning to commissioning and clinical staff training.',
   },
   {
-    question: 'Who are your principal manufacturers?',
-    answer: 'We are the authorized distributor for Fisher & Paykel Healthcare, Penlon, Breas, COSMED, Baxter, Sefam, Maxtec, idmed, Bio-Med Devices, and Porter. All our principals are globally recognized for innovation and quality.',
+    question: 'Who are your partners?',
+    answer: 'We are the authorized distributor for Fisher & Paykel Healthcare, Penlon, Breas, COSMED, Baxter, Sefam, Maxtec, idmed, Bio-Med Devices, and Porter. All our partners are globally recognized for innovation and quality.',
   },
   {
     question: 'How long has AMMS been in business?',
@@ -34,8 +34,8 @@ const faqs = [
     answer: 'Absolutely. We provide excellent after-sales support including technical assistance, equipment maintenance and servicing, spare parts availability, and tailored service level agreements (SLAs). Our long-term partnership approach ensures your equipment performs optimally throughout its lifecycle.',
   },
   {
-    question: 'Are your products certified for use in the UAE?',
-    answer: 'Yes. All equipment we supply meets international quality standards and is registered with the relevant UAE regulatory authorities. Our products come from principals renowned for their innovation, functionality, and quality.',
+    question: 'Is the equipment you supply certified for use in the UAE?',
+    answer: 'Yes. All equipment we supply meets international quality standards and is registered with the relevant UAE regulatory authorities. Our equipment comes from partners renowned for their innovation, functionality, and quality.',
   },
   {
     question: 'How can I request a product demonstration or quotation?',

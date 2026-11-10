@@ -22,8 +22,8 @@ export default function AboutPage() {
             <h1 className="w-full text-center font-playfair text-4xl sm:text-5xl font-semibold leading-[1.1] mb-6 tracking-tight text-[#3AA874] drop-shadow-md">
               Transforming UAE Healthcare Since 1991.
             </h1>
-            <p className="w-full text-center font-dm-sans text-base sm:text-lg text-slate-500 font-normal leading-relaxed max-w-2xl mx-auto px-4">
-              For over 35 years, we have been the trusted regional partner, delivering innovative medical equipment and world-class healthcare solutions to advance patient care.
+            <p className="w-full text-center font-dm-sans text-base sm:text-lg text-slate-500 font-normal leading-relaxed max-w-3xl mx-auto px-4">
+              We have been in the business since 1991 and understand the fundamental role we play in the United Arab Emirates&apos; healthcare growth. We are the local representative of several well-known and innovative medical equipment and consumable manufacturers, supported by a highly skilled team with specialized expertise, with the ability to install and train our customers on acquired equipment.
             </p>
           </div>
         </div>

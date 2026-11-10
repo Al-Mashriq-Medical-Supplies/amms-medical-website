@@ -3,12 +3,12 @@ import ClientsMarquee from "@/components/ClientsMarquee";
 import PrincipalsDetailList from "@/components/PrincipalsDetailList";
 
 export const metadata: Metadata = {
-  title: "Our Principals",
+  title: "Our Partners",
   description:
     "AMMS is the authorized UAE distributor for Fisher & Paykel Healthcare, Penlon, Breas, COSMED, Baxter, Sefam, Maxtec, idmed, Bio-Med Devices, and Porter.",
 };
 
-export default function PrincipalsPage() {
+export default function OurPartnersPage() {
   return (
     <>
       {/* Hero Banner */}
@@ -19,11 +19,11 @@ export default function PrincipalsPage() {
               Our Partners in Health Care
             </span>
             <h1 className="w-full text-center font-playfair text-3xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-8 tracking-tight whitespace-nowrap text-[#3AA874] drop-shadow-md">
-              Trusted Global Principals
+              Trusted Global Partners
             </h1>
             <p className="w-full text-center font-dm-sans text-xl text-slate-500 font-light leading-relaxed max-w-2xl mx-auto">
-              We partner with principals who help us enhance the standard of
-              care for patients across the United Arab Emirates.
+              We partner with leading global manufacturers who help us enhance
+              the standard of care for patients across the United Arab Emirates.
             </p>
           </div>
         </div>

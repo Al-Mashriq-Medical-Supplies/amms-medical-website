@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import CountUp from 'react-countup'
+import VisionMission from '@/components/VisionMission'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -76,7 +77,7 @@ export default function MissionValuesSection() {
               <span className="font-playfair text-4xl md:text-5xl text-[#3AA874] font-medium mb-2">
                 <CountUp end={20} duration={2.5} enableScrollSpy scrollSpyOnce />+
               </span>
-              <span className="font-dm-sans text-xs uppercase tracking-widest text-slate-500 font-semibold">Global Principals</span>
+              <span className="font-dm-sans text-xs uppercase tracking-widest text-slate-500 font-semibold">Global Partners</span>
             </div>
             <div className="flex flex-col items-center justify-center">
               <span className="font-playfair text-4xl md:text-5xl text-[#3AA874] font-medium mb-2">
@@ -87,47 +88,9 @@ export default function MissionValuesSection() {
           </div>
         </div>
 
-        {/* Mission & Vision Cards */}
-        <div className="mv-fade-up grid md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
-          
-          {/* Mission Card */}
-          <div className="group relative rounded-2xl p-[1px] overflow-hidden hover:-translate-y-1 shadow-sm hover:shadow-md transition-all duration-500">
-            {/* Running Light Border */}
-            <div className="absolute -inset-[100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#3AA874_50%,transparent_100%)] opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <div className="relative z-10 h-full bg-white rounded-2xl p-6 sm:p-8 flex flex-col overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-bl from-[#3AA874]/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-20">
-                <h3 className="font-dm-sans text-[11px] sm:text-xs text-[#3AA874] uppercase tracking-[0.2em] font-semibold mb-3 sm:mb-4">
-                  Our Mission
-                </h3>
-                <div className="h-[2px] w-8 bg-gradient-to-r from-[#3AA874] to-transparent mb-5 sm:mb-6"></div>
-                <p className="font-playfair text-base sm:text-lg leading-relaxed font-normal text-slate-700">
-                  To continuously support UAE healthcare providers by delivering innovative medical technologies, ensuring prompt service, and prioritizing optimal patient recovery and experiences.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Vision Card */}
-          <div className="group relative rounded-2xl p-[1px] overflow-hidden hover:-translate-y-1 shadow-sm hover:shadow-md transition-all duration-500">
-            {/* Running Light Border */}
-            <div className="absolute -inset-[100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_270deg_at_50%_50%,transparent_0%,#3AA874_50%,transparent_100%)] opacity-40 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <div className="relative z-10 h-full bg-white rounded-2xl p-6 sm:p-8 flex flex-col overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-bl from-[#3AA874]/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-20">
-                <h3 className="font-dm-sans text-[11px] sm:text-xs text-slate-400 group-hover:text-[#3AA874] transition-colors duration-500 uppercase tracking-[0.2em] font-semibold mb-3 sm:mb-4">
-                  Our Vision
-                </h3>
-                <div className="h-[2px] w-8 bg-gradient-to-r from-slate-200 group-hover:from-[#3AA874] to-transparent transition-colors duration-500 mb-5 sm:mb-6"></div>
-                <p className="font-playfair text-base sm:text-lg leading-relaxed font-normal text-slate-700">
-                  To be the foremost provider of capital equipment and homecare solutions, establishing the benchmark for world-class healthcare standards across the United Arab Emirates.
-                </p>
-              </div>
-            </div>
-          </div>
-
+        {/* Vision & Mission Cards */}
+        <div className="mv-fade-up max-w-5xl mx-auto">
+          <VisionMission />
         </div>
 
       </div>

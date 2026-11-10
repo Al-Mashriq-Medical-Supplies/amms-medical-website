@@ -1,12 +1,12 @@
 'use client'
 
-import { useRef, useMemo, useState } from 'react'
+import { useEffect, useRef, useMemo, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { AnimatePresence, motion } from 'framer-motion'
-import ProductCardGrid from '@/components/ProductCardGrid'
-import { principals, Principal, Product } from '@/lib/seo'
+import ProductCardGrid, { ProductCardItem } from '@/components/ProductCardGrid'
+import { principals, Principal, Product, productHref, slugify } from '@/lib/seo'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 
@@ -15,14 +15,21 @@ gsap.registerPlugin(ScrollTrigger)
 export default function ProductCategoriesSection() {
   const container = useRef<HTMLElement>(null)
 
-  // Group all unique products from principals by their category, sorted alphabetically
+  // Group every partner's products by category, sorted alphabetically.
+  // Each card links to that item on its partner page (e.g. /our-partners/fisher-paykel#respiratory-humidifiers).
+  // Products with the same name from different partners (e.g. Portable Ventilators) are both kept.
   const groupedProducts = useMemo(() => {
-    const productsMap = new Map<string, { name: string; brief: string; image?: string; category?: string }>()
+    const productsMap = new Map<string, ProductCardItem>()
     
     principals.forEach((principal: Principal) => {
       principal.products.forEach((product: Product) => {
-        if (!productsMap.has(product.name)) {
-          productsMap.set(product.name, product)
+        const key = `${principal.slug}::${product.name}`
+        if (!productsMap.has(key)) {
+          productsMap.set(key, {
+            ...product,
+            partnerName: principal.name,
+            href: productHref(principal.slug, product.name),
+          })
         }
       })
     })
@@ -42,6 +49,23 @@ export default function ProductCategoriesSection() {
   const [activeCategory, setActiveCategory] = useState<string | null>(
     () => groupedProducts[0]?.[0] || null
   )
+
+  // Open the right category when arriving from a link like /services#respiratory-and-airway-management
+  useEffect(() => {
+    const selectFromHash = () => {
+      const hash = decodeURIComponent(window.location.hash.replace('#', ''))
+      if (!hash) return
+      const match = groupedProducts.find(([cat]) => slugify(cat) === hash)
+      if (!match) return
+      setActiveCategory(match[0])
+      window.setTimeout(() => {
+        document.getElementById('service-categories')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 900)
+    }
+    selectFromHash()
+    window.addEventListener('hashchange', selectFromHash)
+    return () => window.removeEventListener('hashchange', selectFromHash)
+  }, [groupedProducts])
 
   const activeProducts = useMemo(() => {
     if (!activeCategory) return []
@@ -72,9 +96,9 @@ export default function ProductCategoriesSection() {
   const activeTheme = getTheme()
 
   return (
-    <section ref={container} id="products" className="relative pb-4 md:pb-8 pt-2 md:pt-4 bg-[var(--color-background)] overflow-hidden">
+    <section ref={container} id="services" className="relative pb-4 md:pb-8 pt-2 md:pt-4 bg-[var(--color-background)] overflow-hidden">
       {/* Category Tabs */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-20">
+      <div id="service-categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-20 scroll-mt-32">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
           {groupedProducts.map(([category]) => {
             const isActive = activeCategory === category

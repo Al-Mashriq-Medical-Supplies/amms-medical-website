@@ -13,40 +13,30 @@ const industries = [
     title: "Hospitals & Medical Centers",
     description:
       "Comprehensive equipment packages for tertiary hospitals and multi-specialty centers across the UAE.",
-    metric: "35+",
-    label: "Years Serving",
     image: "/images/spectrum/surgery.jpg",
   },
   {
     title: "Clinics & Polyclinics",
     description:
       "Scalable solutions for outpatient clinics from single-unit procurement to full fitouts.",
-    metric: "10+",
-    label: "Principals",
     image: "/images/spectrum/clinic.jpg",
   },
   {
     title: "Rehabilitation Centers",
     description:
       "Physiotherapy and cardiac rehabilitation equipment for specialized recovery.",
-    metric: "15+",
-    label: "Product Lines",
     image: "/images/spectrum/rehab.jpg",
   },
   {
     title: "Diagnostic Centers",
     description:
       "Advanced ophthalmic, hearing, and pulmonary diagnostic equipment for clinical laboratories.",
-    metric: "30+",
-    label: "Professionals",
     image: "/images/spectrum/diagnostic.jpg",
   },
   {
     title: "Homecare & Long-Term Care",
     description:
       "Patient-friendly CPAP, respiratory, and homecare products for chronic disease management at home.",
-    metric: "7",
-    label: "Emirates Covered",
     image: "/images/spectrum/homecare.jpg",
   },
 ];
@@ -137,15 +127,6 @@ export default function IndustriesServedSection() {
                   </p>
                 </div>
 
-                {/* Metric/Numbers */}
-                <div className="shrink-0 text-left md:text-right border-l-2 border-slate-100 pl-4 md:pl-8 md:pr-4">
-                  <p className="font-playfair font-semibold text-3xl md:text-4xl text-[#3AA874] mb-1 drop-shadow-sm">
-                    {ind.metric}
-                  </p>
-                  <p className="font-dm-sans text-[10px] md:text-xs text-slate-400 uppercase tracking-[0.2em] font-medium">
-                    {ind.label}
-                  </p>
-                </div>
               </div>
             </div>
           ))}

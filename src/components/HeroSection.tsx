@@ -6,6 +6,9 @@ import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
+import { heroSlides } from "@/lib/seo";
+
+const SLIDE_INTERVAL = 4500;
 
 const typingWords = [
   "Respiratory",
@@ -23,6 +26,19 @@ export default function HeroSection() {
   const [typedWord, setTypedWord] = useState(typingWords[0]);
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [slidePaused, setSlidePaused] = useState(false);
+
+  // Auto-advance product slides (paused on hover / reduced motion)
+  useEffect(() => {
+    if (slidePaused) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setTimeout(
+      () => setActiveSlide((i) => (i + 1) % heroSlides.length),
+      SLIDE_INTERVAL,
+    );
+    return () => window.clearTimeout(id);
+  }, [activeSlide, slidePaused]);
 
   useGSAP(
     () => {
@@ -155,11 +171,11 @@ export default function HeroSection() {
 
             <div className="hero-text-block flex flex-row gap-2.5 sm:gap-4 mb-2 lg:mb-10 w-full max-w-[320px] sm:max-w-lg mx-0">
               <Link
-                href="/products"
+                href="/services"
                 className="flex-1 group relative overflow-hidden flex items-center justify-center gap-1.5 sm:gap-2 bg-[var(--color-brand)] text-white font-dm-sans text-[12px] sm:text-[15px] lg:text-sm font-medium px-2 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-500 hover:shadow-[0_8px_30px_rgba(58,168,116,0.4)] text-center"
               >
                 <span className="relative z-10 flex items-center gap-1 sm:gap-2 whitespace-nowrap">
-                  <span>Products</span>
+                  <span>Services</span>
                   <ArrowRight
                     size={14}
                     className="group-hover:translate-x-1 transition-transform duration-300 sm:w-4 sm:h-4"
@@ -182,17 +198,65 @@ export default function HeroSection() {
             {/* Decorative Offset Border (Premium Detail) */}
             <div className="absolute top-3 left-3 right-[-12px] bottom-[-12px] lg:top-6 lg:left-16 lg:right-[-24px] lg:bottom-[-24px] border-[2px] border-[#E0D4C3] rounded-t-full rounded-br-[5rem] lg:rounded-br-[10rem] rounded-bl-2xl lg:rounded-bl-3xl transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2 z-0" />
 
-            {/* Main Image Wrapper */}
-            <div className="hero-image-wrapper relative w-full h-full overflow-hidden bg-[var(--color-muted)] rounded-t-full rounded-br-[5rem] lg:rounded-br-[10rem] rounded-bl-2xl lg:rounded-bl-3xl shadow-xl lg:shadow-2xl z-10 ring-1 ring-slate-900/5">
-              <Image
-                src="/images/hero/hero-card.jpg"
-                alt="AMMS Reception"
-                fill
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                className="hero-image object-cover object-center"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-brand)]/20 via-transparent to-transparent z-[5]" />
+            {/* Main Image Wrapper — product slides */}
+            <div
+              className="hero-image-wrapper relative w-full h-full overflow-hidden bg-[var(--color-muted)] rounded-t-full rounded-br-[5rem] lg:rounded-br-[10rem] rounded-bl-2xl lg:rounded-bl-3xl shadow-xl lg:shadow-2xl z-10 ring-1 ring-slate-900/5"
+              onMouseEnter={() => setSlidePaused(true)}
+              onMouseLeave={() => setSlidePaused(false)}
+            >
+              <div className="hero-image absolute inset-0">
+                {heroSlides.map((slide, i) => (
+                  <Link
+                    key={slide.title}
+                    href={slide.href}
+                    aria-label={`View ${slide.title}`}
+                    aria-hidden={i !== activeSlide}
+                    tabIndex={i === activeSlide ? 0 : -1}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      i === activeSlide ? "opacity-100 z-[2]" : "opacity-0 z-[1] pointer-events-none"
+                    }`}
+                  >
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className={`object-cover object-center transition-transform duration-[6000ms] ease-out ${
+                        i === activeSlide ? "scale-105" : "scale-100"
+                      }`}
+                      priority={i === 0}
+                    />
+                  </Link>
+                ))}
+              </div>
+
+              {/* Gradient for caption readability */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#16263F]/85 via-[#16263F]/10 to-transparent z-[5]" />
+
+              {/* Caption */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] p-5 sm:p-7 lg:p-10">
+                <span className="block font-dm-sans text-[9px] sm:text-[10px] lg:text-xs uppercase tracking-[0.2em] text-[#7ecda5] font-semibold mb-1 sm:mb-2">
+                  {heroSlides[activeSlide].caption}
+                </span>
+                <span className="block font-playfair text-lg sm:text-2xl lg:text-3xl font-semibold text-white leading-tight drop-shadow-md">
+                  {heroSlides[activeSlide].title}
+                </span>
+              </div>
+
+              {/* Dots */}
+              <div className="absolute bottom-3 sm:bottom-4 right-6 sm:right-10 lg:right-16 z-[7] flex items-center gap-1.5">
+                {heroSlides.map((slide, i) => (
+                  <button
+                    key={slide.title}
+                    type="button"
+                    onClick={() => setActiveSlide(i)}
+                    aria-label={`Show ${slide.title}`}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                      i === activeSlide ? "w-6 bg-white" : "w-1.5 bg-white/50 hover:bg-white/80"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 

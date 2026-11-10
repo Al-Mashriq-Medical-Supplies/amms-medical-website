@@ -25,6 +25,11 @@ export const siteConfig = {
   phone: '+97126277223',
   displayPhone: '+971 2 627 7223',
   whatsapp: '+971558693930',
+  // Paste the real profile URLs here once AMMS shares them (e.g. 'https://www.instagram.com/amms.uae')
+  social: {
+    instagram: '',
+    facebook: '',
+  },
   fax: '+97126271667',
   displayFax: '+971 2 627 1667',
   established: 1991,
@@ -219,3 +224,54 @@ export const principals: Principal[] = [
     ],
   },
 ]
+
+// ─── Link helpers ───────────────────────────────────────────────
+// "Respiratory & Airway Management" → "respiratory-and-airway-management"
+export const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+
+/** Link to one product on its partner page, e.g. /our-partners/fisher-paykel#respiratory-humidifiers */
+export const productHref = (partnerSlug: string, productName: string) =>
+  `/our-partners/${partnerSlug}#${slugify(productName)}`
+
+/** Link to a category tab on the Services page, e.g. /services#respiratory-and-airway-management */
+export const categoryHref = (category: string) => `/services#${slugify(category)}`
+
+// ─── Home hero slides ───────────────────────────────────────────
+// Temporary: category images until AMMS sends real product photos.
+// To swap in product photos later, replace `image`, `title`, `caption` and `href`
+// (e.g. href: productHref('fisher-paykel', 'Respiratory Humidifiers')).
+export interface HeroSlide {
+  title: string
+  caption: string
+  image: string
+  href: string
+}
+
+const heroSlideCategories = [
+  'Respiratory & Airway Management',
+  'Anesthesia & Surgical Care',
+  'Neonatal & Infant Care',
+  'Diagnostics & Testing',
+  'Sleep Therapy & Homecare',
+  'Medical Gases & Suction',
+  'Infusion Therapy',
+  'Pain Management',
+]
+
+// Partner names that supply each category (taken from the principals list above)
+const partnersForCategory = (category: string) =>
+  principals
+    .filter((p) => p.products.some((product) => product.category === category))
+    .map((p) => p.name.replace(' Healthcare', ''))
+
+export const heroSlides: HeroSlide[] = heroSlideCategories.map((category) => ({
+  title: category,
+  caption: partnersForCategory(category).join(' · '),
+  image: `/images/products/${category}.png`,
+  href: categoryHref(category),
+}))
