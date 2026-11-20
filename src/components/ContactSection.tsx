@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { siteConfig } from '@/lib/seo'
+import { enquiryWhatsAppUrl } from '@/lib/whatsapp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -35,17 +36,21 @@ export default function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSuccess(true)
+    // Send the enquiry through WhatsApp (temporary until email is connected)
+    const form = e.currentTarget
+    window.open(enquiryWhatsAppUrl(form), '_blank', 'noopener,noreferrer')
+    form.reset()
+    setIsSubmitting(false)
+    setIsSuccess(true)
 
+    requestAnimationFrame(() => {
       gsap.fromTo('.success-msg',
         { scale: 0.95, opacity: 0 },
         { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.5)' }
       )
+    })
 
-      setTimeout(() => setIsSuccess(false), 5000)
-    }, 1200)
+    window.setTimeout(() => setIsSuccess(false), 6000)
   }
 
   return (
@@ -147,9 +152,9 @@ export default function ContactSection() {
           {isSuccess ? (
             <div className="success-msg absolute inset-0 z-20 flex flex-col items-center justify-center bg-[var(--color-brand)] p-12 text-center text-[var(--color-background)] opacity-0">
               <CheckCircle2 size={64} className="mb-6 text-[var(--color-background)]/80" />
-              <h3 className="mb-4 font-playfair text-3xl font-medium">Inquiry Received</h3>
+              <h3 className="mb-4 font-playfair text-3xl font-medium">Opening WhatsApp…</h3>
               <p className="max-w-sm font-dm-sans font-light text-white/80">
-                Thank you for reaching out. One of our specialists will contact you within 24 hours.
+                Your enquiry is ready in WhatsApp. Press send and our team will get back to you shortly.
               </p>
             </div>
           ) : null}

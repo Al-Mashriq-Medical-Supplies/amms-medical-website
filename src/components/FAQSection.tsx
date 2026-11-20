@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     question: 'How can I request a product demonstration or quotation?',
-    answer: 'You can reach us through our Contact page, call our Abu Dhabi head office at +971 2 627 7223, or email amms@eim.ae. Our team of specialists will arrange a consultation, product demonstration, or provide a detailed quotation tailored to your facility\'s needs.',
+    answer: 'You can reach us through our Contact page, call our Abu Dhabi head office at +971 2 627 7223, or email info@ammsuae.com. Our team of specialists will arrange a consultation, product demonstration, or provide a detailed quotation tailored to your facility\'s needs.',
   },
 ]
 

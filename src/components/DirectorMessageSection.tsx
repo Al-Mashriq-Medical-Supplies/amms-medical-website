@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -44,10 +45,10 @@ export default function DirectorMessageSection() {
               A Message from Leadership
             </span>
             <blockquote className="font-playfair text-2xl lg:text-3xl leading-relaxed text-[#16263F] mb-8 font-light italic">
-              "Our commitment to the UAE healthcare sector goes beyond providing
+              &ldquo;Our commitment to the UAE healthcare sector goes beyond providing
               equipment. We are dedicated to elevating patient care through
               continuous innovation, uncompromising quality, and enduring global
-              partnerships."
+              partnerships.&rdquo;
             </blockquote>
             <div>
               <div className="font-dm-sans font-bold text-[#16263F] text-lg">
@@ -61,10 +62,13 @@ export default function DirectorMessageSection() {
 
           {/* Right Div: Image */}
           <div className="director-fade relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl">
-            <img
-              src="/images/director/ammm-director.jpeg"
-              alt="Director of AMMS"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            {/* Photo from the Elevate Labs office shoot (058A0700) — swap for the edited version when ready */}
+            <Image
+              src="/images/office/director.jpg"
+              alt="Director of Al Mashriq Medical Supplies at his desk"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-[50%_35%] hover:scale-105 transition-transform duration-700"
             />
           </div>
         </div>

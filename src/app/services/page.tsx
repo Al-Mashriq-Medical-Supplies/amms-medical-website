@@ -10,19 +10,23 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Banner */}
-      <section className="relative pt-36 pb-16 bg-[var(--color-background)]">
+      <section className="relative pt-32 sm:pt-36 pb-10 sm:pb-16 bg-[var(--color-background)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
             <span className="w-full text-center font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.25em] block mb-4 font-semibold">
               Our Services
             </span>
-            <h1 className="w-full text-center font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-8 tracking-tight text-[#3AA874] drop-shadow-md">
-              Comprehensive medical solutions
-            </h1>
-            <p className="w-full text-center font-dm-sans text-lg sm:text-xl text-slate-500 font-light leading-snug sm:leading-relaxed max-w-2xl mx-auto">
-              We offer a focused range of medical equipment through our global partners covering
-              critical care, respiratory therapy, anesthesia, diagnostics, rehabilitation, and homecare.
-            </p>
+            {/* On phones the block shrinks to the heading's width so the paragraph lines up with it */}
+            <div className="w-fit max-w-full sm:w-full">
+              <h1 className="w-full text-center font-playfair text-[38px] sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-5 sm:mb-8 tracking-tight text-[#3AA874] drop-shadow-md">
+                Comprehensive <br className="sm:hidden" />
+                medical solutions
+              </h1>
+              <p className="w-0 min-w-full sm:w-full sm:min-w-0 mx-auto font-dm-sans text-[12.75px] sm:text-lg lg:text-xl text-slate-500 font-normal sm:font-light leading-[1.7] sm:leading-relaxed sm:max-w-2xl text-justify [text-align-last:center] hyphens-none sm:text-center">
+                We offer a focused range of medical equipment through our global partners covering
+                critical care, respiratory therapy, anesthesia, diagnostics, rehabilitation, and homecare.
+              </p>
+            </div>
           </div>
         </div>
       </section>

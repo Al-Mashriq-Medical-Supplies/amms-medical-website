@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import { siteConfig } from "@/lib/seo";
 
@@ -96,11 +97,21 @@ export default function ProductCardGrid({ products }: { products: ProductCardIte
           >
             {/* Whole card links to the product on its partner page (when href is set) */}
             {product.href && (
-              <Link
-                href={product.href}
-                className="absolute inset-0 z-[1]"
-                aria-label={`View ${product.name}${product.partnerName ? ` by ${product.partnerName}` : ""}`}
-              />
+              product.href.startsWith("http") ? (
+                <a
+                  href={product.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-[1]"
+                  aria-label={`View ${product.name}${product.partnerName ? ` on the ${product.partnerName} website` : ""} (opens in a new tab)`}
+                />
+              ) : (
+                <Link
+                  href={product.href}
+                  className="absolute inset-0 z-[1]"
+                  aria-label={`View ${product.name}${product.partnerName ? ` by ${product.partnerName}` : ""}`}
+                />
+              )
             )}
 
             {/* Accent border on top of card on hover */}
@@ -114,8 +125,9 @@ export default function ProductCardGrid({ products }: { products: ProductCardIte
               </h3>
 
               {product.partnerName && (
-                <span className="font-dm-sans text-[11px] sm:text-xs uppercase tracking-[0.15em] text-[#3AA874] font-semibold mb-3">
+                <span className="inline-flex items-center gap-1 font-dm-sans text-[11px] sm:text-xs uppercase tracking-[0.15em] text-[#3AA874] font-semibold mb-3">
                   {product.partnerName}
+                  {product.href?.startsWith("http") && <ArrowUpRight className="w-3 h-3" aria-hidden="true" />}
                 </span>
               )}
 

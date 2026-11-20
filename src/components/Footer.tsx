@@ -5,6 +5,7 @@ import { Phone, Mail } from "lucide-react";
 import {
   FaFacebook,
   FaInstagram,
+  FaLinkedin,
   FaWhatsapp,
   FaEnvelope,
 } from "react-icons/fa";
@@ -28,6 +29,7 @@ const serviceLinks = [
 const socialLinks = [
   { label: "AMMS on Instagram", href: siteConfig.social.instagram, icon: FaInstagram, external: !!siteConfig.social.instagram },
   { label: "AMMS on Facebook", href: siteConfig.social.facebook, icon: FaFacebook, external: !!siteConfig.social.facebook },
+  { label: "AMMS on LinkedIn", href: siteConfig.social.linkedin, icon: FaLinkedin, external: !!siteConfig.social.linkedin },
   { label: "Chat with AMMS on WhatsApp", href: `https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`, icon: FaWhatsapp, external: true },
   { label: "Email AMMS", href: `mailto:${siteConfig.email}`, icon: FaEnvelope, external: false },
 ];

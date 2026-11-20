@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react'
 import gsap from 'gsap'
+import { enquiryWhatsAppUrl } from '@/lib/whatsapp'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { CheckCircle2, Loader2, Phone, Mail, MapPin } from 'lucide-react'
@@ -47,19 +48,21 @@ export default function ContactCtaSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate network request
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSuccess(true)
+    // Send the enquiry through WhatsApp (temporary until email is connected)
+    const form = e.currentTarget
+    window.open(enquiryWhatsAppUrl(form), '_blank', 'noopener,noreferrer')
+    form.reset()
+    setIsSubmitting(false)
+    setIsSuccess(true)
 
+    requestAnimationFrame(() => {
       gsap.fromTo('.success-msg',
         { scale: 0.95, opacity: 0 },
         { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.5)' }
       )
+    })
 
-      // Reset after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000)
-    }, 1200)
+    window.setTimeout(() => setIsSuccess(false), 6000)
   }
 
   return (
@@ -109,7 +112,7 @@ export default function ContactCtaSection() {
               <div className="sm:col-span-2 mt-4 space-y-3 pt-6 border-t border-white/20">
                 <div className="flex items-center gap-3 text-white/90 font-dm-sans text-sm">
                   <Mail className="w-4 h-4" />
-                  <a href="mailto:amms@eim.ae" className="hover:text-white transition-colors">amms@eim.ae</a>
+                  <a href="mailto:info@ammsuae.com" className="hover:text-white transition-colors">info@ammsuae.com</a>
                 </div>
                 <div className="flex items-start gap-3 text-white/90 font-dm-sans text-sm">
                   <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
@@ -124,9 +127,9 @@ export default function ContactCtaSection() {
             {isSuccess ? (
               <div className="success-msg absolute inset-0 z-20 flex flex-col items-center justify-center bg-white p-8 sm:p-12 text-center opacity-0">
                 <CheckCircle2 size={64} className="mb-6 text-[var(--color-brand)]" />
-                <h3 className="mb-4 font-playfair text-2xl sm:text-3xl font-medium text-[var(--color-navy)]">Inquiry Received</h3>
+                <h3 className="mb-4 font-playfair text-2xl sm:text-3xl font-medium text-[var(--color-navy)]">Opening WhatsApp…</h3>
                 <p className="max-w-sm font-dm-sans font-light text-[var(--color-charcoal)] text-sm sm:text-base leading-relaxed">
-                  Thank you for reaching out to Al Mashriq Medical Supplies. A specialist will contact you within 24 hours.
+                  Your enquiry is ready in WhatsApp. Press send and our team will get back to you shortly.
                 </p>
               </div>
             ) : null}

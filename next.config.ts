@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       { source: '/products', destination: '/services', permanent: true },
       { source: '/principals', destination: '/our-partners', permanent: true },
       { source: '/principals/:slug', destination: '/our-partners/:slug', permanent: true },
+      { source: '/our-partners/maxtec', destination: '/our-partners/salaera', permanent: true },
     ]
   },
   images: {

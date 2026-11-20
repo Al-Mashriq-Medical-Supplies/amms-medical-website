@@ -2,11 +2,11 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { principals, productHref } from "@/lib/seo";
+import { principals, productLink } from "@/lib/seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,18 +48,18 @@ export default function PrincipalsDetailList() {
               key={principal.slug}
               className="pd-card opacity-0 group relative bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm hover:shadow-[0_20px_60px_rgba(58,168,116,0.12)] hover:border-[#3AA874]/30 hover:-translate-y-1 overflow-hidden transition-all duration-700 block"
             >
-              {/* Clicking anywhere on the card opens the partner page */}
-              <Link
-                href={`/our-partners/${principal.slug}`}
+              {/* Clicking anywhere on the card opens the partner's own website */}
+              <a
+                href={principal.website}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="absolute inset-0 z-[5]"
-                aria-label={`View ${principal.name}`}
+                aria-label={`Visit ${principal.name} website (opens in a new tab)`}
               />
               <div className="absolute inset-0 bg-gradient-to-br from-[#3AA874]/0 via-transparent to-[#3AA874]/0 group-hover:from-[#3AA874]/[0.03] group-hover:to-[#3AA874]/[0.08] transition-all duration-700 pointer-events-none" />
               {/* Arrow indicator */}
               <div className="pointer-events-none absolute top-3 right-3 sm:top-5 sm:right-5 w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-[#3AA874] group-hover:text-white group-hover:border-transparent transition-all duration-500 z-20">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 transform group-hover:translate-x-0.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
               </div>
               <div className="p-3 sm:p-8 relative z-10 pointer-events-none">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
@@ -81,6 +81,9 @@ export default function PrincipalsDetailList() {
                       <p className="font-dm-sans text-[11px] sm:text-xs text-slate-500 font-light mt-0.5 sm:mt-1 line-clamp-1 sm:line-clamp-2">
                         {principal.description}
                       </p>
+                      <span className="hidden sm:inline-flex items-center gap-1 mt-2 font-dm-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-[#3AA874]">
+                        Visit website <ArrowUpRight className="w-3 h-3" />
+                      </span>
                     </div>
                   </div>
 
@@ -92,13 +95,16 @@ export default function PrincipalsDetailList() {
                       </span>
                       <div className="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-8">
                         {principal.products.map((product) => (
-                          <Link
+                          <a
                             key={product.name}
-                            href={productHref(principal.slug, product.name)}
+                            href={productLink(principal, product)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={`${product.name} on the ${principal.name} website`}
                             className="pointer-events-auto inline-flex items-center px-2.5 py-1 sm:px-4 sm:py-2 bg-slate-50 border border-slate-100 rounded-full font-dm-sans text-[9px] sm:text-xs text-slate-600 group-hover:border-[#3AA874]/20 group-hover:bg-[#3AA874]/[0.02] group-hover:text-slate-800 hover:!bg-[#3AA874] hover:!text-white hover:!border-[#3AA874] transition-all duration-300 shadow-sm group-hover:shadow"
                           >
                             {product.name}
-                          </Link>
+                          </a>
                         ))}
                       </div>
                     </div>

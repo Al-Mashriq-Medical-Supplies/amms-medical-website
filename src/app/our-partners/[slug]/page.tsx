@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { principals, Principal, slugify } from "@/lib/seo";
+import { principals, Principal, slugify, productLink } from "@/lib/seo";
 import ProductCardGrid from "@/components/ProductCardGrid";
 import HashHighlighter from "@/components/HashHighlighter";
 
@@ -85,6 +85,17 @@ export default async function PartnerPage({
               <p className="font-dm-sans text-sm sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
                 {principal.description}
               </p>
+              <a
+                href={principal.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#3AA874] px-5 py-2.5 font-dm-sans text-sm font-semibold text-white transition-colors hover:bg-[#2d8a5f]"
+              >
+                Visit {principal.name} website
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -113,6 +124,7 @@ export default async function PartnerPage({
           products={principal.products.map((product) => ({
             ...product,
             anchorId: slugify(product.name),
+            href: productLink(principal, product),
           }))}
         />
       </div>
