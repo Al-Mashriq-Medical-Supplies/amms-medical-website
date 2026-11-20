@@ -58,7 +58,7 @@ export default function MissionValuesSection() {
             <div className="h-[2px] w-12 bg-gradient-to-r from-[#3AA874] to-transparent"></div>
           </div>
           
-          <h2 ref={paragraphRef} className="font-playfair text-2xl md:text-3xl lg:text-4xl leading-relaxed font-light mb-16 px-4">
+          <h2 ref={paragraphRef} className="font-playfair text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed font-light mb-12 sm:mb-16 px-2 sm:px-4">
             {words.map((word, i) => (
               <span key={i} className="reveal-word text-slate-300">
                 {word}{' '}

@@ -88,7 +88,7 @@ export default function FAQSection() {
           <span className="font-dm-sans text-xs text-[var(--color-brand)] uppercase tracking-[0.2em] block mb-2 sm:mb-4">
             Frequently Asked Questions
           </span>
-          <h2 className="font-playfair font-semibold text-3xl sm:text-5xl md:text-6xl leading-[1.1] tracking-tight text-[#3AA874] drop-shadow-md">
+          <h2 className="font-playfair font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-[#3AA874] drop-shadow-md">
             Everything you need to know
           </h2>
         </div>

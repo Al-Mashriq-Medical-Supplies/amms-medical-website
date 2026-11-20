@@ -18,7 +18,7 @@ export default function ServicesPage() {
             </span>
             {/* On phones the block shrinks to the heading's width so the paragraph lines up with it */}
             <div className="w-fit max-w-full sm:w-full">
-              <h1 className="w-full text-center font-playfair text-[38px] sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-5 sm:mb-8 tracking-tight text-[#3AA874] drop-shadow-md">
+              <h1 className="w-full text-center font-playfair text-[clamp(32px,10.56vw,38px)] sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-5 sm:mb-8 tracking-tight text-[#3AA874] drop-shadow-md">
                 Comprehensive <br className="sm:hidden" />
                 medical solutions
               </h1>

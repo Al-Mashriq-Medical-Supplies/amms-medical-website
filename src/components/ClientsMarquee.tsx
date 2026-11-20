@@ -38,7 +38,7 @@ export default function ClientsMarquee() {
           <span className="font-dm-sans text-[10px] sm:text-xs text-[#3AA874] font-semibold uppercase tracking-[0.15em] sm:tracking-[0.25em] block mb-2 sm:mb-4 text-center">
             Our Partners in Health Care
           </span>
-          <h2 className="font-playfair font-medium text-[22px] sm:text-3xl md:text-4xl lg:text-5xl leading-tight sm:leading-tight text-[#3AA874] md:drop-shadow-md px-2 text-center w-full max-w-[95vw]">
+          <h2 className="font-playfair font-medium text-[clamp(19px,6.11vw,22px)] sm:text-3xl md:text-4xl lg:text-5xl leading-tight sm:leading-tight text-[#3AA874] md:drop-shadow-md px-2 text-center w-full max-w-[95vw]">
             Trusted by Global Leaders
           </h2>
         </div>

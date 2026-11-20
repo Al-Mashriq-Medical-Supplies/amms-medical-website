@@ -16,16 +16,16 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero-style About Banner */}
-      <section className="relative pt-36 pb-16 bg-[var(--color-background)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 sm:pt-36 pb-12 sm:pb-16 bg-[var(--color-background)]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
-            <span className="w-full text-center font-dm-sans text-sm text-[#3AA874] uppercase tracking-[0.25em] block mb-4 font-semibold">
+            <span className="w-full text-center font-dm-sans text-[10px] sm:text-sm text-[#3AA874] uppercase tracking-[0.16em] sm:tracking-[0.25em] block mb-3 sm:mb-4 font-semibold whitespace-nowrap sm:whitespace-normal">
               About Al Mashriq Medical Supplies
             </span>
-            <h1 className="w-full text-center font-playfair text-4xl sm:text-5xl font-semibold leading-[1.1] mb-6 tracking-tight text-[#3AA874] drop-shadow-md">
+            <h1 className="w-full text-center font-playfair text-[clamp(26px,8.61vw,31px)] sm:text-5xl font-semibold leading-[1.15] mb-4 sm:mb-6 tracking-tight text-[#3AA874] drop-shadow-md">
               Transforming UAE Healthcare Since 1991.
             </h1>
-            <p className="w-full text-center font-dm-sans text-base sm:text-lg text-slate-500 font-normal leading-relaxed max-w-3xl mx-auto px-4">
+            <p className="w-full text-left sm:text-center font-dm-sans text-[13px] sm:text-lg text-slate-500 font-normal leading-[1.7] sm:leading-relaxed max-w-3xl mx-auto px-0 sm:px-4">
               We have been in the business since 1991 and understand the fundamental role we play in the United Arab Emirates&apos; healthcare growth. We are the local representative of several well-known and innovative medical equipment and consumable manufacturers, supported by a highly skilled team with specialized expertise, with the ability to install and train our customers on acquired equipment.
             </p>
           </div>

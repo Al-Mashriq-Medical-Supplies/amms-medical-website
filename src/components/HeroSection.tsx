@@ -138,10 +138,10 @@ export default function HeroSection() {
   }, [isDeleting, typedWord, wordIndex]);
 
   const ctaButtons = (
-    <div className="hero-text-block flex flex-row gap-2.5 sm:gap-4 lg:mb-10 w-full max-w-[320px] sm:max-w-lg mx-auto lg:mx-0">
+    <div className="hero-text-block flex flex-row gap-2.5 sm:gap-4 lg:mb-6 short:mb-0 w-full max-w-[320px] sm:max-w-lg mx-auto lg:mx-0">
       <Link
         href="/services"
-        className="flex-1 group relative overflow-hidden flex items-center justify-center gap-1.5 sm:gap-2 bg-[var(--color-brand)] text-white font-dm-sans text-[12px] sm:text-[15px] lg:text-sm font-medium px-2 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-500 hover:shadow-[0_8px_30px_rgba(58,168,116,0.4)] text-center"
+        className="flex-1 group relative overflow-hidden flex items-center justify-center gap-1.5 sm:gap-2 bg-[var(--color-brand)] text-white font-dm-sans text-[12px] sm:text-[15px] lg:text-[15px] font-medium px-2 sm:px-8 py-3 sm:py-4 lg:py-0 lg:h-[52px] short:h-12 rounded-full transition-all duration-500 hover:shadow-[0_8px_30px_rgba(58,168,116,0.4)] text-center"
       >
         <span className="relative z-10 flex items-center gap-1 sm:gap-2 whitespace-nowrap">
           <span>Services</span>
@@ -154,7 +154,7 @@ export default function HeroSection() {
       </Link>
       <Link
         href="/contact"
-        className="flex-1 group flex items-center justify-center gap-2 bg-transparent text-[var(--color-navy)] border border-[var(--color-charcoal)]/30 font-dm-sans text-[12px] sm:text-[15px] lg:text-sm font-medium px-2 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] whitespace-nowrap text-center"
+        className="flex-1 group flex items-center justify-center gap-2 bg-transparent text-[var(--color-navy)] border border-[var(--color-charcoal)]/30 font-dm-sans text-[12px] sm:text-[15px] lg:text-[15px] font-medium px-2 sm:px-8 py-3 sm:py-4 lg:py-0 lg:h-[52px] short:h-12 rounded-full transition-all duration-300 hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] whitespace-nowrap text-center"
       >
         Contact Us
       </Link>
@@ -168,10 +168,10 @@ export default function HeroSection() {
       className="relative min-h-[100dvh] lg:min-h-screen pt-20 lg:pt-0 flex items-center bg-[var(--color-background)] overflow-hidden"
     >
       <div className="w-full lg:w-[93%] max-w-7xl lg:max-w-[1600px] mx-auto px-5 sm:px-8 lg:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-8 justify-center pb-2 lg:pt-28 lg:pb-10 h-full lg:min-h-[calc(100vh-6rem)]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-[auto_1fr] gap-y-6 lg:gap-8 short:gap-y-10 justify-center pb-2 lg:pt-28 short:pt-[6.5rem] lg:pb-10 short:pb-6 h-full lg:min-h-[calc(100vh-6rem)]">
           {/* Top Text Block (Mobile 1st, Desktop Left Col) */}
           <div className="lg:col-span-6 w-full flex flex-col justify-center lg:justify-start pt-6 sm:pt-8 lg:pt-8 xl:pt-12 order-1 lg:order-1 items-start text-left px-1 sm:px-0">
-            <h1 className="hero-text-block font-playfair text-[28px] sm:text-5xl lg:text-6xl font-semibold leading-[1.2] lg:leading-[1.15] tracking-tight mb-4 lg:mb-8 text-[#16263F]">
+            <h1 className="hero-text-block font-playfair text-[clamp(24px,7.78vw,28px)] sm:text-5xl lg:text-[clamp(2.75rem,4.1vw,3.75rem)] font-semibold leading-[1.2] lg:leading-[1.15] tracking-tight mb-4 lg:mb-7 short:mb-5 text-[#16263F]">
               Advanced <br className="hidden sm:block lg:hidden" />
               <span className="inline-flex min-w-[8.8ch] items-baseline text-[#3AA874] justify-start">
                 <span>{typedWord}</span>
@@ -185,9 +185,9 @@ export default function HeroSection() {
             </h1>
 
             {/* Desktop divider */}
-            <div className="hero-divider hidden lg:block h-px w-full max-w-lg bg-[var(--color-border)] mb-4 lg:mb-6" />
+            <div className="hero-divider hidden lg:block h-px w-full max-w-lg bg-[var(--color-border)] mb-4 lg:mb-7 short:mb-5" />
 
-            <p className="hero-text-block font-dm-sans text-[12.5px] sm:text-base text-[var(--color-charcoal)] leading-[1.65] lg:leading-relaxed mb-0 lg:mb-8 max-w-full sm:max-w-md lg:max-w-xl mx-0">
+            <p className="hero-text-block font-dm-sans text-[12.5px] sm:text-base lg:text-[19px] short:text-[17px] text-[var(--color-charcoal)] leading-[1.65] lg:leading-[1.7] short:leading-[1.65] mb-0 lg:mb-9 short:mb-7 max-w-full sm:max-w-md lg:max-w-[33rem] mx-0">
               Elevating healthcare standards across the UAE with world-class
               medical devices, innovative clinical solutions, and unmatched
               engineering expertise.
@@ -271,14 +271,14 @@ export default function HeroSection() {
           <div className="lg:hidden order-3 w-full mt-8 sm:mt-10">{ctaButtons}</div>
 
           {/* Badges Block (Mobile 4th, Desktop Left Col) */}
-          <div className="lg:col-span-6 w-full xl:w-[110%] xl:-ml-4 flex flex-col justify-start order-4 lg:order-3">
+          <div className="lg:col-span-6 w-full min-[1150px]:w-[106%] xl:w-[110%] xl:-ml-4 flex flex-col justify-start order-4 lg:order-3">
             {/* Mobile divider */}
             <div className="hero-divider lg:hidden h-px w-full bg-[var(--color-border)] mb-5" />
 
             {/* Professional Trust Badges */}
-            <div className="hero-text-block flex flex-wrap items-center justify-between lg:justify-start gap-y-3 gap-x-4 sm:gap-x-6 lg:gap-x-8 lg:pt-4 lg:border-t lg:border-[var(--color-border)] w-full lg:max-w-2xl pr-4 sm:pr-0">
-              <div className="flex items-center gap-2 lg:gap-3 order-2 lg:order-1">
-                <div className="w-7 h-7 lg:w-8 lg:h-8 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
+            <div className="hero-text-block flex flex-wrap min-[1150px]:flex-nowrap items-center justify-between gap-y-3 gap-x-4 sm:gap-x-6 lg:gap-x-4 xl:gap-x-8 lg:pt-4 lg:border-t lg:border-[var(--color-border)] w-full lg:max-w-2xl pr-4 sm:pr-0">
+              <div className="flex items-center gap-2 xl:gap-3 order-2 lg:order-1">
+                <div className="w-7 h-7 xl:w-8 xl:h-8 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
                   <svg
                     className="w-4 h-4 text-[var(--color-brand)]"
                     fill="none"
@@ -293,12 +293,12 @@ export default function HeroSection() {
                     />
                   </svg>
                 </div>
-                <span className="text-[9px] sm:text-[10px] lg:text-xs font-dm-sans text-[var(--color-charcoal)] font-semibold lg:font-medium tracking-wider uppercase">
+                <span className="text-[9px] sm:text-[10px] lg:text-[10.5px] xl:text-xs font-dm-sans text-[var(--color-charcoal)] font-semibold lg:font-medium tracking-wider lg:tracking-[0.08em] xl:tracking-wider uppercase whitespace-nowrap">
                   Authorized Distributor
                 </span>
               </div>
-              <div className="hidden lg:flex items-center gap-2 lg:gap-3 order-3 lg:order-2">
-                <div className="w-7 h-7 lg:w-8 lg:h-8 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
+              <div className="hidden lg:flex items-center gap-2 xl:gap-3 order-3 lg:order-2">
+                <div className="w-7 h-7 xl:w-8 xl:h-8 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
                   <svg
                     className="w-4 h-4 text-[var(--color-brand)]"
                     fill="none"
@@ -313,21 +313,21 @@ export default function HeroSection() {
                     />
                   </svg>
                 </div>
-                <span className="text-[9px] sm:text-[10px] lg:text-xs font-dm-sans text-[var(--color-charcoal)] font-semibold lg:font-medium tracking-wider uppercase">
+                <span className="text-[9px] sm:text-[10px] lg:text-[10.5px] xl:text-xs font-dm-sans text-[var(--color-charcoal)] font-semibold lg:font-medium tracking-wider lg:tracking-[0.08em] xl:tracking-wider uppercase whitespace-nowrap">
                   MOHAP Approved
                 </span>
               </div>
 
               {/* Est. 1991 Badge */}
-              <div className="flex items-center gap-2 lg:gap-3 mt-1 sm:mt-0 lg:ml-auto order-1 lg:order-3">
-                <div className="w-7 h-7 lg:w-8 lg:h-8 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
+              <div className="flex items-center gap-2 xl:gap-3 mt-1 sm:mt-0 lg:ml-auto order-1 lg:order-3 shrink-0">
+                <div className="w-7 h-7 xl:w-8 xl:h-8 rounded-full bg-[var(--color-brand)]/10 flex items-center justify-center">
                   <span className="text-xs lg:text-sm drop-shadow-sm">🇦🇪</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-dm-sans text-[8px] lg:text-[9px] font-bold tracking-[0.2em] text-[var(--color-brand)] uppercase">
                     Est. 1991
                   </span>
-                  <span className="font-playfair text-[10px] lg:text-[11px] text-[var(--color-navy)] font-medium tracking-wide">
+                  <span className="font-playfair text-[10px] lg:text-[11px] text-[var(--color-navy)] font-medium tracking-wide whitespace-nowrap">
                     Abu Dhabi, UAE
                   </span>
                 </div>

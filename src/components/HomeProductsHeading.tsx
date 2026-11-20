@@ -26,7 +26,7 @@ export default function HomeProductsHeading() {
           <span className="mb-4 block text-[11px] font-medium uppercase tracking-[0.25em] text-[#3AA874]">
             Our Portfolio
           </span>
-          <h2 className="w-full text-center font-playfair text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight text-[#3AA874] drop-shadow-md max-w-4xl">
+          <h2 className="w-full text-center font-playfair text-3xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight text-[#3AA874] drop-shadow-md max-w-4xl">
             Comprehensive Solutions for Every Healthcare Environment.
           </h2>
         </div>
