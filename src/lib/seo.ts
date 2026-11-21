@@ -265,15 +265,18 @@ export interface HeroSlide {
   caption: string
   image: string
   href: string
+  /** true = lifestyle photo that fills the whole card (instead of a product cut-out on white) */
+  fill?: boolean
 }
 
 export const heroSlides: HeroSlide[] = [
   { title: 'Optiflow THRIVE', caption: 'Fisher & Paykel Healthcare', image: '/images/slider/fisher-paykel-optiflow-thrive.webp', href: 'https://www.fphcare.com/nz/hospital/surgical/anesthesia/' },
+  { title: 'Airvo 3', caption: 'Fisher & Paykel Healthcare', image: '/images/slider/fisher-paykel-airvo-3.webp', href: 'https://www.fphcare.com/nz/hospital/adult-respiratory/optiflow/airvo-3/', fill: true },
   { title: 'Prima 460 Anaesthesia Machine', caption: 'Penlon', image: '/images/slider/penlon-prima-460.webp', href: 'https://www.penlon.com/product/prima-460/' },
   { title: 'Vivo 45 LS Ventilator', caption: 'Breas', image: '/images/slider/breas-vivo-45-ls.webp', href: 'https://www.breas.com/en/products/life-support/vivo-45ls' },
   { title: 'S.Box CPAP', caption: 'Sefam', image: '/images/slider/sefam-sbox.webp', href: 'https://sefam-international.com/cpaps' },
   { title: 'Air & Oxygen Blender', caption: 'Bio-Med Devices', image: '/images/slider/biomed-blender.webp', href: 'https://www.biomeddevices.com/blender-models' },
-  { title: 'Quark PFT', caption: 'COSMED', image: '/images/slider/cosmed-quark-pft.webp', href: 'https://www.cosmed.com/en/products/pulmonary-function/quark-pft' },
+  { title: 'Quark PFT & Q-Box', caption: 'COSMED', image: '/images/slider/cosmed-quark-pft.webp', href: 'https://www.cosmed.com/en/products/pulmonary-function/quark-pft' },
   { title: 'MaxO₂ ME Oxygen Analyzer', caption: 'Salaera', image: '/images/slider/salaera-maxo2-me.webp', href: 'https://salaera.com/products/maxo2-me' },
   { title: 'Nitronox Plus 50/50', caption: 'Porter', image: '/images/slider/porter-nitronox-plus.webp', href: 'https://www.porterinstrument.com/labor-and-delivery' },
   { title: 'Spot Vision Screener', caption: 'Baxter', image: '/images/slider/baxter-spot-vision-screener.webp', href: 'https://pro.baxter.com/products/diagnostics-examination/vision-screening/spot-vision-screener' },

@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import { heroSlides } from "@/lib/seo";
 
-const SLIDE_INTERVAL = 4500;
+const SLIDE_INTERVAL = 3500;
 
 const typingWords = [
   "Respiratory",
@@ -223,19 +223,35 @@ export default function HeroSection() {
                       i === activeSlide ? "opacity-100 z-[2]" : "opacity-0 z-[1] pointer-events-none"
                     }`}
                   >
-                    {/* Product sits inside the arch with room for the caption below */}
-                    <div className="absolute inset-x-[12%] top-[16%] bottom-[24%] sm:inset-x-[14%] sm:top-[14%] sm:bottom-[22%]">
-                      <Image
-                        src={slide.image}
-                        alt={`${slide.title} by ${slide.caption}`}
-                        fill
-                        sizes="(max-width: 1024px) 80vw, 40vw"
-                        className={`object-contain object-center mix-blend-multiply transition-transform duration-[6000ms] ease-out ${
-                          i === activeSlide ? "scale-105" : "scale-100"
-                        }`}
-                        priority={i === 0}
-                      />
-                    </div>
+                    {slide.fill ? (
+                      /* Lifestyle photo fills the card and fades into the white caption area */
+                      <div className="absolute inset-x-0 top-0 bottom-[17%] sm:bottom-[15%] overflow-hidden [mask-image:linear-gradient(to_bottom,black_72%,transparent)]">
+                        <Image
+                          src={slide.image}
+                          alt={`${slide.title} by ${slide.caption}`}
+                          fill
+                          sizes="(max-width: 1024px) 90vw, 45vw"
+                          className={`object-cover object-[72%_55%] sm:object-[72%_30%] lg:object-[72%_55%] transition-transform duration-[6000ms] ease-out ${
+                            i === activeSlide ? "scale-105" : "scale-100"
+                          }`}
+                          priority={i === 0}
+                        />
+                      </div>
+                    ) : (
+                      /* Product sits inside the arch with room for the caption below */
+                      <div className="absolute inset-x-[12%] top-[16%] bottom-[24%] sm:inset-x-[14%] sm:top-[14%] sm:bottom-[22%]">
+                        <Image
+                          src={slide.image}
+                          alt={`${slide.title} by ${slide.caption}`}
+                          fill
+                          sizes="(max-width: 1024px) 80vw, 40vw"
+                          className={`object-contain object-center mix-blend-multiply transition-transform duration-[6000ms] ease-out ${
+                            i === activeSlide ? "scale-105" : "scale-100"
+                          }`}
+                          priority={i === 0}
+                        />
+                      </div>
+                    )}
                   </a>
                 ))}
               </div>
